@@ -34,7 +34,7 @@ int Ant::updatePheromones(Graph &graph) {
     double cost = (PHEROMONE_UPDATE_CAPACITY * graph.matrix_capacity[now_vertex][next_vertex]) /
                   (PHEROMONE_UPDATE_LENGTH * graph.matrix_length[now_vertex][next_vertex]
                    + PHEROMONE_UPDATE_TIME * getNeedTime(graph));
-    pheromones = (1 - EVAPORATE_RATE) * pheromones + (1 / cost) * COST_PARAMETER;
+    pheromones = (1 - EVAPORATE_RATE) * pheromones - (1 / cost) * COST_PARAMETER;
     graph.pheromones[now_vertex][next_vertex] = pheromones;
     return 0;
 }
@@ -80,8 +80,9 @@ int Ant::getMaxPheromonesVertex(Graph &graph) {
     int max_pheromone_node = -1;
     bool flag = false;
     for (int i = 0; i < graph.vertex_num; i++) {
-        //未访问且存在路径且路径容量大于0的节点
-        if (!visited_vertex[i] && graph.matrix_length[now_vertex][i] != 0 && graph.matrix_capacity[now_vertex][i] > 0) {
+        //未访问且存在路径且路径容量大于1的节点
+        //大于1是因为计算信息素不能为0，修改启发式后可能可以为0
+        if (!visited_vertex[i] && graph.matrix_length[now_vertex][i] != 0 && graph.matrix_capacity[now_vertex][i] > 1) {
             double pheromone = graph.pheromones[now_vertex][i];
             if (pheromone > max_pheromone) {
                 max_pheromone = pheromone;

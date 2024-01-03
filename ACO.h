@@ -24,7 +24,7 @@ using namespace std;
 //method 3 the elitist ant				精英蚂蚁更新
 
 //文件名
-#define FILE_NAME "network_2.txt"
+#define FILE_NAME "network_example.txt"
 #define RECORD_NAME "GraphRecord.txt"
 
 //起点数，终点数
@@ -45,7 +45,7 @@ using namespace std;
 #define ITERATION_TIME 50
 
 //初始化信息素参数
-#define PHEROMONE_INIT 0.1
+#define PHEROMONE_INIT 1
 //初始化信息素长度权重
 #define PHEROMONE_INIT_LENGTH 0.4
 //初始化信息素容量权重
@@ -67,4 +67,4 @@ using namespace std;
 //更新信息素的容量参数
 #define PHEROMONE_UPDATE_CAPACITY 0.25
 //代价参数
-#define COST_PARAMETER 0.01
+#define COST_PARAMETER 0.005
