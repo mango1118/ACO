@@ -8,11 +8,11 @@ public:
     bool on_edge = false;                   //是否在边上
     double left_time;                       //在路上的剩余时间
     double velocity;                        //在路上的速度
-    int visited_vertex[MAX];                //记录走过的节点
+    int visited_vertex[MAX] = {0};          //记录走过的节点
     bool arrive = false;                    //到达终点
 
-    Ant();
-    int init();
+    explicit Ant(int now_vertex);
+    int init(int now_vertex);
     int chooseNextVertex(Graph &graph);                 //选择下一个节点，返回下一个节点
     int goToNextVertex(Graph &graph);                   //前往下一个节点，设置ant的成员变量
     int updatePheromones(Graph &graph);                 //更新路径信息素

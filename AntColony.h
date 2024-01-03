@@ -13,4 +13,5 @@ public:
     int run();                              //算法运行
     int iteration(Graph &graph);             //迭代一次
     bool iterationFinish(Graph &graph);      //判断迭代是否完成
+    int setAntList(Graph &graph);            //设置蚁群
 };

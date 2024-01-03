@@ -1,10 +1,10 @@
 #include "Ant.h"
 
-Ant::Ant() {
-    init();
+Ant::Ant(int now_vertex) {
+    init(now_vertex);
 }
 
-int Ant::init() {
+int Ant::init(int now_vertex) {
     for (int i = 0; i < MAX; i++) {
         visited_vertex[i] = 0;
     }
@@ -13,10 +13,10 @@ int Ant::init() {
 }
 
 int Ant::goToNextVertex(Graph &graph) {
-    on_edge = true;
     int temp = chooseNextVertex(graph);
     if (temp < 0) return -1;    //需要等待一秒
     else next_vertex = temp;
+    on_edge = true;
     graph.vertex_ant_num[now_vertex]--;
     graph.matrix_capacity[now_vertex][next_vertex]--;
     velocity = getVelocity(graph);

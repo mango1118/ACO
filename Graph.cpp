@@ -43,6 +43,7 @@ int Graph::readGraphByFile(const string &fileName) {
         ant_num += temp;
         iss.ignore();
     }
+    copy(begin(vertex_ant_num), end(vertex_ant_num), bak_vertex_ant_num);
 
     i = 0;
     iss.clear();
@@ -125,6 +126,11 @@ int Graph::init() {
     readGraphByFile(FILE_NAME);
     initPheromones();
 
+    return 0;
+}
+
+int Graph::resetVertexAntNum() {
+    copy(begin(bak_vertex_ant_num), end(bak_vertex_ant_num), vertex_ant_num);
     return 0;
 }
 
