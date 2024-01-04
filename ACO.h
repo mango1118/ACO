@@ -6,6 +6,7 @@
 #include <string>
 #include <sstream>
 #include <random>
+#include <algorithm>
 
 using namespace std;
 
@@ -61,7 +62,7 @@ using namespace std;
 //信息素挥发率
 #define EVAPORATE_RATE 0.3
 //速度参数
-#define VELOCITY_PARAMETER 0.1
+#define VELOCITY_PARAMETER 0.2
 //计算速度的宽度权重
 #define VELOCITY_WIDTH_WEIGHT 0.5
 //计算速度的容量权重
@@ -73,6 +74,8 @@ using namespace std;
 //更新信息素的容量参数
 #define PHEROMONE_UPDATE_CAPACITY 0.25
 //代价参数
-#define COST_PARAMETER 0.005
+#define COST_PARAMETER 0.0001
 //轮盘赌比例参数
 #define RANDOM_RATE 0.9
+//全局释放信息素的蚂蚁个数
+#define GLOBAL_RELEASE_ANT 3

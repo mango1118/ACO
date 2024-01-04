@@ -69,6 +69,7 @@ int Graph::readGraphByFile(const string &fileName) {
         iss >> end;
         iss >> matrix_length[start][end];
         iss >> matrix_capacity[start][end];
+//        bak_matrix_capacity[start][end] = matrix_capacity[start][end];
         iss >> matrix_width[start][end];
         iss.clear();
     }
@@ -86,14 +87,25 @@ int Graph::renewGraphByFile(const string &fileName) {
 int Graph::initPheromones() {
     int i = 0;
     int j = 0;
+    double re_pheromone = 0;
+    for(i = 0; i < start_vertex_num; i++){
+        for (j = 0; j < end_vertex_num; j++){
+            vector<int> temp_path = dijkstra(start_vertex[i],end_vertex[j]);
+            int length = 0;
+            for(int k = 0; k < temp_path.size() - 1; k++){
+                length += matrix_length[i][j];
+            }
+            re_pheromone += length * temp_path.size();
+        }
+    }
+    initial_pheromones = 1/re_pheromone;
     for (i = 0; i < vertex_num; i++) {
         for (j = 0; j < vertex_num; j++) {
             if (matrix_length[i][j] == 0) {
                 continue;
             } else {
-                pheromones[i][j] = PHEROMONE_INIT *
-                                   (PHEROMONE_INIT_CAPACITY * matrix_capacity[i][j] + PHEROMONE_INIT_WIDTH * matrix_width[i][j]) /
-                                   (PHEROMONE_INIT_LENGTH * matrix_length[i][j]);
+                pheromones[i][j] = 1/re_pheromone;
+//                pheromones[i][j] = calculatePheromones(i, j);
             }
         }
     }
@@ -134,3 +146,41 @@ int Graph::resetVertexAntNum() {
     return 0;
 }
 
+double Graph::calculatePheromones(int i, int j) {
+    return PHEROMONE_INIT *
+           (PHEROMONE_INIT_CAPACITY * matrix_capacity[i][j] + PHEROMONE_INIT_WIDTH * matrix_width[i][j]) /
+           (PHEROMONE_INIT_LENGTH * matrix_length[i][j]);;
+}
+
+vector<int> Graph::dijkstra(int src, int dest) {
+
+    int dist[vertex_num];
+    int parent[vertex_num];
+    bool sptSet[vertex_num];
+    for (int i = 0; i < vertex_num; i++)
+        dist[i] = INT_MAX, sptSet[i] = false, parent[i] = -1;
+    dist[src] = 0;
+    for (int count = 0; count < vertex_num - 1; count++) {
+        int u = minDistance(dist, sptSet);
+        sptSet[u] = true;
+        for (int v = 0; v < vertex_num; v++)
+            if (!sptSet[v] && matrix_length[u][v] && dist[u] != INT_MAX && dist[u] + matrix_length[u][v] < dist[v])
+                dist[v] = dist[u] + matrix_length[u][v], parent[v] = u;
+    }
+//    printSolution(dist, parent, src, dest);
+    vector<int> path;
+    int j = dest;
+    while (j != -1) {
+        path.push_back(j);
+        j = parent[j];
+    }
+    return path;
+}
+
+int Graph::minDistance(int dist[], bool sptSet[]) {
+    int min = INT_MAX, min_index;
+    for (int v = 0; v < vertex_num; v++)
+        if (!sptSet[v] && dist[v] <= min)
+            min = dist[v], min_index = v;
+    return min_index;
+}

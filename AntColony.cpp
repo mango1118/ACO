@@ -1,3 +1,4 @@
+
 #include "AntColony.h"
 
 int AntColony::init() {
@@ -14,14 +15,22 @@ int AntColony::run() {
         for (int i = 0; i < ITERATION_TIME; i++) {
             setAntList(graph);
             int temp_time = iteration(graph);
-            min_time = min(min_time, temp_time);
-            if (i == 0 || i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 7 || i == 9 || i == 19 || i == 29 || i == 49 ||
-                i == 79 || i == 99) {
-                cout << "iteration time:" << i << "\t min time: " << min_time << "\t this time: " << temp_time << endl;
+            if (temp_time < min_time) {
+                min_time = min(min_time, temp_time);
+                cout << "iteration time: " << i << "\t min time: " << min_time << endl;
             }
+            //最佳的蚂蚁释放信息素
+            bestAntReleasePheromone(graph);
+//            min_time = min(min_time, temp_time);
+//            if (i == 0 || i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 7 || i == 9 || i == 19 || i == 29 || i == 49 ||
+//                i == 79 || i == 99) {
+//                cout << "iteration time:" << i << "\t min time: " << min_time << "\t this time: " << temp_time << endl;
+//            }
             graph.resetVertexAntNum();  //重置初始节点人数
-            graph.evaporatePheromones();    //蒸发信息素
+//            graph.evaporatePheromones();    //蒸发信息素
         }
+        //恢复图的初始信息素
+        graph.initPheromones();
     }
 }
 
@@ -41,15 +50,17 @@ int AntColony::iteration(Graph &graph) { //返回本次迭代时间
             if (ant.arrive) {
                 continue;
             } else if (ant.on_edge) {
+                ant.arrive_time++;
                 ant.goOneSecond(graph);
             } else {
+                ant.arrive_time++;
                 int can_go = ant.goToNextVertex(graph);
                 if (can_go < 0) {//需要等待1秒
                     continue;
                 }
             }
         }
-        graph.evaporatePheromones();
+//        graph.evaporatePheromones();
     }
     return time;
 }
@@ -75,5 +86,16 @@ int AntColony::setAntList(Graph &graph) {
             antList.push_back(antInstance);
         }
     }
+    return 0;
+}
+
+int AntColony::bestAntReleasePheromone(Graph &graph) {
+    // 按arrive_time升序排序
+    sort(antList.begin(), antList.end(), [](const Ant &a, const Ant &b) {
+        return a.arrive_time < b.arrive_time;
+    });
+    int k = GLOBAL_RELEASE_ANT;
+    //只有排名前k的蚂蚁才能留下全局信息素
+    for (int i = 0; i < std::min(k, static_cast<int>(antList.size())); ++i) { antList[i].leaveRoutePheromones(graph, k); }
     return 0;
 }

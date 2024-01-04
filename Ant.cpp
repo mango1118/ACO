@@ -2,6 +2,7 @@
 
 Ant::Ant(int now_vertex) {
     init(now_vertex);
+    route.push_back(now_vertex);
 }
 
 int Ant::init(int now_vertex) {
@@ -16,6 +17,7 @@ int Ant::goToNextVertex(Graph &graph) {
     int temp = chooseNextVertex(graph);
     if (temp < 0) return -1;    //需要等待一秒
     else next_vertex = temp;
+    route.push_back(next_vertex);
     on_edge = true;
     graph.vertex_ant_num[now_vertex]--;
     graph.matrix_capacity[now_vertex][next_vertex]--;
@@ -25,9 +27,9 @@ int Ant::goToNextVertex(Graph &graph) {
 }
 
 int Ant::chooseNextVertex(Graph &graph) {
-    if(SELECT_NEXT_METHOD == 1){
+    if (SELECT_NEXT_METHOD == 1) {
         return getMaxPheromonesVertex(graph);
-    }else if(SELECT_NEXT_METHOD == 2){
+    } else if (SELECT_NEXT_METHOD == 2) {
         return getRouletteVertex(graph);
     }
     return -1;
@@ -35,10 +37,12 @@ int Ant::chooseNextVertex(Graph &graph) {
 
 int Ant::updatePheromones(Graph &graph) {
     double pheromones = graph.pheromones[now_vertex][next_vertex];
-    double cost = (PHEROMONE_UPDATE_CAPACITY * graph.matrix_capacity[now_vertex][next_vertex]) /
-                  (PHEROMONE_UPDATE_LENGTH * graph.matrix_length[now_vertex][next_vertex]
-                   + PHEROMONE_UPDATE_TIME * getNeedTime(graph));
-    pheromones = (1 - EVAPORATE_RATE) * pheromones - (1 / cost) * COST_PARAMETER;
+//    double cost = (PHEROMONE_UPDATE_CAPACITY * graph.matrix_capacity[now_vertex][next_vertex]) /
+//                  (PHEROMONE_UPDATE_LENGTH * graph.matrix_length[now_vertex][next_vertex]
+//                   + PHEROMONE_UPDATE_TIME * getNeedTime(graph));
+//    pheromones = (1 - EVAPORATE_RATE) * pheromones - (1 / cost) * COST_PARAMETER;
+//    pheromones = (1 - EVAPORATE_RATE) * pheromones - cost * COST_PARAMETER;
+    pheromones = (1 - EVAPORATE_RATE) * pheromones + EVAPORATE_RATE * graph.initial_pheromones;
     graph.pheromones[now_vertex][next_vertex] = pheromones;
     return 0;
 }
@@ -66,9 +70,14 @@ int Ant::arriveVertex(Graph &graph) {
 
 double Ant::getVelocity(Graph &graph) {
     double v = 0;
+    int length = graph.matrix_length[now_vertex][next_vertex];
     int width = graph.matrix_width[now_vertex][next_vertex];
-    int capacity = graph.matrix_capacity[now_vertex][next_vertex];
-    v = VELOCITY_PARAMETER * (VELOCITY_CAPACITY_WEIGHT * capacity + VELOCITY_WIDTH_WEIGHT * width);
+//    int capacity = graph.bak_matrix_capacity[now_vertex][next_vertex];
+    int true_capacity = graph.matrix_capacity[now_vertex][next_vertex];
+//    int edge_ant_num = capacity - true_capacity;
+//    double density = edge_ant_num / length;
+//    v = exp(-VELOCITY_PARAMETER * density);
+    v = VELOCITY_PARAMETER * (VELOCITY_CAPACITY_WEIGHT * true_capacity + VELOCITY_WIDTH_WEIGHT * width);
     return v;
 }
 
@@ -134,9 +143,9 @@ int Ant::getRouletteVertex(Graph &graph) {
     // 生成随机数
     double random_number = dis(gen);
 
-    if(random_number > RANDOM_RATE){//轮盘赌
+    if (random_number > RANDOM_RATE) {//轮盘赌
         return getRandomVertex(graph);
-    }else{
+    } else {
         return getMaxPheromonesVertex(graph);
     }
 }
@@ -170,5 +179,15 @@ int Ant::getRandomVertex(Graph &graph) {
         // 没有找到可行的节点
         return -1;
     }
+}
+
+int Ant::leaveRoutePheromones(Graph &graph, int k) {
+    for (size_t i = 0; i < route.size() - 1; ++i) {
+        int current_node = route[i];
+        int next_node = route[i + 1];
+        graph.pheromones[current_node][next_node] =
+                (1 - EVAPORATE_RATE) * graph.pheromones[current_node][next_node] + (1 / arrive_time);
+    }
+    return 0;
 }
 

@@ -10,6 +10,8 @@ public:
     double velocity;                        //在路上的速度
     int visited_vertex[MAX] = {0};          //记录走过的节点
     bool arrive = false;                    //到达终点
+    int arrive_time = 0;                    //到达终点所需时间
+    vector<int> route;                      //走过的路径
 
     explicit Ant(int now_vertex);
     int init(int now_vertex);
@@ -24,4 +26,5 @@ public:
     int getRandomVertex(Graph &graph);                  //得到随机节点
     int getRouletteVertex(Graph &graph);                //轮盘赌
     bool arriveEndVertex(Graph &graph);                 //判断是否到达终点
+    int leaveRoutePheromones(Graph &graph, int k);      //在路径上更新全局信息素
 };
