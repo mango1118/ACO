@@ -5,6 +5,7 @@
 #include <ctime>
 #include <string>
 #include <sstream>
+#include <random>
 
 using namespace std;
 
@@ -22,6 +23,11 @@ using namespace std;
 //method 1 the best solution only		最佳路径更新
 //method 2 the rank-based ant			蚂蚁排名更新
 //method 3 the elitist ant				精英蚂蚁更新
+
+//选择路径方法
+#define SELECT_NEXT_METHOD 2
+//method 1 the max pheromone
+//method 2 roulette next
 
 //文件名
 #define FILE_NAME "network_example.txt"
@@ -42,7 +48,7 @@ using namespace std;
 //运行次数
 #define RUN_TIME 10
 //迭代次数
-#define ITERATION_TIME 50
+#define ITERATION_TIME 100
 
 //初始化信息素参数
 #define PHEROMONE_INIT 1
@@ -68,3 +74,5 @@ using namespace std;
 #define PHEROMONE_UPDATE_CAPACITY 0.25
 //代价参数
 #define COST_PARAMETER 0.005
+//轮盘赌比例参数
+#define RANDOM_RATE 0.9

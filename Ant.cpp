@@ -25,8 +25,12 @@ int Ant::goToNextVertex(Graph &graph) {
 }
 
 int Ant::chooseNextVertex(Graph &graph) {
-    int flag = getMaxPheromonesVertex(graph);
-    return flag;
+    if(SELECT_NEXT_METHOD == 1){
+        return getMaxPheromonesVertex(graph);
+    }else if(SELECT_NEXT_METHOD == 2){
+        return getRouletteVertex(graph);
+    }
+    return -1;
 }
 
 int Ant::updatePheromones(Graph &graph) {
@@ -76,27 +80,41 @@ double Ant::getNeedTime(Graph &graph) {
 }
 
 int Ant::getMaxPheromonesVertex(Graph &graph) {
+    // 初始化最大信息素值为负无穷
     double max_pheromone = numeric_limits<double>::lowest();
+    // 记录具有最大信息素值的节点，默认为无效节点
     int max_pheromone_node = -1;
+    // 标志，用于检查是否找到符合条件的节点
     bool flag = false;
+
+    // 遍历所有节点
     for (int i = 0; i < graph.vertex_num; i++) {
-        //未访问且存在路径且路径容量大于1的节点
-        //大于1是因为计算信息素不能为0，修改启发式后可能可以为0
+        // 检查条件：节点未被访问、存在路径、路径容量大于1
+        // 大于1是因为计算信息素不能为0，修改启发式后可能可以为0
         if (!visited_vertex[i] && graph.matrix_length[now_vertex][i] != 0 && graph.matrix_capacity[now_vertex][i] > 1) {
+            // 获取当前边上的信息素值
             double pheromone = graph.pheromones[now_vertex][i];
+
+            // 检查是否为最大信息素值
             if (pheromone > max_pheromone) {
+                // 更新最大信息素值和对应的节点
                 max_pheromone = pheromone;
                 max_pheromone_node = i;
+                // 设置标志为true，表示找到符合条件的节点
                 flag = true;
             }
         }
     }
-    if(flag) {
+    // 检查是否找到符合条件的节点
+    if (flag) {
+        // 返回具有最大信息素值的节点
         return max_pheromone_node;
-    }else{ //没有找到可行的节点
+    } else {
+        // 没有找到可行的节点
         return -1;
     }
 }
+
 
 bool Ant::arriveEndVertex(Graph &graph) {
     for (int i = 0; i < graph.end_vertex_num; i++) {
@@ -104,5 +122,53 @@ bool Ant::arriveEndVertex(Graph &graph) {
             return true;
     }
     return false;
+}
+
+int Ant::getRouletteVertex(Graph &graph) {
+    // 使用随机设备作为种子
+    std::random_device rd;
+    // 使用随机设备生成引擎
+    std::mt19937 gen(rd());
+    // 定义生成随机数的分布范围（浮点数）
+    std::uniform_real_distribution<double> dis(0.0, 1.0); // 生成0到1之间的浮点数
+    // 生成随机数
+    double random_number = dis(gen);
+
+    if(random_number > RANDOM_RATE){//轮盘赌
+        return getRandomVertex(graph);
+    }else{
+        return getMaxPheromonesVertex(graph);
+    }
+}
+
+int Ant::getRandomVertex(Graph &graph) {
+    double max_pheromone = std::numeric_limits<double>::lowest();
+    int max_pheromone_node = -1;
+    bool flag = false;
+    std::vector<int> candidate_nodes; // 用于存储符合条件的节点索引
+    for (int i = 0; i < graph.vertex_num; i++) {
+        // 未访问且存在路径且路径容量大于1的节点
+        if (!visited_vertex[i] && graph.matrix_length[now_vertex][i] != 0 && graph.matrix_capacity[now_vertex][i] > 1) {
+            double pheromone = graph.pheromones[now_vertex][i];
+            if (pheromone > max_pheromone) {
+                max_pheromone = pheromone;
+                max_pheromone_node = i;
+                flag = true;
+            }
+            // 将符合条件的节点索引添加到候选节点列表
+            candidate_nodes.push_back(i);
+        }
+    }
+    if (flag) {
+        // 从候选节点中随机选择一个节点
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_int_distribution<int> dis(0, candidate_nodes.size() - 1);
+        int random_index = dis(gen);
+        return candidate_nodes[random_index];
+    } else {
+        // 没有找到可行的节点
+        return -1;
+    }
 }
 

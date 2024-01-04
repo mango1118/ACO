@@ -9,6 +9,7 @@ int AntColony::run() {
     Graph graph;
     setAntList(graph);
     for (int run_time = 0; run_time < RUN_TIME; run_time++) {
+        min_time = MAX_TIME;
         cout << "--------------------run time: " << run_time + 1 << " -------------------- \n";
         for (int i = 0; i < ITERATION_TIME; i++) {
             setAntList(graph);
