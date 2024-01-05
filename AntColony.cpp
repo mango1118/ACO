@@ -15,17 +15,26 @@ int AntColony::run() {
         for (int i = 0; i < ITERATION_TIME; i++) {
             setAntList(graph);
             int temp_time = iteration(graph);
-            if (temp_time < min_time) {
-                min_time = min(min_time, temp_time);
-                cout << "iteration time: " << i << "\t min time: " << min_time << endl;
+            //记录最优解
+            if(temp_time < min_time){
+                collectBestSolution(graph);
             }
             //最佳的蚂蚁释放信息素
             bestAntReleasePheromone(graph);
+            if (temp_time < min_time) {
+                min_time = min(min_time, temp_time);
+                cout << "iteration time: " << i + 1 << "\t min time: " << min_time << endl;
+            }
+
 //            min_time = min(min_time, temp_time);
 //            if (i == 0 || i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 7 || i == 9 || i == 19 || i == 29 || i == 49 ||
 //                i == 79 || i == 99) {
-//                cout << "iteration time:" << i << "\t min time: " << min_time << "\t this time: " << temp_time << endl;
+//                cout << "iteration time:" << i + 1<< "\t min time: " << min_time << "\t this time: " << temp_time << endl;
 //            }
+
+//            min_time = min(min_time, temp_time);
+//            cout << "iteration time:" << i + 1<< "\t min time: " << min_time << "\t this time: " << temp_time << endl;
+
             graph.resetVertexAntNum();  //重置初始节点人数
 //            graph.evaporatePheromones();    //蒸发信息素
         }
@@ -91,11 +100,21 @@ int AntColony::setAntList(Graph &graph) {
 
 int AntColony::bestAntReleasePheromone(Graph &graph) {
     // 按arrive_time升序排序
-    sort(antList.begin(), antList.end(), [](const Ant &a, const Ant &b) {
-        return a.arrive_time < b.arrive_time;
-    });
+//    sort(antList.begin(), antList.end(), [](const Ant &a, const Ant &b) {
+//        return a.arrive_time < b.arrive_time;
+//    });
     int k = GLOBAL_RELEASE_ANT;
     //只有排名前k的蚂蚁才能留下全局信息素
-    for (int i = 0; i < std::min(k, static_cast<int>(antList.size())); ++i) { antList[i].leaveRoutePheromones(graph, k); }
+//    for (int i = 0; i < std::min(k, static_cast<int>(antList.size())); ++i) { antList[i].leaveRoutePheromones(graph, k); }
+//    return 0;
+    for (int i = 0; i < std::min(k, static_cast<int>(bestAntList.size())); ++i) { bestAntList[i].leaveRoutePheromones(graph, k); }
+    return 0;
+}
+
+int AntColony::collectBestSolution(Graph &graph) {
+    copy(antList.begin(), antList.end(), back_inserter(bestAntList));
+    sort(bestAntList.begin(), bestAntList.end(), [](const Ant &a, const Ant &b) {
+        return a.arrive_time < b.arrive_time;
+    });
     return 0;
 }

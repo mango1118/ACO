@@ -11,6 +11,7 @@ void WriteInFile(const string &fileName, const string &data) {
 }
 
 void WriteTimeInFile(const std::string &fileName) {
+
     // 获取当前时间
     std::time_t currentTime = std::time(nullptr);
     std::tm *localTime = std::localtime(&currentTime);

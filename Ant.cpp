@@ -40,9 +40,11 @@ int Ant::updatePheromones(Graph &graph) {
 //    double cost = (PHEROMONE_UPDATE_CAPACITY * graph.matrix_capacity[now_vertex][next_vertex]) /
 //                  (PHEROMONE_UPDATE_LENGTH * graph.matrix_length[now_vertex][next_vertex]
 //                   + PHEROMONE_UPDATE_TIME * getNeedTime(graph));
-//    pheromones = (1 - EVAPORATE_RATE) * pheromones - (1 / cost) * COST_PARAMETER;
-//    pheromones = (1 - EVAPORATE_RATE) * pheromones - cost * COST_PARAMETER;
-    pheromones = (1 - EVAPORATE_RATE) * pheromones + EVAPORATE_RATE * graph.initial_pheromones;
+//    pheromones = (1 - LOCAL_EVAPORATE_RATE) * pheromones - (1 / cost) * COST_PARAMETER;
+//    pheromones = (1 - LOCAL_EVAPORATE_RATE) * pheromones - cost * COST_PARAMETER;
+//    pheromones = (1 - LOCAL_EVAPORATE_RATE) * pheromones + LOCAL_EVAPORATE_RATE * graph.initial_pheromones;
+    pheromones = (1 - LOCAL_EVAPORATE_RATE) * pheromones + LOCAL_EVAPORATE_RATE * graph.initial_pheromones;
+//    pheromones = ((1 - LOCAL_EVAPORATE_RATE) * pheromones + LOCAL_EVAPORATE_RATE * graph.initial_pheromones) * 0.9;
     graph.pheromones[now_vertex][next_vertex] = pheromones;
     return 0;
 }
@@ -72,12 +74,14 @@ double Ant::getVelocity(Graph &graph) {
     double v = 0;
     int length = graph.matrix_length[now_vertex][next_vertex];
     int width = graph.matrix_width[now_vertex][next_vertex];
-//    int capacity = graph.bak_matrix_capacity[now_vertex][next_vertex];
-    int true_capacity = graph.matrix_capacity[now_vertex][next_vertex];
-//    int edge_ant_num = capacity - true_capacity;
+    double capacity = graph.bak_matrix_capacity[now_vertex][next_vertex];
+    double true_capacity = graph.matrix_capacity[now_vertex][next_vertex];
+    int edge_ant_num = capacity - true_capacity;
 //    double density = edge_ant_num / length;
-//    v = exp(-VELOCITY_PARAMETER * density);
-    v = VELOCITY_PARAMETER * (VELOCITY_CAPACITY_WEIGHT * true_capacity + VELOCITY_WIDTH_WEIGHT * width);
+    //Greenshields模型
+    v = AVERAGE_VELOCITY * (1 - (true_capacity / capacity));
+//    v = AVERAGE_VELOCITY * exp(-density * VELOCITY_PARAMETER);
+//    v = VELOCITY_PARAMETER * (VELOCITY_CAPACITY_WEIGHT * true_capacity + VELOCITY_WIDTH_WEIGHT * width);
     return v;
 }
 
@@ -100,7 +104,7 @@ int Ant::getMaxPheromonesVertex(Graph &graph) {
     for (int i = 0; i < graph.vertex_num; i++) {
         // 检查条件：节点未被访问、存在路径、路径容量大于1
         // 大于1是因为计算信息素不能为0，修改启发式后可能可以为0
-        if (!visited_vertex[i] && graph.matrix_length[now_vertex][i] != 0 && graph.matrix_capacity[now_vertex][i] > 1) {
+        if (!visited_vertex[i] && graph.matrix_length[now_vertex][i] != 0 && graph.matrix_capacity[now_vertex][i] > MIN_CAPACITY) {
             // 获取当前边上的信息素值
             double pheromone = graph.pheromones[now_vertex][i];
 
@@ -124,7 +128,6 @@ int Ant::getMaxPheromonesVertex(Graph &graph) {
     }
 }
 
-
 bool Ant::arriveEndVertex(Graph &graph) {
     for (int i = 0; i < graph.end_vertex_num; i++) {
         if (next_vertex == graph.end_vertex[i])
@@ -146,7 +149,14 @@ int Ant::getRouletteVertex(Graph &graph) {
     if (random_number > RANDOM_RATE) {//轮盘赌
         return getRandomVertex(graph);
     } else {
-        return getMaxPheromonesVertex(graph);
+        if (PATH_SELECTED_METHOD == 1) { //ACO
+            return getMaxPheromonesVertex(graph);
+
+        } else if (PATH_SELECTED_METHOD == 2) { //greedy
+            return getGreedyVertex(graph);
+        } else if (PATH_SELECTED_METHOD == 3) { //dijkstra
+            return getDijkstraVertex(graph);
+        }
     }
 }
 
@@ -157,7 +167,7 @@ int Ant::getRandomVertex(Graph &graph) {
     std::vector<int> candidate_nodes; // 用于存储符合条件的节点索引
     for (int i = 0; i < graph.vertex_num; i++) {
         // 未访问且存在路径且路径容量大于1的节点
-        if (!visited_vertex[i] && graph.matrix_length[now_vertex][i] != 0 && graph.matrix_capacity[now_vertex][i] > 1) {
+        if (!visited_vertex[i] && graph.matrix_length[now_vertex][i] != 0 && graph.matrix_capacity[now_vertex][i] > MIN_CAPACITY) {
             double pheromone = graph.pheromones[now_vertex][i];
             if (pheromone > max_pheromone) {
                 max_pheromone = pheromone;
@@ -186,8 +196,34 @@ int Ant::leaveRoutePheromones(Graph &graph, int k) {
         int current_node = route[i];
         int next_node = route[i + 1];
         graph.pheromones[current_node][next_node] =
-                (1 - EVAPORATE_RATE) * graph.pheromones[current_node][next_node] + (1 / arrive_time);
+                (1 - GLOBAL_EVAPORATE_RATE) * graph.pheromones[current_node][next_node] + (1 / double(arrive_time));
+//        graph.pheromones[current_node][next_node] = graph.pheromones[current_node][next_node] + (1 / double(arrive_time));
+//                (1 - GLOBAL_EVAPORATE_RATE) * graph.pheromones[current_node][next_node] + (1 / double(arrive_time));
     }
     return 0;
+}
+
+int Ant::getGreedyVertex(Graph &graph) {
+    int next_point = -1;
+    int temp = INT32_MAX;
+    for(int i = 0; i < graph.vertex_num; i++){
+        if(graph.matrix_length[now_vertex][i] != 0 && graph.matrix_capacity[now_vertex][i] > MIN_CAPACITY){
+            if(temp > graph.matrix_length[now_vertex][i]){
+                next_point = i;
+                temp = graph.matrix_length[now_vertex][i];
+            }
+        }
+    }
+    return next_point;
+}
+
+int Ant::getDijkstraVertex(Graph &graph) {
+    int next_point = -1;
+    next_point = graph.dijkstra_next_point[now_vertex];
+    if(graph.matrix_capacity[now_vertex][next_point] > MIN_CAPACITY){
+        return next_point;
+    }else{
+        return -1;
+    }
 }
 

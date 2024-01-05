@@ -6,7 +6,8 @@ public:
     int path_select_method{};                 //路径选择方法
     int pheromone_update_method{};            //信息素更新方法
     int min_time;                             //最短迭代时间
-    vector<Ant> antList;
+    vector<Ant> antList;                      //每轮迭代的蚂蚁
+    vector<Ant> bestAntList;                  //最优轮对应的蚂蚁
 
     AntColony();
     int init();                             //算法初始化
@@ -15,4 +16,5 @@ public:
     bool iterationFinish(Graph &graph);     //判断迭代是否完成
     int setAntList(Graph &graph);           //设置蚁群
     int bestAntReleasePheromone(Graph &graph);  //一轮迭代后，最佳蚂蚁释放信息素
+    int collectBestSolution(Graph &graph);  //记录最优解
 };

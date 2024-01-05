@@ -69,7 +69,7 @@ int Graph::readGraphByFile(const string &fileName) {
         iss >> end;
         iss >> matrix_length[start][end];
         iss >> matrix_capacity[start][end];
-//        bak_matrix_capacity[start][end] = matrix_capacity[start][end];
+        bak_matrix_capacity[start][end] = matrix_capacity[start][end];
         iss >> matrix_width[start][end];
         iss.clear();
     }
@@ -88,23 +88,24 @@ int Graph::initPheromones() {
     int i = 0;
     int j = 0;
     double re_pheromone = 0;
-    for(i = 0; i < start_vertex_num; i++){
-        for (j = 0; j < end_vertex_num; j++){
-            vector<int> temp_path = dijkstra(start_vertex[i],end_vertex[j]);
+    for (i = 0; i < start_vertex_num; i++) {
+        for (j = 0; j < end_vertex_num; j++) {
+            vector<int> temp_path = dijkstra(start_vertex[i], end_vertex[j]);
             int length = 0;
-            for(int k = 0; k < temp_path.size() - 1; k++){
-                length += matrix_length[i][j];
+            for (int k = 0; k < temp_path.size() - 1; k++) {
+//                length += matrix_length[i][j];
+                length += matrix_length[temp_path[k+1]][temp_path[k]];
             }
             re_pheromone += length * temp_path.size();
         }
     }
-    initial_pheromones = 1/re_pheromone;
+    initial_pheromones = 1 / re_pheromone;
     for (i = 0; i < vertex_num; i++) {
         for (j = 0; j < vertex_num; j++) {
             if (matrix_length[i][j] == 0) {
                 continue;
             } else {
-                pheromones[i][j] = 1/re_pheromone;
+                pheromones[i][j] = 1 / re_pheromone;
 //                pheromones[i][j] = calculatePheromones(i, j);
             }
         }
@@ -120,7 +121,7 @@ int Graph::evaporatePheromones() {
             if (matrix_length[i][j] == 0) {
                 continue;
             } else {
-                pheromones[i][j] = (1.0 - EVAPORATE_RATE) * pheromones[i][j];
+                pheromones[i][j] = (1.0 - LOCAL_EVAPORATE_RATE) * pheromones[i][j];
             }
         }
     }
@@ -137,7 +138,7 @@ Graph::Graph() {
 int Graph::init() {
     readGraphByFile(FILE_NAME);
     initPheromones();
-
+    getAllDijkstraNext();
     return 0;
 }
 
@@ -167,7 +168,16 @@ vector<int> Graph::dijkstra(int src, int dest) {
             if (!sptSet[v] && matrix_length[u][v] && dist[u] != INT_MAX && dist[u] + matrix_length[u][v] < dist[v])
                 dist[v] = dist[u] + matrix_length[u][v], parent[v] = u;
     }
+    // 存储每个节点对应到终点的最短路径下一跳
+//    for (int i = 0; i < vertex_num; i++) {
+//        int j = i;
+//        while (j != -1) {
+//            dijkstra_next_point[i] = j;
+//            j = parent[j];
+//        }
+//    }
 //    printSolution(dist, parent, src, dest);
+
     vector<int> path;
     int j = dest;
     while (j != -1) {
@@ -184,3 +194,53 @@ int Graph::minDistance(int dist[], bool sptSet[]) {
             min = dist[v], min_index = v;
     return min_index;
 }
+
+int Graph::getAllDijkstraNext() {
+    for (int i = 0; i < vertex_num - end_vertex_num; i++) {
+        //先得到每个点到终点的dijkstra路径集合
+        vector<vector<int>> dijkstraPathList;
+        for (int j = 0; j < end_vertex_num; j++)
+            dijkstraPathList.push_back(dijkstra(i, end_vertex[j]));
+
+        //遍历每个路径，找到最短的路径
+        vector<int> min = dijkstraPathList[0];
+        int min_length = getPathLength(dijkstraPathList[0]);
+        int index = 0;
+        for(int k = 0; k < dijkstraPathList.size(); k++){
+            int temp_length = getPathLength(dijkstraPathList[k]);
+            if(temp_length < min_length){
+                min_length = temp_length;
+                min = dijkstraPathList[k];
+            }
+        }
+        //得到i节点的下一跳
+        int next_hop = min[min.size() - 2];
+        dijkstra_next_point[i] = next_hop;
+    }
+}
+
+int Graph::getPathLength(vector<int> path){
+    int length = 0;
+    for(int i = 0; i < path.size() - 1; i++){
+        length += matrix_length[path[i+1]][path[i]];
+    }
+}
+
+
+
+//int Graph::getAllDijkstraNext() {
+//    for (int i = 0; i < vertex_num - end_vertex_num; i++) {
+//        for (int j = 0; j < end_vertex_num; j++) {
+//            int length = 0;
+//            vector<int> path = dijkstra(i, end_vertex[j]);
+//
+//            // Check if the path is valid
+//            if (path.size() > 1) {
+//                // Store the length of the path
+//                for (int k = 0; k < path.size() - 1; k++) {
+//                    length += matrix_length[path[k]][path[k + 1]];
+//                }
+//            }
+//        }
+//    }
+//}

@@ -23,6 +23,8 @@ public:
     double getVelocity(Graph &graph);                   //计算速度
     double getNeedTime(Graph &graph);                   //计算剩余时间
     int getMaxPheromonesVertex(Graph &graph);           //得到信息素最大的下一个节点
+    int getGreedyVertex(Graph &graph);                  //贪心算法得到下一个节点
+    int getDijkstraVertex(Graph &graph);                //dijkstra得到下一个节点
     int getRandomVertex(Graph &graph);                  //得到随机节点
     int getRouletteVertex(Graph &graph);                //轮盘赌
     bool arriveEndVertex(Graph &graph);                 //判断是否到达终点

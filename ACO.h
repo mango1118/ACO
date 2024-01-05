@@ -10,20 +10,14 @@
 
 using namespace std;
 
-#define MAX 50
+#define MAX 30
 #define MAX_TIME 2147483647
 
 //路径选择方法
-#define PATH_SELECTED_METHOD 1
+#define PATH_SELECTED_METHOD 1z
 //method 1 represents ACO				ACO蚁群算法
 //method 2 represents greedy method		贪心算法
 //method 3 represents dijkstra			dijkstra算法
-
-//信息素更新方法
-#define PHEROMONE_UPDATE_METHOD 1
-//method 1 the best solution only		最佳路径更新
-//method 2 the rank-based ant			蚂蚁排名更新
-//method 3 the elitist ant				精英蚂蚁更新
 
 //选择路径方法
 #define SELECT_NEXT_METHOD 2
@@ -59,10 +53,14 @@ using namespace std;
 #define PHEROMONE_INIT_CAPACITY 0.3
 //初始化信息素宽度权重
 #define PHEROMONE_INIT_WIDTH 0.3
-//信息素挥发率
-#define EVAPORATE_RATE 0.3
+//本地信息素挥发率
+#define LOCAL_EVAPORATE_RATE 0.1
+//全局信息挥发率
+#define GLOBAL_EVAPORATE_RATE 0.3
 //速度参数
 #define VELOCITY_PARAMETER 0.2
+//平均速度
+#define AVERAGE_VELOCITY 0.5
 //计算速度的宽度权重
 #define VELOCITY_WIDTH_WEIGHT 0.5
 //计算速度的容量权重
@@ -78,4 +76,6 @@ using namespace std;
 //轮盘赌比例参数
 #define RANDOM_RATE 0.9
 //全局释放信息素的蚂蚁个数
-#define GLOBAL_RELEASE_ANT 3
+#define GLOBAL_RELEASE_ANT 1
+//最小容量
+#define MIN_CAPACITY 1
