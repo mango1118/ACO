@@ -14,7 +14,7 @@ using namespace std;
 #define MAX_TIME 2147483647
 
 //路径选择方法
-#define PATH_SELECTED_METHOD 1z
+#define PATH_SELECTED_METHOD 3
 //method 1 represents ACO				ACO蚁群算法
 //method 2 represents greedy method		贪心算法
 //method 3 represents dijkstra			dijkstra算法

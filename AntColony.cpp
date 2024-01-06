@@ -10,11 +10,13 @@ int AntColony::run() {
     Graph graph;
     setAntList(graph);
     for (int run_time = 0; run_time < RUN_TIME; run_time++) {
+        long all_time = 0;
         min_time = MAX_TIME;
         cout << "--------------------run time: " << run_time + 1 << " -------------------- \n";
         for (int i = 0; i < ITERATION_TIME; i++) {
             setAntList(graph);
             int temp_time = iteration(graph);
+            all_time += temp_time;
             //记录最优解
             if(temp_time < min_time){
                 collectBestSolution(graph);
@@ -38,6 +40,7 @@ int AntColony::run() {
             graph.resetVertexAntNum();  //重置初始节点人数
 //            graph.evaporatePheromones();    //蒸发信息素
         }
+        cout <<"best time: " << min_time << "\t average time: " << all_time / ITERATION_TIME << endl;
         //恢复图的初始信息素
         graph.initPheromones();
     }
