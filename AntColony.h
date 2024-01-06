@@ -17,4 +17,5 @@ public:
     int setAntList(Graph &graph);           //设置蚁群
     int bestAntReleasePheromone(Graph &graph);  //一轮迭代后，最佳蚂蚁释放信息素
     int collectBestSolution(Graph &graph);  //记录最优解
+    void antColonyWriteInFile(const string &fileName, const string &data);
 };

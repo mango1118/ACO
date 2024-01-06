@@ -12,20 +12,27 @@ int AntColony::run() {
     for (int run_time = 0; run_time < RUN_TIME; run_time++) {
         long all_time = 0;
         min_time = MAX_TIME;
-        cout << "--------------------run time: " << run_time + 1 << " -------------------- \n";
+//        cout << "--------------------run time: " << run_time + 1 << " -------------------- \n";
+        string print_run = "--------------------run time: " + to_string(run_time + 1) + " -------------------- \n";
+        antColonyWriteInFile(RECORD_NAME, print_run);
+        cout << print_run << endl;
         for (int i = 0; i < ITERATION_TIME; i++) {
             setAntList(graph);
             int temp_time = iteration(graph);
             all_time += temp_time;
             //记录最优解
-            if(temp_time < min_time){
+            if (temp_time < min_time) {
                 collectBestSolution(graph);
             }
             //最佳的蚂蚁释放信息素
             bestAntReleasePheromone(graph);
             if (temp_time < min_time) {
                 min_time = min(min_time, temp_time);
-                cout << "iteration time: " << i + 1 << "\t min time: " << min_time << endl;
+                string print_line =
+                        "iteration time: " + std::to_string(i + 1) + "\t min time: " + std::to_string(min_time);
+                cout << print_line << endl;
+//                cout << "iteration time: " << i + 1 << "\t min time: " << min_time << endl;
+                antColonyWriteInFile(RECORD_NAME, print_line);
             }
 
 //            min_time = min(min_time, temp_time);
@@ -40,10 +47,14 @@ int AntColony::run() {
             graph.resetVertexAntNum();  //重置初始节点人数
 //            graph.evaporatePheromones();    //蒸发信息素
         }
-        cout <<"best time: " << min_time << "\t average time: " << all_time / ITERATION_TIME << endl;
+//        cout << "best time: " << min_time << "\t average time: " << all_time / ITERATION_TIME << endl;
+        string best_time = "best time: " + to_string(min_time)+ "\t average time: " + to_string(all_time / ITERATION_TIME);
+        antColonyWriteInFile(RECORD_NAME, best_time);
+        cout << best_time << endl;
         //恢复图的初始信息素
         graph.initPheromones();
     }
+    return 0;
 }
 
 AntColony::AntColony() {
@@ -110,7 +121,9 @@ int AntColony::bestAntReleasePheromone(Graph &graph) {
     //只有排名前k的蚂蚁才能留下全局信息素
 //    for (int i = 0; i < std::min(k, static_cast<int>(antList.size())); ++i) { antList[i].leaveRoutePheromones(graph, k); }
 //    return 0;
-    for (int i = 0; i < std::min(k, static_cast<int>(bestAntList.size())); ++i) { bestAntList[i].leaveRoutePheromones(graph, k); }
+    for (int i = 0; i < std::min(k, static_cast<int>(bestAntList.size())); ++i) {
+        bestAntList[i].leaveRoutePheromones(graph, k);
+    }
     return 0;
 }
 
@@ -120,4 +133,19 @@ int AntColony::collectBestSolution(Graph &graph) {
         return a.arrive_time < b.arrive_time;
     });
     return 0;
+}
+
+void AntColony::antColonyWriteInFile(const string &fileName, const string &data) {
+    ofstream outfile;
+    // 使用 ios::app 模式打开文件，实现追加写入
+    outfile.open(fileName, ios::app);
+    // 检查文件是否成功打开
+    if (!outfile.is_open()) {
+        cerr << "Error opening file: " << fileName << endl;
+        return;
+    }
+    // 写入数据并换行
+    outfile << data << endl;
+    // 关闭文件
+    outfile.close();
 }

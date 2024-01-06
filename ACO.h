@@ -14,7 +14,7 @@ using namespace std;
 #define MAX_TIME 2147483647
 
 //路径选择方法
-#define PATH_SELECTED_METHOD 2
+#define PATH_SELECTED_METHOD 3
 //method 1 represents ACO				ACO蚁群算法
 //method 2 represents greedy method		贪心算法
 //method 3 represents dijkstra			dijkstra算法
@@ -80,4 +80,4 @@ using namespace std;
 //最小容量
 #define MIN_CAPACITY 1
 //受伤速度比例
-#define HURT_VELOCITY_RATE 0.6
+#define HURT_VELOCITY_RATE 0.7

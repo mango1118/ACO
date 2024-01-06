@@ -3,14 +3,22 @@
 #include "AntColony.h"
 
 //---------- txt ----------//
-void WriteInFile(const string &fileName, const string &data) {
+void writeInFile(const string &fileName, const string &data) {
     ofstream outfile;
-    outfile.open(fileName);
+    // 使用 ios::app 模式打开文件，实现追加写入
+    outfile.open(fileName, ios::app);
+    // 检查文件是否成功打开
+    if (!outfile.is_open()) {
+        cerr << "Error opening file: " << fileName << endl;
+        return;
+    }
+    // 写入数据并换行
     outfile << data << endl;
+    // 关闭文件
     outfile.close();
 }
 
-void WriteTimeInFile(const std::string &fileName) {
+void writeTimeInFile(const std::string &fileName) {
 
     // 获取当前时间
     std::time_t currentTime = std::time(nullptr);
@@ -29,7 +37,10 @@ void WriteTimeInFile(const std::string &fileName) {
 }
 
 int main() {
-    WriteTimeInFile(RECORD_NAME);
+    writeInFile(RECORD_NAME, "\n");
+    writeTimeInFile(RECORD_NAME);
+    string temp_write = "path select method: " + to_string(PATH_SELECTED_METHOD);
+    writeInFile(RECORD_NAME, temp_write);
     AntColony antColony;
     antColony.init();
     antColony.run();

@@ -38,5 +38,6 @@ public:
     int minDistance(int dist[], bool sptSet[]);
     int getAllDijkstraNext();                       //得到所有节点的下一个节点
     int getPathLength(vector<int> path);            //获得路径对应的长度
+
 };
 

@@ -82,6 +82,25 @@ int Graph::readGraphByFile(const string &fileName) {
 }
 
 int Graph::renewGraphByFile(const string &fileName) {
+    int i = 0;
+    int temp = 0;
+    ifstream inputFile(fileName);
+    istringstream iss;
+    string line;
+    for (i = 0; i < edge_num; i++) {
+        getline(inputFile, line);
+        iss.str(line);
+        int start = 0;
+        int end = 0;
+        iss >> start;
+        iss >> end;
+        iss >> matrix_length[start][end];
+        iss >> matrix_capacity[start][end];
+        bak_matrix_capacity[start][end] = matrix_capacity[start][end];
+        iss >> matrix_width[start][end];
+        iss >> matrix_danger[start][end];
+        iss.clear();
+    }
     return 0;
 }
 

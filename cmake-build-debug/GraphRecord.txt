@@ -1,328 +1,291 @@
-2024-01-01 16:47:23
-2024-01-01 16:48:37
-2024-01-01 16:57:59
-2024-01-01 17:01:03
-2024-01-01 17:01:21
-2024-01-01 17:01:36
-2024-01-01 17:02:27
-2024-01-01 17:11:22
-2024-01-01 17:11:30
-2024-01-01 18:45:20
-2024-01-01 18:45:34
-2024-01-01 18:45:42
-2024-01-01 18:46:21
-2024-01-01 18:46:23
-2024-01-01 18:48:12
-2024-01-01 18:48:22
-2024-01-01 18:48:23
-2024-01-01 19:19:36
-2024-01-01 19:19:59
-2024-01-01 19:20:08
-2024-01-01 19:31:53
-2024-01-01 19:33:03
-2024-01-01 20:50:36
-2024-01-01 20:51:04
-2024-01-01 20:52:08
-2024-01-01 21:00:25
-2024-01-01 22:33:42
-2024-01-01 22:40:31
-2024-01-02 20:12:01
-2024-01-02 20:13:18
-2024-01-02 20:15:30
-2024-01-02 20:15:41
-2024-01-02 20:15:55
-2024-01-02 20:17:02
-2024-01-02 20:17:40
-2024-01-02 20:17:50
-2024-01-02 20:18:58
-2024-01-02 20:24:16
-2024-01-02 20:24:42
-2024-01-02 20:29:48
-2024-01-02 20:30:11
-2024-01-02 20:30:29
-2024-01-02 20:31:47
-2024-01-02 20:32:36
-2024-01-02 20:33:12
-2024-01-02 20:33:38
-2024-01-02 20:39:26
-2024-01-02 20:41:47
-2024-01-02 20:42:03
-2024-01-02 20:42:46
-2024-01-02 20:44:43
-2024-01-02 20:44:58
-2024-01-02 22:04:15
-2024-01-02 22:04:29
-2024-01-02 22:05:49
-2024-01-02 22:06:39
-2024-01-02 22:07:20
-2024-01-02 22:07:32
-2024-01-02 22:07:48
-2024-01-02 22:08:41
-2024-01-02 22:09:40
-2024-01-02 22:10:31
-2024-01-02 22:10:39
-2024-01-02 22:11:13
-2024-01-02 22:11:35
-2024-01-02 22:12:48
-2024-01-02 22:18:32
-2024-01-02 22:20:57
-2024-01-02 22:21:42
-2024-01-02 22:24:01
-2024-01-02 22:26:51
-2024-01-02 22:36:21
-2024-01-02 22:38:58
-2024-01-02 22:42:07
-2024-01-02 22:42:17
-2024-01-02 22:42:26
-2024-01-02 22:42:44
-2024-01-02 22:42:45
-2024-01-02 22:42:47
-2024-01-02 22:42:58
-2024-01-02 22:43:07
-2024-01-02 22:43:22
-2024-01-02 22:43:36
-2024-01-02 22:43:54
-2024-01-02 22:44:36
-2024-01-02 22:44:52
-2024-01-02 22:44:59
-2024-01-02 22:45:05
-2024-01-02 22:45:10
-2024-01-02 22:45:15
-2024-01-02 22:45:18
-2024-01-02 22:45:23
-2024-01-02 22:45:30
-2024-01-02 22:45:36
-2024-01-02 22:45:43
-2024-01-02 22:45:52
-2024-01-02 22:47:35
-2024-01-02 22:47:45
-2024-01-03 15:03:26
-2024-01-03 15:04:08
-2024-01-03 15:04:25
-2024-01-03 15:04:43
-2024-01-03 15:05:03
-2024-01-03 15:05:24
-2024-01-03 15:05:27
-2024-01-03 15:06:00
-2024-01-03 15:06:57
-2024-01-03 15:07:50
-2024-01-03 15:07:57
-2024-01-03 15:08:15
-2024-01-03 15:14:30
-2024-01-03 15:14:41
-2024-01-03 15:14:49
-2024-01-03 15:15:00
-2024-01-03 15:15:08
-2024-01-03 15:15:13
-2024-01-03 15:17:54
-2024-01-03 15:19:00
-2024-01-03 15:19:13
-2024-01-03 15:19:19
-2024-01-03 15:19:28
-2024-01-03 15:20:07
-2024-01-03 15:20:39
-2024-01-03 15:30:11
-2024-01-03 15:30:29
-2024-01-03 15:31:01
-2024-01-03 15:32:58
-2024-01-03 15:33:06
-2024-01-03 15:33:11
-2024-01-03 15:33:25
-2024-01-03 15:33:59
-2024-01-03 15:34:16
-2024-01-03 15:34:27
-2024-01-03 15:34:34
-2024-01-03 15:34:54
-2024-01-03 15:36:43
-2024-01-03 15:36:57
-2024-01-03 15:38:04
-2024-01-03 15:50:26
-2024-01-03 15:56:05
-2024-01-03 15:57:53
-2024-01-03 15:58:03
-2024-01-03 15:58:21
-2024-01-03 15:58:37
-2024-01-03 15:58:55
-2024-01-03 15:59:49
-2024-01-03 23:52:43
-2024-01-03 23:52:58
-2024-01-03 23:53:13
-2024-01-03 23:55:02
-2024-01-03 23:56:23
-2024-01-03 23:56:37
-2024-01-03 23:56:43
-2024-01-03 23:57:07
-2024-01-03 23:57:28
-2024-01-04 10:20:14
-2024-01-04 10:20:29
-2024-01-04 10:21:11
-2024-01-04 10:21:18
-2024-01-04 10:23:07
-2024-01-04 10:25:41
-2024-01-04 10:46:06
-2024-01-04 10:52:01
-2024-01-04 10:59:36
-2024-01-04 11:02:57
-2024-01-04 11:03:12
-2024-01-04 11:23:26
-2024-01-04 11:32:46
-2024-01-04 12:04:23
-2024-01-04 14:23:53
-2024-01-04 14:24:38
-2024-01-04 14:25:26
-2024-01-04 14:27:46
-2024-01-04 14:28:10
-2024-01-04 14:28:29
-2024-01-04 14:29:00
-2024-01-04 14:29:13
-2024-01-04 14:29:51
-2024-01-04 14:31:07
-2024-01-04 14:33:09
-2024-01-04 14:38:00
-2024-01-04 14:40:01
-2024-01-04 14:40:02
-2024-01-04 14:40:23
-2024-01-04 14:41:28
-2024-01-04 15:44:18
-2024-01-04 15:44:35
-2024-01-04 16:52:26
-2024-01-04 17:15:44
-2024-01-04 17:16:32
-2024-01-04 17:16:50
-2024-01-04 17:17:14
-2024-01-04 17:18:26
-2024-01-04 17:18:54
-2024-01-04 17:19:54
-2024-01-04 19:20:09
-2024-01-04 19:20:48
-2024-01-04 19:21:11
-2024-01-04 19:21:56
-2024-01-04 19:22:28
-2024-01-04 19:22:44
-2024-01-04 19:53:46
-2024-01-04 19:54:31
-2024-01-04 19:56:51
-2024-01-04 20:31:32
-2024-01-04 20:38:08
-2024-01-04 20:38:31
-2024-01-04 20:38:46
-2024-01-04 20:38:55
-2024-01-04 20:41:17
-2024-01-04 20:44:26
-2024-01-04 20:45:29
-2024-01-04 20:48:31
-2024-01-04 20:49:03
-2024-01-04 20:50:12
-2024-01-04 20:50:34
-2024-01-04 20:52:05
-2024-01-04 20:52:48
-2024-01-04 20:53:18
-2024-01-04 20:54:01
-2024-01-04 20:56:11
-2024-01-04 20:56:24
-2024-01-04 20:56:35
-2024-01-04 20:56:41
-2024-01-04 21:00:40
-2024-01-04 21:00:49
-2024-01-04 21:00:54
-2024-01-04 21:01:59
-2024-01-04 21:02:51
-2024-01-04 21:03:33
-2024-01-04 21:04:18
-2024-01-04 21:05:35
-2024-01-04 21:05:57
-2024-01-04 21:34:48
-2024-01-04 21:41:38
-2024-01-04 22:00:54
-2024-01-04 22:01:34
-2024-01-04 22:02:07
-2024-01-04 22:04:42
-2024-01-04 22:11:20
-2024-01-04 22:13:46
-2024-01-04 22:14:04
-2024-01-04 22:18:40
-2024-01-04 22:19:10
-2024-01-04 22:21:04
-2024-01-04 22:22:16
-2024-01-04 22:26:58
-2024-01-04 22:28:05
-2024-01-04 22:35:09
-2024-01-04 22:38:22
-2024-01-04 22:39:48
-2024-01-04 22:41:06
-2024-01-04 22:41:42
-2024-01-04 22:42:20
-2024-01-04 22:42:28
-2024-01-04 22:43:21
-2024-01-04 22:43:58
-2024-01-04 22:43:59
-2024-01-04 22:44:21
-2024-01-04 22:45:41
-2024-01-04 22:47:19
-2024-01-04 22:47:48
-2024-01-04 22:48:02
-2024-01-04 22:48:31
-2024-01-04 22:50:16
-2024-01-04 22:51:02
-2024-01-04 22:51:08
-2024-01-04 22:51:46
-2024-01-04 22:57:30
-2024-01-04 22:58:34
-2024-01-04 22:58:50
-2024-01-04 22:59:00
-2024-01-05 09:52:18
-2024-01-05 10:03:46
-2024-01-05 10:32:53
-2024-01-05 10:57:57
-2024-01-05 11:11:39
-2024-01-05 11:11:53
-2024-01-05 11:41:04
-2024-01-05 11:41:57
-2024-01-05 11:43:14
-2024-01-05 11:44:22
-2024-01-05 11:44:46
-2024-01-05 11:51:21
-2024-01-05 13:43:19
-2024-01-05 13:48:02
-2024-01-05 17:34:39
-2024-01-05 17:35:06
-2024-01-05 17:36:06
-2024-01-05 17:49:23
-2024-01-05 17:49:39
-2024-01-05 17:50:14
-2024-01-05 17:50:51
-2024-01-05 17:51:33
-2024-01-05 17:51:53
-2024-01-05 20:15:30
-2024-01-05 20:43:15
-2024-01-05 20:51:36
-2024-01-06 08:42:50
-2024-01-06 08:51:55
-2024-01-06 09:04:19
-2024-01-06 09:08:55
-2024-01-06 09:09:51
-2024-01-06 09:10:42
-2024-01-06 09:11:05
-2024-01-06 09:11:33
-2024-01-06 09:11:36
-2024-01-06 09:13:10
-2024-01-06 09:13:30
-2024-01-06 09:13:48
-2024-01-06 09:13:48
-2024-01-06 09:13:51
-2024-01-06 09:16:37
-2024-01-06 10:26:42
-2024-01-06 10:27:00
-2024-01-06 10:29:31
-2024-01-06 10:33:19
-2024-01-06 10:48:46
-2024-01-06 11:10:43
-2024-01-06 11:38:52
-2024-01-06 11:50:58
-2024-01-06 12:07:21
-2024-01-06 12:19:18
-2024-01-06 12:19:18
-2024-01-06 12:19:30
-2024-01-06 15:52:54
-2024-01-06 15:53:54
-2024-01-06 16:02:49
+iteration time: 57	 min time: 643
+2024-01-06 19:13:30
+path select method: 1
+iteration time: 1	 min time: 771
+iteration time: 3	 min time: 658
+iteration time: 49	 min time: 650
+
+
+
+
+2024-01-06 19:14:21
+path select method: 1
+iteration time: 1	 min time: 722
+iteration time: 2	 min time: 661
+
+
+2024-01-06 19:14:40
+path select method: 1
+iteration time: 1	 min time: 733
+iteration time: 2	 min time: 732
+iteration time: 8	 min time: 672
+iteration time: 16	 min time: 655
+iteration time: 74	 min time: 615
+iteration time: 1	 min time: 641
+
+
+2024-01-06 19:17:12
+path select method: 1
+iteration time: 1	 min time: 674
+iteration time: 21	 min time: 671
+iteration time: 33	 min time: 667
+iteration time: 37	 min time: 652
+iteration time: 78	 min time: 631
+
+
+2024-01-06 19:18:21
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 705
+iteration time: 2	 min time: 660
+iteration time: 12	 min time: 649
+iteration time: 54	 min time: 642
+iteration time: 74	 min time: 617
+best time: 617	 average time: 746
+--------------------run time: 2 -------------------- 
+
+iteration time: 1	 min time: 785
+iteration time: 2	 min time: 706
+iteration time: 5	 min time: 678
+iteration time: 15	 min time: 673
+iteration time: 21	 min time: 659
+iteration time: 38	 min time: 655
+iteration time: 44	 min time: 648
+best time: 648	 average time: 742
+--------------------run time: 3 -------------------- 
+
+iteration time: 1	 min time: 902
+iteration time: 2	 min time: 872
+iteration time: 3	 min time: 671
+iteration time: 8	 min time: 653
+iteration time: 32	 min time: 626
+best time: 626	 average time: 752
+--------------------run time: 4 -------------------- 
+
+iteration time: 1	 min time: 753
+iteration time: 3	 min time: 711
+iteration time: 8	 min time: 677
+iteration time: 12	 min time: 652
+iteration time: 68	 min time: 649
+best time: 649	 average time: 739
+--------------------run time: 5 -------------------- 
+
+iteration time: 1	 min time: 769
+iteration time: 3	 min time: 704
+iteration time: 5	 min time: 694
+iteration time: 6	 min time: 670
+iteration time: 21	 min time: 660
+iteration time: 45	 min time: 646
+iteration time: 53	 min time: 642
+best time: 642	 average time: 750
+--------------------run time: 6 -------------------- 
+
+iteration time: 1	 min time: 698
+iteration time: 3	 min time: 685
+iteration time: 9	 min time: 669
+iteration time: 60	 min time: 660
+iteration time: 63	 min time: 639
+iteration time: 89	 min time: 626
+best time: 626	 average time: 740
+--------------------run time: 7 -------------------- 
+
+iteration time: 1	 min time: 626
+best time: 626	 average time: 747
+--------------------run time: 8 -------------------- 
+
+iteration time: 1	 min time: 674
+iteration time: 3	 min time: 670
+iteration time: 10	 min time: 665
+iteration time: 13	 min time: 658
+iteration time: 59	 min time: 651
+iteration time: 89	 min time: 648
+best time: 648	 average time: 727
+--------------------run time: 9 -------------------- 
+
+iteration time: 1	 min time: 771
+iteration time: 3	 min time: 678
+iteration time: 12	 min time: 675
+iteration time: 28	 min time: 651
+iteration time: 93	 min time: 637
+best time: 637	 average time: 745
+--------------------run time: 10 -------------------- 
+
+iteration time: 1	 min time: 741
+iteration time: 3	 min time: 633
+iteration time: 86	 min time: 617
+best time: 617	 average time: 749
+
+
+2024-01-06 19:30:38
+path select method: 2
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 785
+iteration time: 7	 min time: 680
+iteration time: 13	 min time: 651
+iteration time: 67	 min time: 644
+best time: 644	 average time: 750
+--------------------run time: 2 -------------------- 
+
+iteration time: 1	 min time: 745
+iteration time: 2	 min time: 741
+iteration time: 3	 min time: 643
+best time: 643	 average time: 775
+--------------------run time: 3 -------------------- 
+
+iteration time: 1	 min time: 812
+iteration time: 3	 min time: 703
+iteration time: 9	 min time: 670
+iteration time: 10	 min time: 669
+iteration time: 14	 min time: 666
+iteration time: 37	 min time: 650
+iteration time: 66	 min time: 648
+best time: 648	 average time: 763
+--------------------run time: 4 -------------------- 
+
+iteration time: 1	 min time: 844
+iteration time: 2	 min time: 706
+iteration time: 3	 min time: 674
+iteration time: 33	 min time: 670
+iteration time: 75	 min time: 664
+iteration time: 93	 min time: 659
+best time: 659	 average time: 766
+--------------------run time: 5 -------------------- 
+
+iteration time: 1	 min time: 848
+iteration time: 2	 min time: 695
+iteration time: 3	 min time: 680
+iteration time: 19	 min time: 663
+iteration time: 65	 min time: 657
+best time: 657	 average time: 755
+--------------------run time: 6 -------------------- 
+
+iteration time: 1	 min time: 752
+iteration time: 3	 min time: 733
+iteration time: 8	 min time: 700
+iteration time: 20	 min time: 688
+iteration time: 27	 min time: 676
+iteration time: 49	 min time: 645
+best time: 645	 average time: 775
+--------------------run time: 7 -------------------- 
+
+iteration time: 1	 min time: 674
+iteration time: 34	 min time: 672
+iteration time: 62	 min time: 665
+best time: 665	 average time: 784
+--------------------run time: 8 -------------------- 
+
+iteration time: 1	 min time: 740
+iteration time: 4	 min time: 737
+iteration time: 5	 min time: 670
+iteration time: 39	 min time: 659
+iteration time: 99	 min time: 637
+best time: 637	 average time: 780
+--------------------run time: 9 -------------------- 
+
+iteration time: 1	 min time: 759
+iteration time: 2	 min time: 717
+iteration time: 4	 min time: 689
+iteration time: 6	 min time: 669
+iteration time: 42	 min time: 655
+iteration time: 66	 min time: 653
+iteration time: 97	 min time: 634
+best time: 634	 average time: 740
+--------------------run time: 10 -------------------- 
+
+iteration time: 1	 min time: 690
+iteration time: 14	 min time: 673
+iteration time: 16	 min time: 663
+iteration time: 20	 min time: 662
+iteration time: 25	 min time: 658
+iteration time: 41	 min time: 637
+iteration time: 81	 min time: 636
+best time: 636	 average time: 757
+
+
+2024-01-06 19:48:12
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 817
+iteration time: 2	 min time: 748
+iteration time: 3	 min time: 676
+iteration time: 26	 min time: 662
+iteration time: 43	 min time: 648
+best time: 648	 average time: 794
+--------------------run time: 2 -------------------- 
+
+iteration time: 1	 min time: 795
+iteration time: 5	 min time: 740
+iteration time: 9	 min time: 675
+iteration time: 36	 min time: 673
+iteration time: 48	 min time: 658
+best time: 658	 average time: 796
+--------------------run time: 3 -------------------- 
+
+iteration time: 1	 min time: 833
+iteration time: 2	 min time: 675
+iteration time: 100	 min time: 645
+best time: 645	 average time: 796
+--------------------run time: 4 -------------------- 
+
+iteration time: 1	 min time: 823
+iteration time: 5	 min time: 809
+iteration time: 6	 min time: 798
+iteration time: 8	 min time: 750
+iteration time: 9	 min time: 729
+iteration time: 18	 min time: 681
+iteration time: 45	 min time: 664
+best time: 664	 average time: 787
+--------------------run time: 5 -------------------- 
+
+iteration time: 1	 min time: 716
+iteration time: 5	 min time: 697
+iteration time: 26	 min time: 683
+iteration time: 31	 min time: 680
+iteration time: 34	 min time: 666
+iteration time: 53	 min time: 650
+iteration time: 94	 min time: 645
+best time: 645	 average time: 795
+--------------------run time: 6 -------------------- 
+
+iteration time: 1	 min time: 726
+iteration time: 5	 min time: 677
+iteration time: 13	 min time: 648
+best time: 648	 average time: 794
+--------------------run time: 7 -------------------- 
+
+iteration time: 1	 min time: 767
+iteration time: 3	 min time: 748
+iteration time: 4	 min time: 731
+iteration time: 7	 min time: 707
+iteration time: 18	 min time: 693
+iteration time: 28	 min time: 677
+iteration time: 32	 min time: 663
+iteration time: 56	 min time: 651
+iteration time: 59	 min time: 631
+best time: 631	 average time: 771
+--------------------run time: 8 -------------------- 
+
+iteration time: 1	 min time: 845
+iteration time: 2	 min time: 835
+iteration time: 3	 min time: 816
+iteration time: 5	 min time: 679
+iteration time: 23	 min time: 667
+iteration time: 26	 min time: 659
+iteration time: 33	 min time: 648
+best time: 648	 average time: 791
+--------------------run time: 9 -------------------- 
+
+iteration time: 1	 min time: 763
+iteration time: 3	 min time: 687
+iteration time: 70	 min time: 647
+best time: 647	 average time: 795
+--------------------run time: 10 -------------------- 
+
+iteration time: 1	 min time: 702
+iteration time: 13	 min time: 676
+iteration time: 15	 min time: 662
+iteration time: 92	 min time: 628
+best time: 628	 average time: 791
