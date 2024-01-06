@@ -12,6 +12,7 @@ public:
     bool arrive = false;                    //到达终点
     int arrive_time = 0;                    //到达终点所需时间
     vector<int> route;                      //走过的路径
+    bool hurt = false;                      //是否受伤
 
     explicit Ant(int now_vertex);
     int init(int now_vertex);

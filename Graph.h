@@ -13,6 +13,7 @@ public:
     int matrix_capacity[MAX][MAX] = {0};      //图的矩阵,包含容量信息
     int bak_matrix_capacity[MAX][MAX] = {0};  //备份，图的矩阵,包含容量信息
     int matrix_width[MAX][MAX] = {0};         //图的矩阵，包含宽度信息
+    double matrix_danger[MAX][MAX] = {0};     //危险程度
     int vertex_ant_num[MAX] = {0};            //记录每个节点的人数
     int bak_vertex_ant_num[MAX] = {0};        //备份，用于恢复每个节点的初始人数
 //    int edge_visit[MAX][MAX] = {0};           //记录边是否被访问
@@ -21,7 +22,6 @@ public:
     int end_vertex[MAX] = {0};                //记录所有终点
     double initial_pheromones;                //初始信息素
     int dijkstra_next_point[MAX] = {0};       //由dijkstra构造的下一节点
-
 
     Graph();
 

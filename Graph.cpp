@@ -71,6 +71,7 @@ int Graph::readGraphByFile(const string &fileName) {
         iss >> matrix_capacity[start][end];
         bak_matrix_capacity[start][end] = matrix_capacity[start][end];
         iss >> matrix_width[start][end];
+        iss >> matrix_danger[start][end];
         iss.clear();
     }
 

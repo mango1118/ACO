@@ -21,8 +21,20 @@ int Ant::goToNextVertex(Graph &graph) {
     on_edge = true;
     graph.vertex_ant_num[now_vertex]--;
     graph.matrix_capacity[now_vertex][next_vertex]--;
+
+    if(graph.matrix_danger[now_vertex][next_vertex] > 0){
+        // 初始化随机数生成器
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_real_distribution<> dis(0.0, 1.0);
+        // 以受伤的概率将标志设置为true
+        if (dis(gen) < graph.matrix_danger[now_vertex][next_vertex]) {
+            hurt = true;
+        }
+    }
     velocity = getVelocity(graph);
     left_time = getNeedTime(graph);
+
     return 0;
 }
 
@@ -80,6 +92,9 @@ double Ant::getVelocity(Graph &graph) {
 //    double density = edge_ant_num / length;
     //Greenshields模型
     v = AVERAGE_VELOCITY * (1 - (true_capacity / capacity));
+    //如果受伤了，速度会下降
+    if(hurt)
+        v *= HURT_VELOCITY_RATE;
 //    v = AVERAGE_VELOCITY * exp(-density * VELOCITY_PARAMETER);
 //    v = VELOCITY_PARAMETER * (VELOCITY_CAPACITY_WEIGHT * true_capacity + VELOCITY_WIDTH_WEIGHT * width);
     return v;
@@ -145,19 +160,20 @@ int Ant::getRouletteVertex(Graph &graph) {
     std::uniform_real_distribution<double> dis(0.0, 1.0); // 生成0到1之间的浮点数
     // 生成随机数
     double random_number = dis(gen);
+    int next_point = -1;
 
     if (random_number > RANDOM_RATE) {//轮盘赌
-        return getRandomVertex(graph);
+        next_point = getRandomVertex(graph);
     } else {
         if (PATH_SELECTED_METHOD == 1) { //ACO
-            return getMaxPheromonesVertex(graph);
-
+            next_point =getMaxPheromonesVertex(graph);
         } else if (PATH_SELECTED_METHOD == 2) { //greedy
-            return getGreedyVertex(graph);
+            next_point =getGreedyVertex(graph);
         } else if (PATH_SELECTED_METHOD == 3) { //dijkstra
-            return getDijkstraVertex(graph);
+            next_point =getDijkstraVertex(graph);
         }
     }
+    return next_point;
 }
 
 int Ant::getRandomVertex(Graph &graph) {
