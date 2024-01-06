@@ -1,291 +1,269 @@
-iteration time: 57	 min time: 643
-2024-01-06 19:13:30
-path select method: 1
-iteration time: 1	 min time: 771
-iteration time: 3	 min time: 658
-iteration time: 49	 min time: 650
 
 
-
-
-2024-01-06 19:14:21
-path select method: 1
-iteration time: 1	 min time: 722
-iteration time: 2	 min time: 661
-
-
-2024-01-06 19:14:40
-path select method: 1
-iteration time: 1	 min time: 733
-iteration time: 2	 min time: 732
-iteration time: 8	 min time: 672
-iteration time: 16	 min time: 655
-iteration time: 74	 min time: 615
-iteration time: 1	 min time: 641
-
-
-2024-01-06 19:17:12
-path select method: 1
-iteration time: 1	 min time: 674
-iteration time: 21	 min time: 671
-iteration time: 33	 min time: 667
-iteration time: 37	 min time: 652
-iteration time: 78	 min time: 631
-
-
-2024-01-06 19:18:21
+2024-01-06 21:20:48
 path select method: 1
 --------------------run time: 1 -------------------- 
 
-iteration time: 1	 min time: 705
-iteration time: 2	 min time: 660
-iteration time: 12	 min time: 649
-iteration time: 54	 min time: 642
-iteration time: 74	 min time: 617
-best time: 617	 average time: 746
---------------------run time: 2 -------------------- 
 
-iteration time: 1	 min time: 785
-iteration time: 2	 min time: 706
-iteration time: 5	 min time: 678
-iteration time: 15	 min time: 673
-iteration time: 21	 min time: 659
-iteration time: 38	 min time: 655
-iteration time: 44	 min time: 648
-best time: 648	 average time: 742
---------------------run time: 3 -------------------- 
 
-iteration time: 1	 min time: 902
-iteration time: 2	 min time: 872
-iteration time: 3	 min time: 671
-iteration time: 8	 min time: 653
-iteration time: 32	 min time: 626
-best time: 626	 average time: 752
---------------------run time: 4 -------------------- 
+2024-01-06 21:21:00
+path select method: 1
+--------------------run time: 1 -------------------- 
 
-iteration time: 1	 min time: 753
-iteration time: 3	 min time: 711
-iteration time: 8	 min time: 677
-iteration time: 12	 min time: 652
-iteration time: 68	 min time: 649
-best time: 649	 average time: 739
---------------------run time: 5 -------------------- 
+
+
+2024-01-06 21:22:12
+path select method: 1
+--------------------run time: 1 -------------------- 
 
 iteration time: 1	 min time: 769
-iteration time: 3	 min time: 704
-iteration time: 5	 min time: 694
-iteration time: 6	 min time: 670
-iteration time: 21	 min time: 660
-iteration time: 45	 min time: 646
-iteration time: 53	 min time: 642
-best time: 642	 average time: 750
---------------------run time: 6 -------------------- 
+iteration time: 2	 min time: 516
+iteration time: 4	 min time: 443
+iteration time: 9	 min time: 399
+iteration time: 63	 min time: 394
+best time: 394	 average time: 823
+--------------------run time: 2 -------------------- 
+
+iteration time: 1	 min time: 1123
+iteration time: 2	 min time: 1088
+iteration time: 5	 min time: 565
+iteration time: 8	 min time: 507
+iteration time: 11	 min time: 371
+best time: 371	 average time: 830
+--------------------run time: 3 -------------------- 
 
 iteration time: 1	 min time: 698
-iteration time: 3	 min time: 685
-iteration time: 9	 min time: 669
-iteration time: 60	 min time: 660
-iteration time: 63	 min time: 639
-iteration time: 89	 min time: 626
-best time: 626	 average time: 740
+iteration time: 3	 min time: 527
+iteration time: 5	 min time: 525
+iteration time: 7	 min time: 495
+iteration time: 8	 min time: 489
+iteration time: 9	 min time: 481
+iteration time: 15	 min time: 459
+iteration time: 29	 min time: 426
+iteration time: 53	 min time: 373
+best time: 373	 average time: 808
+--------------------run time: 4 -------------------- 
+
+iteration time: 1	 min time: 1637
+iteration time: 2	 min time: 487
+iteration time: 22	 min time: 459
+iteration time: 92	 min time: 433
+best time: 433	 average time: 848
+--------------------run time: 5 -------------------- 
+
+iteration time: 1	 min time: 1075
+iteration time: 4	 min time: 842
+iteration time: 5	 min time: 790
+iteration time: 6	 min time: 726
+iteration time: 7	 min time: 696
+iteration time: 8	 min time: 525
+iteration time: 10	 min time: 474
+iteration time: 14	 min time: 440
+iteration time: 64	 min time: 418
+best time: 418	 average time: 793
+--------------------run time: 6 -------------------- 
+
+iteration time: 1	 min time: 640
+iteration time: 5	 min time: 521
+iteration time: 6	 min time: 485
+iteration time: 20	 min time: 432
+iteration time: 64	 min time: 405
+best time: 405	 average time: 822
 --------------------run time: 7 -------------------- 
 
-iteration time: 1	 min time: 626
-best time: 626	 average time: 747
+iteration time: 1	 min time: 1314
+iteration time: 2	 min time: 1072
+iteration time: 3	 min time: 434
+iteration time: 44	 min time: 414
+best time: 414	 average time: 794
 --------------------run time: 8 -------------------- 
 
-iteration time: 1	 min time: 674
-iteration time: 3	 min time: 670
-iteration time: 10	 min time: 665
-iteration time: 13	 min time: 658
-iteration time: 59	 min time: 651
-iteration time: 89	 min time: 648
-best time: 648	 average time: 727
+iteration time: 1	 min time: 801
+iteration time: 7	 min time: 763
+iteration time: 11	 min time: 529
+iteration time: 17	 min time: 433
+best time: 433	 average time: 865
 --------------------run time: 9 -------------------- 
 
-iteration time: 1	 min time: 771
-iteration time: 3	 min time: 678
-iteration time: 12	 min time: 675
-iteration time: 28	 min time: 651
-iteration time: 93	 min time: 637
-best time: 637	 average time: 745
+iteration time: 1	 min time: 1068
+iteration time: 2	 min time: 517
+iteration time: 8	 min time: 508
+iteration time: 15	 min time: 454
+iteration time: 81	 min time: 431
+iteration time: 96	 min time: 413
+best time: 413	 average time: 816
 --------------------run time: 10 -------------------- 
 
-iteration time: 1	 min time: 741
-iteration time: 3	 min time: 633
-iteration time: 86	 min time: 617
-best time: 617	 average time: 749
+iteration time: 1	 min time: 1032
+iteration time: 4	 min time: 817
+iteration time: 5	 min time: 529
+iteration time: 12	 min time: 505
+iteration time: 16	 min time: 495
+iteration time: 28	 min time: 432
+iteration time: 83	 min time: 411
+best time: 411	 average time: 823
+--------------- over ---------------
 
 
-2024-01-06 19:30:38
+2024-01-06 21:22:23
 path select method: 2
 --------------------run time: 1 -------------------- 
 
-iteration time: 1	 min time: 785
-iteration time: 7	 min time: 680
-iteration time: 13	 min time: 651
-iteration time: 67	 min time: 644
-best time: 644	 average time: 750
+iteration time: 1	 min time: 853
+iteration time: 2	 min time: 692
+iteration time: 5	 min time: 628
+iteration time: 6	 min time: 501
+iteration time: 8	 min time: 477
+iteration time: 10	 min time: 474
+iteration time: 38	 min time: 451
+iteration time: 40	 min time: 432
+iteration time: 95	 min time: 416
+best time: 416	 average time: 736
 --------------------run time: 2 -------------------- 
 
-iteration time: 1	 min time: 745
-iteration time: 2	 min time: 741
-iteration time: 3	 min time: 643
-best time: 643	 average time: 775
+iteration time: 1	 min time: 654
+iteration time: 3	 min time: 639
+iteration time: 5	 min time: 528
+iteration time: 12	 min time: 520
+iteration time: 23	 min time: 485
+iteration time: 25	 min time: 408
+best time: 408	 average time: 784
 --------------------run time: 3 -------------------- 
 
-iteration time: 1	 min time: 812
-iteration time: 3	 min time: 703
-iteration time: 9	 min time: 670
-iteration time: 10	 min time: 669
-iteration time: 14	 min time: 666
-iteration time: 37	 min time: 650
-iteration time: 66	 min time: 648
-best time: 648	 average time: 763
+iteration time: 1	 min time: 575
+iteration time: 4	 min time: 453
+iteration time: 25	 min time: 376
+best time: 376	 average time: 758
 --------------------run time: 4 -------------------- 
 
-iteration time: 1	 min time: 844
-iteration time: 2	 min time: 706
-iteration time: 3	 min time: 674
-iteration time: 33	 min time: 670
-iteration time: 75	 min time: 664
-iteration time: 93	 min time: 659
-best time: 659	 average time: 766
+iteration time: 1	 min time: 1023
+iteration time: 4	 min time: 726
+iteration time: 6	 min time: 630
+iteration time: 8	 min time: 578
+iteration time: 9	 min time: 561
+iteration time: 12	 min time: 559
+iteration time: 13	 min time: 532
+iteration time: 26	 min time: 486
+iteration time: 28	 min time: 436
+iteration time: 32	 min time: 432
+iteration time: 37	 min time: 401
+best time: 401	 average time: 778
 --------------------run time: 5 -------------------- 
 
-iteration time: 1	 min time: 848
-iteration time: 2	 min time: 695
-iteration time: 3	 min time: 680
-iteration time: 19	 min time: 663
-iteration time: 65	 min time: 657
-best time: 657	 average time: 755
+iteration time: 1	 min time: 697
+iteration time: 2	 min time: 686
+iteration time: 3	 min time: 676
+iteration time: 5	 min time: 660
+iteration time: 8	 min time: 497
+iteration time: 56	 min time: 474
+iteration time: 62	 min time: 445
+iteration time: 79	 min time: 434
+iteration time: 81	 min time: 431
+best time: 431	 average time: 737
 --------------------run time: 6 -------------------- 
 
-iteration time: 1	 min time: 752
-iteration time: 3	 min time: 733
-iteration time: 8	 min time: 700
-iteration time: 20	 min time: 688
-iteration time: 27	 min time: 676
-iteration time: 49	 min time: 645
-best time: 645	 average time: 775
+iteration time: 1	 min time: 561
+iteration time: 4	 min time: 555
+iteration time: 6	 min time: 526
+iteration time: 9	 min time: 416
+best time: 416	 average time: 745
 --------------------run time: 7 -------------------- 
 
-iteration time: 1	 min time: 674
-iteration time: 34	 min time: 672
-iteration time: 62	 min time: 665
-best time: 665	 average time: 784
+iteration time: 1	 min time: 564
+iteration time: 7	 min time: 502
+iteration time: 22	 min time: 494
+iteration time: 31	 min time: 481
+iteration time: 41	 min time: 410
+iteration time: 88	 min time: 405
+best time: 405	 average time: 751
 --------------------run time: 8 -------------------- 
 
-iteration time: 1	 min time: 740
-iteration time: 4	 min time: 737
-iteration time: 5	 min time: 670
-iteration time: 39	 min time: 659
-iteration time: 99	 min time: 637
-best time: 637	 average time: 780
+iteration time: 1	 min time: 597
+iteration time: 7	 min time: 436
+iteration time: 9	 min time: 388
+best time: 388	 average time: 732
 --------------------run time: 9 -------------------- 
 
-iteration time: 1	 min time: 759
-iteration time: 2	 min time: 717
-iteration time: 4	 min time: 689
-iteration time: 6	 min time: 669
-iteration time: 42	 min time: 655
-iteration time: 66	 min time: 653
-iteration time: 97	 min time: 634
-best time: 634	 average time: 740
+iteration time: 1	 min time: 839
+iteration time: 3	 min time: 837
+iteration time: 4	 min time: 619
+iteration time: 5	 min time: 539
+iteration time: 11	 min time: 451
+iteration time: 56	 min time: 439
+iteration time: 78	 min time: 436
+best time: 436	 average time: 731
 --------------------run time: 10 -------------------- 
 
-iteration time: 1	 min time: 690
-iteration time: 14	 min time: 673
-iteration time: 16	 min time: 663
-iteration time: 20	 min time: 662
-iteration time: 25	 min time: 658
-iteration time: 41	 min time: 637
-iteration time: 81	 min time: 636
-best time: 636	 average time: 757
+iteration time: 1	 min time: 835
+iteration time: 3	 min time: 707
+iteration time: 5	 min time: 484
+iteration time: 17	 min time: 477
+iteration time: 34	 min time: 459
+iteration time: 41	 min time: 434
+best time: 434	 average time: 757
+--------------- over ---------------
 
 
-2024-01-06 19:48:12
+2024-01-06 21:22:33
 path select method: 3
 --------------------run time: 1 -------------------- 
 
-iteration time: 1	 min time: 817
-iteration time: 2	 min time: 748
-iteration time: 3	 min time: 676
-iteration time: 26	 min time: 662
-iteration time: 43	 min time: 648
-best time: 648	 average time: 794
+iteration time: 1	 min time: 955
+iteration time: 2	 min time: 527
+iteration time: 4	 min time: 504
+iteration time: 36	 min time: 498
+best time: 498	 average time: 618
 --------------------run time: 2 -------------------- 
 
-iteration time: 1	 min time: 795
-iteration time: 5	 min time: 740
-iteration time: 9	 min time: 675
-iteration time: 36	 min time: 673
-iteration time: 48	 min time: 658
-best time: 658	 average time: 796
+iteration time: 1	 min time: 578
+iteration time: 2	 min time: 532
+iteration time: 4	 min time: 525
+iteration time: 6	 min time: 505
+iteration time: 10	 min time: 504
+iteration time: 36	 min time: 455
+best time: 455	 average time: 579
 --------------------run time: 3 -------------------- 
 
-iteration time: 1	 min time: 833
-iteration time: 2	 min time: 675
-iteration time: 100	 min time: 645
-best time: 645	 average time: 796
+iteration time: 1	 min time: 504
+best time: 504	 average time: 625
 --------------------run time: 4 -------------------- 
 
-iteration time: 1	 min time: 823
-iteration time: 5	 min time: 809
-iteration time: 6	 min time: 798
-iteration time: 8	 min time: 750
-iteration time: 9	 min time: 729
-iteration time: 18	 min time: 681
-iteration time: 45	 min time: 664
-best time: 664	 average time: 787
+iteration time: 1	 min time: 504
+best time: 504	 average time: 659
 --------------------run time: 5 -------------------- 
 
-iteration time: 1	 min time: 716
-iteration time: 5	 min time: 697
-iteration time: 26	 min time: 683
-iteration time: 31	 min time: 680
-iteration time: 34	 min time: 666
-iteration time: 53	 min time: 650
-iteration time: 94	 min time: 645
-best time: 645	 average time: 795
+iteration time: 1	 min time: 578
+iteration time: 2	 min time: 525
+iteration time: 8	 min time: 515
+iteration time: 38	 min time: 504
+best time: 504	 average time: 621
 --------------------run time: 6 -------------------- 
 
-iteration time: 1	 min time: 726
-iteration time: 5	 min time: 677
-iteration time: 13	 min time: 648
-best time: 648	 average time: 794
+iteration time: 1	 min time: 504
+iteration time: 96	 min time: 498
+best time: 498	 average time: 621
 --------------------run time: 7 -------------------- 
 
-iteration time: 1	 min time: 767
-iteration time: 3	 min time: 748
-iteration time: 4	 min time: 731
-iteration time: 7	 min time: 707
-iteration time: 18	 min time: 693
-iteration time: 28	 min time: 677
-iteration time: 32	 min time: 663
-iteration time: 56	 min time: 651
-iteration time: 59	 min time: 631
-best time: 631	 average time: 771
+iteration time: 1	 min time: 527
+iteration time: 4	 min time: 504
+iteration time: 32	 min time: 487
+best time: 487	 average time: 609
 --------------------run time: 8 -------------------- 
 
-iteration time: 1	 min time: 845
-iteration time: 2	 min time: 835
-iteration time: 3	 min time: 816
-iteration time: 5	 min time: 679
-iteration time: 23	 min time: 667
-iteration time: 26	 min time: 659
-iteration time: 33	 min time: 648
-best time: 648	 average time: 791
+iteration time: 1	 min time: 877
+iteration time: 2	 min time: 498
+best time: 498	 average time: 629
 --------------------run time: 9 -------------------- 
 
-iteration time: 1	 min time: 763
-iteration time: 3	 min time: 687
-iteration time: 70	 min time: 647
-best time: 647	 average time: 795
+iteration time: 1	 min time: 872
+iteration time: 2	 min time: 530
+iteration time: 3	 min time: 524
+iteration time: 13	 min time: 512
+iteration time: 24	 min time: 504
+best time: 504	 average time: 662
 --------------------run time: 10 -------------------- 
 
-iteration time: 1	 min time: 702
-iteration time: 13	 min time: 676
-iteration time: 15	 min time: 662
-iteration time: 92	 min time: 628
-best time: 628	 average time: 791
+iteration time: 1	 min time: 734
+iteration time: 2	 min time: 504
+best time: 504	 average time: 640
+--------------- over ---------------

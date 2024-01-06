@@ -44,4 +44,5 @@ int main() {
     AntColony antColony;
     antColony.init();
     antColony.run();
+    writeInFile(RECORD_NAME, "--------------- over ---------------");
 }

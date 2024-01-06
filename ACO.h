@@ -60,7 +60,7 @@ using namespace std;
 //速度参数
 #define VELOCITY_PARAMETER 0.2
 //平均速度
-#define AVERAGE_VELOCITY 0.5
+#define AVERAGE_VELOCITY 0.6
 //计算速度的宽度权重
 #define VELOCITY_WIDTH_WEIGHT 0.5
 //计算速度的容量权重
@@ -80,4 +80,4 @@ using namespace std;
 //最小容量
 #define MIN_CAPACITY 1
 //受伤速度比例
-#define HURT_VELOCITY_RATE 0.7
+#define HURT_VELOCITY_RATE 0.5
