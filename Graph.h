@@ -28,14 +28,14 @@ public:
     int init();
 
     int readGraphByFile(const string &fileName);    //通过文件读取图信息
-    int renewGraphByFile(const string &fileName);   //通过文件更新图信息
+//    int renewGraphByFile(const string &fileName);   //通过文件更新图信息
     int initPheromones();                           //初始化信息素
     int evaporatePheromones();                      //信息素蒸发
     int updatePheromones();                         //信息素更新
     int resetVertexAntNum();                        //恢复初始人数
     double calculatePheromones(int i, int j);       //返回i,j路径间的原始信息素
-    vector<int> dijkstra(int src, int dest);              //求v到其余顶点的最短路径和长度
-    int minDistance(int dist[], bool sptSet[]);
+    vector<int> dijkstra(int src, int dest);        //求v到其余顶点的最短路径和长度
+    int minDistance(int dist[], bool sptSet[]);     //获得每个节点到终点的最短路径的下一跳
     int getAllDijkstraNext();                       //得到所有节点的下一个节点
     int getPathLength(vector<int> path);            //获得路径对应的长度
 

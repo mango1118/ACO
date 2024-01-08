@@ -1,5 +1,7 @@
 #include "Ant.h"
 
+#define  k
+
 Ant::Ant(int now_vertex) {
     init(now_vertex);
     route.push_back(now_vertex);
@@ -22,7 +24,7 @@ int Ant::goToNextVertex(Graph &graph) {
     graph.vertex_ant_num[now_vertex]--;
     graph.matrix_capacity[now_vertex][next_vertex]--;
 
-    if(graph.matrix_danger[now_vertex][next_vertex] > 0){
+    if (graph.matrix_danger[now_vertex][next_vertex] > 0) {
         // 初始化随机数生成器
         std::random_device rd;
         std::mt19937 gen(rd());
@@ -92,7 +94,7 @@ double Ant::getVelocity(Graph &graph) {
     //Greenshields模型
     v = AVERAGE_VELOCITY * (1 - (true_capacity / capacity));
     //如果受伤了，速度会下降
-    if(hurt)
+    if (hurt)
         v *= HURT_VELOCITY_RATE;
 //    v = AVERAGE_VELOCITY * exp(-density * VELOCITY_PARAMETER);
 //    v = VELOCITY_PARAMETER * (VELOCITY_CAPACITY_WEIGHT * true_capacity + VELOCITY_WIDTH_WEIGHT * width);
@@ -125,17 +127,30 @@ int Ant::getRouletteVertex(Graph &graph) {
     double random_number = dis(gen);
     int next_point = -1;
 
-    if (random_number > RANDOM_RATE) {//轮盘赌
-        next_point = getRandomVertex(graph);
-    } else {
-        if (PATH_SELECTED_METHOD == 1) { //ACO
-            next_point =getMaxPheromonesVertex(graph);
-        } else if (PATH_SELECTED_METHOD == 2) { //greedy
-            next_point =getGreedyVertex(graph);
-        } else if (PATH_SELECTED_METHOD == 3) { //dijkstra
-            next_point =getDijkstraVertex(graph);
+//    if (random_number > RANDOM_RATE) {//轮盘赌
+//        next_point = getRandomVertex(graph);
+//    } else {
+//        if (PATH_SELECTED_METHOD == 1) { //ACO
+//            next_point =getMaxPheromonesVertex(graph);
+//        } else if (PATH_SELECTED_METHOD == 2) { //greedy
+//            next_point =getGreedyVertex(graph);
+//        } else if (PATH_SELECTED_METHOD == 3) { //dijkstra
+//            next_point =getDijkstraVertex(graph);
+//        }
+//    }
+
+    if (PATH_SELECTED_METHOD == 1) { //ACO
+        if (random_number > RANDOM_RATE) {//轮盘赌
+            next_point = getRandomVertex(graph);
+        } else {
+            next_point = getMaxPheromonesVertex(graph);
         }
+    } else if (PATH_SELECTED_METHOD == 2) { //greedy
+        next_point = getGreedyVertex(graph);
+    } else if (PATH_SELECTED_METHOD == 3) { //dijkstra
+        next_point = getDijkstraVertex(graph);
     }
+
     return next_point;
 }
 
@@ -146,7 +161,8 @@ int Ant::getRandomVertex(Graph &graph) {
     std::vector<int> candidate_nodes; // 用于存储符合条件的节点索引
     for (int i = 0; i < graph.vertex_num; i++) {
         // 未访问且存在路径且路径容量大于1的节点
-        if (!visited_vertex[i] && graph.matrix_length[now_vertex][i] != 0 && graph.matrix_capacity[now_vertex][i] > MIN_CAPACITY) {
+        if (!visited_vertex[i] && graph.matrix_length[now_vertex][i] != 0 &&
+            graph.matrix_capacity[now_vertex][i] > MIN_CAPACITY) {
             double pheromone = graph.pheromones[now_vertex][i];
             if (pheromone > max_pheromone) {
                 max_pheromone = pheromone;
@@ -170,12 +186,48 @@ int Ant::getRandomVertex(Graph &graph) {
     }
 }
 
-int Ant::leaveRoutePheromones(Graph &graph, int k) {
+int Ant::leaveRoutePheromones(Graph &graph) {
     for (size_t i = 0; i < route.size() - 1; ++i) {
         int current_node = route[i];
         int next_node = route[i + 1];
-        graph.pheromones[current_node][next_node] =
-                (1 - GLOBAL_EVAPORATE_RATE) * graph.pheromones[current_node][next_node] + (1 / double(arrive_time));
+
+        if (MULTI_TARGET == 1) {
+            //受伤了，减信息素
+            if (hurt) {
+                graph.pheromones[current_node][next_node] =
+                        MULTI_TIME_IMPORTANCE *
+                        ((1 - GLOBAL_EVAPORATE_RATE) * graph.pheromones[current_node][next_node] +
+                         (1 / double(arrive_time)))
+                        +
+                        MULTI_SAFE_IMPORTANCE * graph.pheromones[current_node][next_node] * (1 - MULTI_SAFE_PARAMETER);
+            } else { //没受伤，加信息素
+                graph.pheromones[current_node][next_node] =
+                        MULTI_TIME_IMPORTANCE *
+                        ((1 - GLOBAL_EVAPORATE_RATE) * graph.pheromones[current_node][next_node] +
+                         (1 / double(arrive_time)))
+                        +
+                        MULTI_SAFE_IMPORTANCE * graph.pheromones[current_node][next_node] * (1 + MULTI_SAFE_PARAMETER);
+            }
+/*            graph.pheromones[current_node][next_node] =
+                    MULTI_TIME_IMPORTANCE * ((1 - GLOBAL_EVAPORATE_RATE) * graph.pheromones[current_node][next_node] +
+                                             (1 / double(arrive_time)))
+                    + MULTI_SAFE_IMPORTANCE * graph.pheromones[current_node][next_node] * 1.2;;*/
+        } else if (MULTI_TARGET == 2) {
+            graph.pheromones[current_node][next_node] =
+                    (1 - GLOBAL_EVAPORATE_RATE) * graph.pheromones[current_node][next_node] + (1 / double(arrive_time));
+        } else if (MULTI_TARGET == 3) {
+            if (hurt) {
+                graph.pheromones[current_node][next_node] =
+                        graph.pheromones[current_node][next_node] * (1 - MULTI_SAFE_PARAMETER);
+            } else { //没受伤，加信息素
+                graph.pheromones[current_node][next_node] =
+                        graph.pheromones[current_node][next_node] * (1 + MULTI_SAFE_PARAMETER);
+            }
+        }
+
+//
+//        graph.pheromones[current_node][next_node] =
+//                (1 - GLOBAL_EVAPORATE_RATE) * graph.pheromones[current_node][next_node] + (1 / double(arrive_time));
 //        graph.pheromones[current_node][next_node] = graph.pheromones[current_node][next_node] + (1 / double(arrive_time));
 //                (1 - GLOBAL_EVAPORATE_RATE) * graph.pheromones[current_node][next_node] + (1 / double(arrive_time));
     }
@@ -194,7 +246,9 @@ int Ant::getMaxPheromonesVertex(Graph &graph) {
     for (int i = 0; i < graph.vertex_num; i++) {
         // 检查条件：节点未被访问、存在路径、路径容量大于1
         // 大于1是因为计算信息素不能为0，修改启发式后可能可以为0
-        if (!visited_vertex[i] && graph.matrix_length[now_vertex][i] != 0 && graph.matrix_capacity[now_vertex][i] > MIN_CAPACITY) {
+        if (!visited_vertex[i] && graph.matrix_length[now_vertex][i] != 0 &&
+            graph.matrix_capacity[now_vertex][i] > MIN_CAPACITY) {
+//        if (!visited_vertex[i] && graph.matrix_length[now_vertex][i] != 0) {
             // 获取当前边上的信息素值
             double pheromone = graph.pheromones[now_vertex][i];
 
@@ -216,14 +270,19 @@ int Ant::getMaxPheromonesVertex(Graph &graph) {
         // 没有找到可行的节点
         return -1;
     }
+//    if(graph.matrix_capacity[now_vertex][max_pheromone_node] > MIN_CAPACITY){
+//        return max_pheromone_node;
+//    } else{
+//        return -1;
+//    }
 }
 
 int Ant::getDijkstraVertex(Graph &graph) {
     int next_point = -1;
     next_point = graph.dijkstra_next_point[now_vertex];
-    if(graph.matrix_capacity[now_vertex][next_point] > MIN_CAPACITY){
+    if (graph.matrix_capacity[now_vertex][next_point] > MIN_CAPACITY) {
         return next_point;
-    }else{
+    } else {
         return -1;
     }
 }
@@ -231,14 +290,20 @@ int Ant::getDijkstraVertex(Graph &graph) {
 int Ant::getGreedyVertex(Graph &graph) {
     int next_point = -1;
     int temp = INT32_MAX;
-    for(int i = 0; i < graph.vertex_num; i++){
-        if(graph.matrix_length[now_vertex][i] != 0 && graph.matrix_capacity[now_vertex][i] > MIN_CAPACITY){
-            if(temp > graph.matrix_length[now_vertex][i]){
+    for (int i = 0; i < graph.vertex_num; i++) {
+//        if(graph.matrix_length[now_vertex][i] != 0 && graph.matrix_capacity[now_vertex][i] > MIN_CAPACITY){
+        if (graph.matrix_length[now_vertex][i] != 0) {
+            if (temp > graph.matrix_length[now_vertex][i]) {
                 next_point = i;
                 temp = graph.matrix_length[now_vertex][i];
             }
         }
     }
-    return next_point;
+    if (graph.matrix_capacity[now_vertex][next_point] > MIN_CAPACITY) {
+        return next_point;
+    } else {
+        return -1;
+    }
+//    return next_point;
 }
 

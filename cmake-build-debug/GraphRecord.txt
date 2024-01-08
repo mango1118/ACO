@@ -1,269 +1,413 @@
 
 
-2024-01-06 21:20:48
+2024-01-07 20:58:57
 path select method: 1
 --------------------run time: 1 -------------------- 
 
-
-
-2024-01-06 21:21:00
-path select method: 1
---------------------run time: 1 -------------------- 
-
-
-
-2024-01-06 21:22:12
-path select method: 1
---------------------run time: 1 -------------------- 
-
-iteration time: 1	 min time: 769
-iteration time: 2	 min time: 516
-iteration time: 4	 min time: 443
-iteration time: 9	 min time: 399
-iteration time: 63	 min time: 394
-best time: 394	 average time: 823
+iteration time: 1	 min time: 446	 hurt ant: 21
+iteration time: 2	 min time: 311	 hurt ant: 28
+iteration time: 4	 min time: 304	 hurt ant: 28
+iteration time: 10	 min time: 295	 hurt ant: 34
+iteration time: 12	 min time: 357	 hurt ant: 20
+iteration time: 19	 min time: 337	 hurt ant: 14
+iteration time: 25	 min time: 289	 hurt ant: 31
+iteration time: 54	 min time: 443	 hurt ant: 13
+average time: 360	 average hurt: 26
 --------------------run time: 2 -------------------- 
 
-iteration time: 1	 min time: 1123
-iteration time: 2	 min time: 1088
-iteration time: 5	 min time: 565
-iteration time: 8	 min time: 507
-iteration time: 11	 min time: 371
-best time: 371	 average time: 830
+iteration time: 1	 min time: 481	 hurt ant: 27
+iteration time: 2	 min time: 304	 hurt ant: 28
+iteration time: 3	 min time: 317	 hurt ant: 24
+iteration time: 5	 min time: 317	 hurt ant: 23
+iteration time: 21	 min time: 354	 hurt ant: 19
+iteration time: 26	 min time: 280	 hurt ant: 31
+iteration time: 45	 min time: 304	 hurt ant: 16
+average time: 377	 average hurt: 27
 --------------------run time: 3 -------------------- 
 
-iteration time: 1	 min time: 698
-iteration time: 3	 min time: 527
-iteration time: 5	 min time: 525
-iteration time: 7	 min time: 495
-iteration time: 8	 min time: 489
-iteration time: 9	 min time: 481
-iteration time: 15	 min time: 459
-iteration time: 29	 min time: 426
-iteration time: 53	 min time: 373
-best time: 373	 average time: 808
+iteration time: 1	 min time: 569	 hurt ant: 31
+iteration time: 2	 min time: 304	 hurt ant: 30
+iteration time: 4	 min time: 304	 hurt ant: 24
+iteration time: 8	 min time: 304	 hurt ant: 20
+iteration time: 11	 min time: 300	 hurt ant: 22
+iteration time: 13	 min time: 298	 hurt ant: 29
+iteration time: 32	 min time: 341	 hurt ant: 19
+iteration time: 33	 min time: 364	 hurt ant: 17
+iteration time: 37	 min time: 289	 hurt ant: 21
+iteration time: 46	 min time: 286	 hurt ant: 26
+average time: 368	 average hurt: 28
 --------------------run time: 4 -------------------- 
 
-iteration time: 1	 min time: 1637
-iteration time: 2	 min time: 487
-iteration time: 22	 min time: 459
-iteration time: 92	 min time: 433
-best time: 433	 average time: 848
+iteration time: 1	 min time: 569	 hurt ant: 26
+iteration time: 2	 min time: 446	 hurt ant: 26
+iteration time: 3	 min time: 317	 hurt ant: 21
+iteration time: 6	 min time: 304	 hurt ant: 20
+iteration time: 9	 min time: 295	 hurt ant: 32
+iteration time: 11	 min time: 281	 hurt ant: 28
+iteration time: 42	 min time: 280	 hurt ant: 26
+iteration time: 49	 min time: 417	 hurt ant: 16
+iteration time: 59	 min time: 277	 hurt ant: 34
+iteration time: 83	 min time: 416	 hurt ant: 14
+average time: 364	 average hurt: 27
 --------------------run time: 5 -------------------- 
 
-iteration time: 1	 min time: 1075
-iteration time: 4	 min time: 842
-iteration time: 5	 min time: 790
-iteration time: 6	 min time: 726
-iteration time: 7	 min time: 696
-iteration time: 8	 min time: 525
-iteration time: 10	 min time: 474
-iteration time: 14	 min time: 440
-iteration time: 64	 min time: 418
-best time: 418	 average time: 793
+iteration time: 1	 min time: 446	 hurt ant: 24
+iteration time: 2	 min time: 266	 hurt ant: 32
+iteration time: 7	 min time: 342	 hurt ant: 14
+average time: 372	 average hurt: 25
 --------------------run time: 6 -------------------- 
 
-iteration time: 1	 min time: 640
-iteration time: 5	 min time: 521
-iteration time: 6	 min time: 485
-iteration time: 20	 min time: 432
-iteration time: 64	 min time: 405
-best time: 405	 average time: 822
---------------------run time: 7 -------------------- 
-
-iteration time: 1	 min time: 1314
-iteration time: 2	 min time: 1072
-iteration time: 3	 min time: 434
-iteration time: 44	 min time: 414
-best time: 414	 average time: 794
---------------------run time: 8 -------------------- 
-
-iteration time: 1	 min time: 801
-iteration time: 7	 min time: 763
-iteration time: 11	 min time: 529
-iteration time: 17	 min time: 433
-best time: 433	 average time: 865
---------------------run time: 9 -------------------- 
-
-iteration time: 1	 min time: 1068
-iteration time: 2	 min time: 517
-iteration time: 8	 min time: 508
-iteration time: 15	 min time: 454
-iteration time: 81	 min time: 431
-iteration time: 96	 min time: 413
-best time: 413	 average time: 816
---------------------run time: 10 -------------------- 
-
-iteration time: 1	 min time: 1032
-iteration time: 4	 min time: 817
-iteration time: 5	 min time: 529
-iteration time: 12	 min time: 505
-iteration time: 16	 min time: 495
-iteration time: 28	 min time: 432
-iteration time: 83	 min time: 411
-best time: 411	 average time: 823
---------------- over ---------------
+iteration time: 1	 min time: 481	 hurt ant: 20
+iteration time: 2	 min time: 304	 hurt ant: 25
+iteration time: 6	 min time: 446	 hurt ant: 19
 
 
-2024-01-06 21:22:23
+2024-01-07 21:01:07
 path select method: 2
 --------------------run time: 1 -------------------- 
 
-iteration time: 1	 min time: 853
-iteration time: 2	 min time: 692
-iteration time: 5	 min time: 628
-iteration time: 6	 min time: 501
-iteration time: 8	 min time: 477
-iteration time: 10	 min time: 474
-iteration time: 38	 min time: 451
-iteration time: 40	 min time: 432
-iteration time: 95	 min time: 416
-best time: 416	 average time: 736
+iteration time: 1	 min time: 541	 hurt ant: 69
+iteration time: 2	 min time: 510	 hurt ant: 61
+iteration time: 7	 min time: 512	 hurt ant: 59
+iteration time: 10	 min time: 549	 hurt ant: 57
+iteration time: 11	 min time: 506	 hurt ant: 60
+iteration time: 13	 min time: 505	 hurt ant: 60
+iteration time: 36	 min time: 521	 hurt ant: 54
+iteration time: 43	 min time: 504	 hurt ant: 59
+iteration time: 47	 min time: 498	 hurt ant: 54
+iteration time: 56	 min time: 501	 hurt ant: 53
+iteration time: 98	 min time: 534	 hurt ant: 45
+average time: 521	 average hurt: 64
 --------------------run time: 2 -------------------- 
 
-iteration time: 1	 min time: 654
-iteration time: 3	 min time: 639
-iteration time: 5	 min time: 528
-iteration time: 12	 min time: 520
-iteration time: 23	 min time: 485
-iteration time: 25	 min time: 408
-best time: 408	 average time: 784
+iteration time: 1	 min time: 506	 hurt ant: 56
+iteration time: 11	 min time: 506	 hurt ant: 52
+iteration time: 18	 min time: 502	 hurt ant: 58
+iteration time: 21	 min time: 500	 hurt ant: 54
+iteration time: 35	 min time: 492	 hurt ant: 48
+average time: 521	 average hurt: 65
 --------------------run time: 3 -------------------- 
 
-iteration time: 1	 min time: 575
-iteration time: 4	 min time: 453
-iteration time: 25	 min time: 376
-best time: 376	 average time: 758
+iteration time: 1	 min time: 510	 hurt ant: 62
+iteration time: 3	 min time: 507	 hurt ant: 56
+iteration time: 4	 min time: 491	 hurt ant: 49
+iteration time: 52	 min time: 484	 hurt ant: 41
+average time: 519	 average hurt: 64
 --------------------run time: 4 -------------------- 
 
-iteration time: 1	 min time: 1023
-iteration time: 4	 min time: 726
-iteration time: 6	 min time: 630
-iteration time: 8	 min time: 578
-iteration time: 9	 min time: 561
-iteration time: 12	 min time: 559
-iteration time: 13	 min time: 532
-iteration time: 26	 min time: 486
-iteration time: 28	 min time: 436
-iteration time: 32	 min time: 432
-iteration time: 37	 min time: 401
-best time: 401	 average time: 778
+iteration time: 1	 min time: 532	 hurt ant: 73
+iteration time: 2	 min time: 533	 hurt ant: 71
+iteration time: 3	 min time: 513	 hurt ant: 59
+iteration time: 9	 min time: 548	 hurt ant: 56
+iteration time: 10	 min time: 513	 hurt ant: 51
+iteration time: 14	 min time: 511	 hurt ant: 58
+iteration time: 27	 min time: 503	 hurt ant: 56
+iteration time: 35	 min time: 501	 hurt ant: 56
+iteration time: 44	 min time: 499	 hurt ant: 51
+iteration time: 46	 min time: 498	 hurt ant: 52
+iteration time: 82	 min time: 497	 hurt ant: 48
+average time: 521	 average hurt: 65
 --------------------run time: 5 -------------------- 
 
-iteration time: 1	 min time: 697
-iteration time: 2	 min time: 686
-iteration time: 3	 min time: 676
-iteration time: 5	 min time: 660
-iteration time: 8	 min time: 497
-iteration time: 56	 min time: 474
-iteration time: 62	 min time: 445
-iteration time: 79	 min time: 434
-iteration time: 81	 min time: 431
-best time: 431	 average time: 737
+iteration time: 1	 min time: 510	 hurt ant: 58
+iteration time: 16	 min time: 499	 hurt ant: 49
+iteration time: 26	 min time: 491	 hurt ant: 48
+average time: 521	 average hurt: 65
 --------------------run time: 6 -------------------- 
 
-iteration time: 1	 min time: 561
-iteration time: 4	 min time: 555
-iteration time: 6	 min time: 526
-iteration time: 9	 min time: 416
-best time: 416	 average time: 745
+iteration time: 1	 min time: 529	 hurt ant: 69
+iteration time: 2	 min time: 536	 hurt ant: 53
+iteration time: 3	 min time: 507	 hurt ant: 57
+iteration time: 20	 min time: 510	 hurt ant: 51
+iteration time: 21	 min time: 492	 hurt ant: 46
+average time: 523	 average hurt: 65
 --------------------run time: 7 -------------------- 
 
-iteration time: 1	 min time: 564
-iteration time: 7	 min time: 502
-iteration time: 22	 min time: 494
-iteration time: 31	 min time: 481
-iteration time: 41	 min time: 410
-iteration time: 88	 min time: 405
-best time: 405	 average time: 751
+iteration time: 1	 min time: 529	 hurt ant: 62
+iteration time: 2	 min time: 518	 hurt ant: 66
+iteration time: 4	 min time: 517	 hurt ant: 65
+iteration time: 6	 min time: 515	 hurt ant: 64
+iteration time: 10	 min time: 511	 hurt ant: 60
+iteration time: 15	 min time: 510	 hurt ant: 56
+iteration time: 23	 min time: 503	 hurt ant: 55
+iteration time: 33	 min time: 501	 hurt ant: 56
+iteration time: 63	 min time: 501	 hurt ant: 53
+iteration time: 94	 min time: 499	 hurt ant: 55
+iteration time: 96	 min time: 498	 hurt ant: 52
+average time: 521	 average hurt: 65
 --------------------run time: 8 -------------------- 
 
-iteration time: 1	 min time: 597
-iteration time: 7	 min time: 436
-iteration time: 9	 min time: 388
-best time: 388	 average time: 732
+iteration time: 1	 min time: 520	 hurt ant: 61
+iteration time: 3	 min time: 515	 hurt ant: 60
+iteration time: 4	 min time: 513	 hurt ant: 60
+iteration time: 5	 min time: 512	 hurt ant: 60
+iteration time: 9	 min time: 508	 hurt ant: 53
+iteration time: 20	 min time: 502	 hurt ant: 52
+iteration time: 37	 min time: 499	 hurt ant: 53
+iteration time: 42	 min time: 498	 hurt ant: 49
+iteration time: 68	 min time: 493	 hurt ant: 47
+average time: 521	 average hurt: 65
 --------------------run time: 9 -------------------- 
 
-iteration time: 1	 min time: 839
-iteration time: 3	 min time: 837
-iteration time: 4	 min time: 619
-iteration time: 5	 min time: 539
-iteration time: 11	 min time: 451
-iteration time: 56	 min time: 439
-iteration time: 78	 min time: 436
-best time: 436	 average time: 731
+iteration time: 1	 min time: 516	 hurt ant: 64
+iteration time: 4	 min time: 512	 hurt ant: 59
+iteration time: 7	 min time: 497	 hurt ant: 47
+iteration time: 62	 min time: 496	 hurt ant: 49
+average time: 522	 average hurt: 65
 --------------------run time: 10 -------------------- 
 
-iteration time: 1	 min time: 835
-iteration time: 3	 min time: 707
-iteration time: 5	 min time: 484
-iteration time: 17	 min time: 477
-iteration time: 34	 min time: 459
-iteration time: 41	 min time: 434
-best time: 434	 average time: 757
+iteration time: 1	 min time: 551	 hurt ant: 76
+iteration time: 2	 min time: 516	 hurt ant: 66
+iteration time: 5	 min time: 512	 hurt ant: 63
+iteration time: 8	 min time: 525	 hurt ant: 61
+iteration time: 10	 min time: 497	 hurt ant: 51
+iteration time: 24	 min time: 500	 hurt ant: 50
+iteration time: 67	 min time: 496	 hurt ant: 49
+average time: 519	 average hurt: 64
 --------------- over ---------------
 
 
-2024-01-06 21:22:33
+2024-01-07 21:29:39
 path select method: 3
 --------------------run time: 1 -------------------- 
 
-iteration time: 1	 min time: 955
-iteration time: 2	 min time: 527
-iteration time: 4	 min time: 504
-iteration time: 36	 min time: 498
-best time: 498	 average time: 618
+iteration time: 1	 min time: 692	 hurt ant: 27
+iteration time: 5	 min time: 675	 hurt ant: 22
+iteration time: 49	 min time: 692	 hurt ant: 21
+iteration time: 77	 min time: 674	 hurt ant: 21
+iteration time: 99	 min time: 672	 hurt ant: 22
+average time: 700	 average hurt: 30
 --------------------run time: 2 -------------------- 
 
-iteration time: 1	 min time: 578
-iteration time: 2	 min time: 532
-iteration time: 4	 min time: 525
-iteration time: 6	 min time: 505
-iteration time: 10	 min time: 504
-iteration time: 36	 min time: 455
-best time: 455	 average time: 579
+iteration time: 1	 min time: 700	 hurt ant: 25
+iteration time: 2	 min time: 703	 hurt ant: 21
+iteration time: 3	 min time: 687	 hurt ant: 24
+iteration time: 11	 min time: 686	 hurt ant: 28
+iteration time: 13	 min time: 677	 hurt ant: 23
+iteration time: 36	 min time: 674	 hurt ant: 23
+iteration time: 52	 min time: 672	 hurt ant: 20
+average time: 699	 average hurt: 29
 --------------------run time: 3 -------------------- 
 
-iteration time: 1	 min time: 504
-best time: 504	 average time: 625
+iteration time: 1	 min time: 722	 hurt ant: 29
+iteration time: 2	 min time: 709	 hurt ant: 33
+iteration time: 4	 min time: 694	 hurt ant: 31
+iteration time: 7	 min time: 688	 hurt ant: 26
+iteration time: 9	 min time: 682	 hurt ant: 24
+iteration time: 23	 min time: 668	 hurt ant: 15
+average time: 698	 average hurt: 29
 --------------------run time: 4 -------------------- 
 
-iteration time: 1	 min time: 504
-best time: 504	 average time: 659
+iteration time: 1	 min time: 696	 hurt ant: 23
+iteration time: 2	 min time: 672	 hurt ant: 18
+iteration time: 17	 min time: 685	 hurt ant: 15
+iteration time: 43	 min time: 663	 hurt ant: 15
+average time: 700	 average hurt: 29
 --------------------run time: 5 -------------------- 
 
-iteration time: 1	 min time: 578
-iteration time: 2	 min time: 525
-iteration time: 8	 min time: 515
-iteration time: 38	 min time: 504
-best time: 504	 average time: 621
+iteration time: 1	 min time: 724	 hurt ant: 33
+iteration time: 2	 min time: 700	 hurt ant: 28
+iteration time: 3	 min time: 691	 hurt ant: 32
+iteration time: 4	 min time: 661	 hurt ant: 16
+average time: 698	 average hurt: 29
 --------------------run time: 6 -------------------- 
 
-iteration time: 1	 min time: 504
-iteration time: 96	 min time: 498
-best time: 498	 average time: 621
+iteration time: 1	 min time: 715	 hurt ant: 37
+iteration time: 2	 min time: 682	 hurt ant: 23
+iteration time: 6	 min time: 679	 hurt ant: 25
+iteration time: 30	 min time: 686	 hurt ant: 22
+iteration time: 37	 min time: 674	 hurt ant: 22
+iteration time: 43	 min time: 678	 hurt ant: 19
+iteration time: 93	 min time: 672	 hurt ant: 18
+average time: 698	 average hurt: 30
 --------------------run time: 7 -------------------- 
 
-iteration time: 1	 min time: 527
-iteration time: 4	 min time: 504
-iteration time: 32	 min time: 487
-best time: 487	 average time: 609
+iteration time: 1	 min time: 703	 hurt ant: 36
+iteration time: 2	 min time: 704	 hurt ant: 33
+iteration time: 3	 min time: 688	 hurt ant: 24
+iteration time: 14	 min time: 677	 hurt ant: 24
+iteration time: 17	 min time: 684	 hurt ant: 20
+iteration time: 58	 min time: 682	 hurt ant: 19
+iteration time: 98	 min time: 676	 hurt ant: 23
+average time: 700	 average hurt: 30
 --------------------run time: 8 -------------------- 
 
-iteration time: 1	 min time: 877
-iteration time: 2	 min time: 498
-best time: 498	 average time: 629
+iteration time: 1	 min time: 699	 hurt ant: 34
+iteration time: 2	 min time: 694	 hurt ant: 32
+iteration time: 3	 min time: 693	 hurt ant: 31
+iteration time: 5	 min time: 680	 hurt ant: 26
+iteration time: 6	 min time: 681	 hurt ant: 25
+iteration time: 9	 min time: 671	 hurt ant: 20
+iteration time: 33	 min time: 675	 hurt ant: 19
+average time: 697	 average hurt: 30
 --------------------run time: 9 -------------------- 
 
-iteration time: 1	 min time: 872
-iteration time: 2	 min time: 530
-iteration time: 3	 min time: 524
-iteration time: 13	 min time: 512
-iteration time: 24	 min time: 504
-best time: 504	 average time: 662
+iteration time: 1	 min time: 691	 hurt ant: 30
+iteration time: 4	 min time: 685	 hurt ant: 29
+iteration time: 7	 min time: 688	 hurt ant: 26
+iteration time: 9	 min time: 677	 hurt ant: 23
+iteration time: 15	 min time: 676	 hurt ant: 22
+iteration time: 27	 min time: 667	 hurt ant: 17
+iteration time: 98	 min time: 666	 hurt ant: 19
+average time: 697	 average hurt: 29
 --------------------run time: 10 -------------------- 
 
-iteration time: 1	 min time: 734
-iteration time: 2	 min time: 504
-best time: 504	 average time: 640
+iteration time: 1	 min time: 721	 hurt ant: 39
+iteration time: 2	 min time: 696	 hurt ant: 32
+iteration time: 3	 min time: 687	 hurt ant: 27
+iteration time: 4	 min time: 686	 hurt ant: 29
+iteration time: 6	 min time: 719	 hurt ant: 25
+iteration time: 16	 min time: 676	 hurt ant: 22
+iteration time: 34	 min time: 666	 hurt ant: 16
+average time: 696	 average hurt: 28
 --------------- over ---------------
+
+
+2024-01-07 22:01:08
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 716	 hurt ant: 35	 target function: 89.100000
+iteration time: 3	 min time: 694	 hurt ant: 34	 target function: 86.400000
+iteration time: 5	 min time: 688	 hurt ant: 27	 target function: 82.300000
+iteration time: 8	 min time: 676	 hurt ant: 23	 target function: 79.100000
+iteration time: 9	 min time: 669	 hurt ant: 19	 target function: 76.400000
+iteration time: 38	 min time: 667	 hurt ant: 15	 target function: 74.200000
+average time: 697	 average hurt: 29
+--------------------run time: 2 -------------------- 
+
+iteration time: 1	 min time: 723	 hurt ant: 34	 target function: 89.300000
+iteration time: 2	 min time: 714	 hurt ant: 36	 target function: 89.400000
+iteration time: 3	 min time: 691	 hurt ant: 27	 target function: 82.600000
+iteration time: 7	 min time: 685	 hurt ant: 28	 target function: 82.500000
+iteration time: 9	 min time: 682	 hurt ant: 27	 target function: 81.700000
+iteration time: 10	 min time: 687	 hurt ant: 22	 target function: 79.700000
+iteration time: 15	 min time: 677	 hurt ant: 23	 target function: 79.200000
+iteration time: 25	 min time: 675	 hurt ant: 23	 target function: 79.000000
+iteration time: 35	 min time: 674	 hurt ant: 20	 target function: 77.400000
+iteration time: 45	 min time: 665	 hurt ant: 18	 target function: 75.500000
+average time: 698	 average hurt: 30
+--------------------run time: 3 -------------------- 
+
+iteration time: 1	 min time: 680	 hurt ant: 24	 target function: 80.000000
+iteration time: 4	 min time: 686	 hurt ant: 20	 target function: 78.600000
+iteration time: 5	 min time: 668	 hurt ant: 19	 target function: 76.300000
+
+
+2024-01-07 22:07:39
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 569	 hurt ant: 20	 target function: 66.900000
+iteration time: 2	 min time: 525	 hurt ant: 29	 target function: 67.000000
+iteration time: 3	 min time: 350	 hurt ant: 31	 target function: 50.500000
+iteration time: 4	 min time: 304	 hurt ant: 25	 target function: 42.900000
+iteration time: 11	 min time: 300	 hurt ant: 28	 target function: 44.000000
+iteration time: 25	 min time: 356	 hurt ant: 15	 target function: 43.100000
+iteration time: 30	 min time: 294	 hurt ant: 28	 target function: 43.400000
+iteration time: 40	 min time: 289	 hurt ant: 27	 target function: 42.400000
+iteration time: 43	 min time: 284	 hurt ant: 21	 target function: 38.900000
+iteration time: 64	 min time: 446	 hurt ant: 11	 target function: 50.100000
+average time: 363	 average hurt: 26
+--------------------run time: 2 -------------------- 
+
+iteration time: 1	 min time: 481	 hurt ant: 26	 target function: 61.100000
+iteration time: 2	 min time: 364	 hurt ant: 25	 target function: 48.900000
+iteration time: 4	 min time: 304	 hurt ant: 33	 target function: 46.900000
+iteration time: 7	 min time: 300	 hurt ant: 24	 target function: 42.000000
+iteration time: 8	 min time: 337	 hurt ant: 23	 target function: 45.200000
+iteration time: 20	 min time: 286	 hurt ant: 31	 target function: 44.100000
+iteration time: 28	 min time: 443	 hurt ant: 21	 target function: 54.800000
+iteration time: 30	 min time: 326	 hurt ant: 19	 target function: 42.100000
+iteration time: 37	 min time: 282	 hurt ant: 20	 target function: 38.200000
+iteration time: 43	 min time: 294	 hurt ant: 16	 target function: 37.400000
+iteration time: 99	 min time: 458	 hurt ant: 15	 target function: 53.300000
+average time: 372	 average hurt: 27
+--------------------run time: 3 -------------------- 
+
+iteration time: 1	 min time: 501	 hurt ant: 26	 target function: 63.100000
+iteration time: 3	 min time: 364	 hurt ant: 26	 target function: 49.400000
+iteration time: 4	 min time: 304	 hurt ant: 23	 target function: 41.900000
+iteration time: 5	 min time: 304	 hurt ant: 17	 target function: 38.900000
+iteration time: 8	 min time: 289	 hurt ant: 28	 target function: 42.900000
+iteration time: 30	 min time: 283	 hurt ant: 29	 target function: 42.800000
+iteration time: 31	 min time: 258	 hurt ant: 30	 target function: 40.800000
+average time: 367	 average hurt: 27
+--------------------run time: 4 -------------------- 
+
+iteration time: 1	 min time: 446	 hurt ant: 26	 target function: 57.600000
+iteration time: 2	 min time: 317	 hurt ant: 33	 target function: 48.200000
+iteration time: 6	 min time: 304	 hurt ant: 24	 target function: 42.400000
+iteration time: 7	 min time: 392	 hurt ant: 21	 target function: 49.700000
+iteration time: 12	 min time: 289	 hurt ant: 27	 target function: 42.400000
+iteration time: 20	 min time: 304	 hurt ant: 17	 target function: 38.900000
+iteration time: 34	 min time: 308	 hurt ant: 16	 target function: 38.800000
+iteration time: 42	 min time: 288	 hurt ant: 29	 target function: 43.300000
+iteration time: 59	 min time: 342	 hurt ant: 15	 target function: 41.700000
+average time: 351	 average hurt: 27
+--------------------run time: 5 -------------------- 
+
+iteration time: 1	 min time: 481	 hurt ant: 31	 target function: 63.600000
+iteration time: 2	 min time: 364	 hurt ant: 20	 target function: 46.400000
+iteration time: 3	 min time: 304	 hurt ant: 19	 target function: 39.900000
+iteration time: 25	 min time: 289	 hurt ant: 27	 target function: 42.400000
+iteration time: 42	 min time: 304	 hurt ant: 13	 target function: 36.900000
+iteration time: 93	 min time: 285	 hurt ant: 29	 target function: 43.000000
+average time: 364	 average hurt: 26
+--------------------run time: 6 -------------------- 
+
+iteration time: 1	 min time: 893	 hurt ant: 31	 target function: 104.800000
+iteration time: 2	 min time: 414	 hurt ant: 22	 target function: 52.400000
+iteration time: 3	 min time: 304	 hurt ant: 22	 target function: 41.400000
+iteration time: 16	 min time: 456	 hurt ant: 18	 target function: 54.600000
+
+
+2024-01-07 22:12:43
+path select method: 2
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 504	 hurt ant: 51	 target function: 75.900000
+iteration time: 4	 min time: 501	 hurt ant: 50	 target function: 75.100000
+iteration time: 7	 min time: 490	 hurt ant: 48	 target function: 73.000000
+average time: 520	 average hurt: 64
+--------------------run time: 2 -------------------- 
+
+iteration time: 1	 min time: 518	 hurt ant: 62	 target function: 82.800000
+iteration time: 2	 min time: 509	 hurt ant: 60	 target function: 80.900000
+iteration time: 5	 min time: 507	 hurt ant: 61	 target function: 81.200000
+iteration time: 15	 min time: 516	 hurt ant: 57	 target function: 80.100000
+iteration time: 17	 min time: 506	 hurt ant: 57	 target function: 79.100000
+iteration time: 28	 min time: 509	 hurt ant: 53	 target function: 77.400000
+iteration time: 40	 min time: 498	 hurt ant: 49	 target function: 74.300000
+average time: 520	 average hurt: 64
+--------------------run time: 3 -------------------- 
+
+iteration time: 1	 min time: 523	 hurt ant: 69	 target function: 86.800000
+iteration time: 2	 min time: 513	 hurt ant: 63	 target function: 82.800000
+iteration time: 6	 min time: 512	 hurt ant: 61	 target function: 81.700000
+iteration time: 7	 min time: 513	 hurt ant: 55	 target function: 78.800000
+iteration time: 8	 min time: 498	 hurt ant: 51	 target function: 75.300000
+iteration time: 12	 min time: 496	 hurt ant: 52	 target function: 75.600000
+iteration time: 35	 min time: 504	 hurt ant: 50	 target function: 75.400000
+iteration time: 73	 min time: 495	 hurt ant: 51	 target function: 75.000000
+iteration time: 92	 min time: 498	 hurt ant: 47	 target function: 73.300000
+average time: 520	 average hurt: 64
+--------------------run time: 4 -------------------- 
+
+iteration time: 1	 min time: 509	 hurt ant: 56	 target function: 78.900000
+iteration time: 11	 min time: 507	 hurt ant: 60	 target function: 80.700000
+iteration time: 20	 min time: 506	 hurt ant: 57	 target function: 79.100000
+iteration time: 22	 min time: 502	 hurt ant: 52	 target function: 76.200000
+average time: 521	 average hurt: 65
+--------------------run time: 5 -------------------- 
+
+iteration time: 1	 min time: 525	 hurt ant: 70	 target function: 87.500000
+iteration time: 2	 min time: 507	 hurt ant: 50	 target function: 75.700000
+iteration time: 8	 min time: 501	 hurt ant: 53	 target function: 76.600000
+
+
+2024-01-08 10:58:06
+path select method: 2
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 528	 hurt ant: 70	 target function: 87.800000

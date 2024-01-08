@@ -7,14 +7,14 @@
 #include <sstream>
 #include <random>
 #include <algorithm>
+#include <unordered_set>
 
 using namespace std;
 
 #define MAX 30
-#define MAX_TIME 2147483647
 
 //路径选择方法
-#define PATH_SELECTED_METHOD 3
+#define PATH_SELECTED_METHOD 2
 //method 1 represents ACO				ACO蚁群算法
 //method 2 represents greedy method		贪心算法
 //method 3 represents dijkstra			dijkstra算法
@@ -24,21 +24,27 @@ using namespace std;
 //method 1 the max pheromone
 //method 2 roulette next
 
+//多目标优化
+#define MULTI_TARGET 1
+//method 1 多目标
+//method 2 时间
+//method 3 安全
+
+#define MULTI_ANT_MAX 10
+#define MULTI_TIME_IMPORTANCE 0.5
+#define MULTI_SAFE_IMPORTANCE 0.5
+#define MULTI_SAFE_PARAMETER 0.1
+
 //文件名
 #define FILE_NAME "network_example.txt"
 #define RECORD_NAME "GraphRecord.txt"
 
-//起点数，终点数
-#define START_VERTEX_NUM 2
-#define END_VERTEX_NUM 7
-
-//路径长度范围
-#define EDGE_LENGTH_MAX 9
-#define EDGE_LENGTH_MIN 1
-
-//路径容量范围
-#define EDGE_CAPACITY_MAX 9
-#define EDGE_CAPACITY_MIN 1
+//更新文件数
+#define NEW_RECORD_NUM 0
+//更新文件名
+#define NEW_RECORD_1 "network_example_1.txt"
+//更新文件的时间
+#define NEW_RECORD_TIME_1 150
 
 //运行次数
 #define RUN_TIME 10
@@ -60,7 +66,7 @@ using namespace std;
 //速度参数
 #define VELOCITY_PARAMETER 0.2
 //平均速度
-#define AVERAGE_VELOCITY 0.6
+#define AVERAGE_VELOCITY 1
 //计算速度的宽度权重
 #define VELOCITY_WIDTH_WEIGHT 0.5
 //计算速度的容量权重

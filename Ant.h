@@ -29,5 +29,5 @@ public:
     int getRandomVertex(Graph &graph);                  //得到随机节点
     int getRouletteVertex(Graph &graph);                //轮盘赌
     bool arriveEndVertex(Graph &graph);                 //判断是否到达终点
-    int leaveRoutePheromones(Graph &graph, int k);      //在路径上更新全局信息素
+    int leaveRoutePheromones(Graph &graph);      //在路径上更新全局信息素
 };

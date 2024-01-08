@@ -68,8 +68,8 @@ int Graph::readGraphByFile(const string &fileName) {
         iss >> start;
         iss >> end;
         iss >> matrix_length[start][end];
-        iss >> matrix_capacity[start][end];
-        bak_matrix_capacity[start][end] = matrix_capacity[start][end];
+        iss >> bak_matrix_capacity[start][end];
+        matrix_capacity[start][end] = bak_matrix_capacity[start][end];
         iss >> matrix_width[start][end];
         iss >> matrix_danger[start][end];
         iss.clear();
@@ -81,28 +81,77 @@ int Graph::readGraphByFile(const string &fileName) {
     return 0;
 }
 
-int Graph::renewGraphByFile(const string &fileName) {
-    int i = 0;
-    int temp = 0;
-    ifstream inputFile(fileName);
-    istringstream iss;
-    string line;
-    for (i = 0; i < edge_num; i++) {
-        getline(inputFile, line);
-        iss.str(line);
-        int start = 0;
-        int end = 0;
-        iss >> start;
-        iss >> end;
-        iss >> matrix_length[start][end];
-        iss >> matrix_capacity[start][end];
-        bak_matrix_capacity[start][end] = matrix_capacity[start][end];
-        iss >> matrix_width[start][end];
-        iss >> matrix_danger[start][end];
-        iss.clear();
-    }
-    return 0;
-}
+//int Graph::renewGraphByFile(const string &fileName) {
+//    int i = 0;
+//    int temp = 0;
+//    ifstream inputFile(fileName);
+//    istringstream iss;
+//    string line;
+//
+//    // 从文件中读取节点数和边数
+//    getline(inputFile, line);
+//    iss.str(line);
+//    iss >> vertex_num >> edge_num;
+//    iss.clear();
+//
+//    // 从文件中读取起点数和终点数
+//    getline(inputFile, line);
+//    iss.str(line);
+//    iss >> start_vertex_num >> end_vertex_num;
+////    cout << start_vertex_num << endl;
+//    iss.clear();
+//
+//    //读入起点数组
+//    getline(inputFile, line);
+//    iss.str(line);
+//    while (iss >> temp) {
+//        start_vertex[i++] = temp;
+//        // 过滤空格
+//        iss.ignore();
+//    }
+//    i = 0;
+//    iss.clear();
+//
+//    //忽略起点人数信息
+//    getline(inputFile, line);
+//
+//    //读入终点数组
+//    getline(inputFile, line);
+//    iss.str(line);
+//    while (iss >> temp) {
+//        end_vertex[i++] = temp;
+//        // 过滤空格
+//        iss.ignore();
+//    }
+//    i = 0;
+//    iss.clear();
+//
+//    //读入所有边
+//    for (i = 0; i < edge_num; i++) {
+//        getline(inputFile, line);
+//        iss.str(line);
+//        int start = 0;
+//        int end = 0;
+//        iss >> start;
+//        iss >> end;
+//        iss >> matrix_length[start][end];
+//
+//        //不能破坏现有的容量
+//        int temp_difference = 0;
+//        temp_difference = bak_matrix_capacity[start][end] - matrix_capacity[start][end];
+//        iss >> bak_matrix_capacity[start][end];
+//        matrix_capacity[start][end] = bak_matrix_capacity[start][end] - temp_difference;
+//
+//        iss >> matrix_width[start][end];
+//        iss >> matrix_danger[start][end];
+//        iss.clear();
+//    }
+//
+//    //更新dijkstra数组
+//    getAllDijkstraNext();
+//
+//    return 0;
+//}
 
 int Graph::initPheromones() {
     int i = 0;
@@ -114,7 +163,7 @@ int Graph::initPheromones() {
             int length = 0;
             for (int k = 0; k < temp_path.size() - 1; k++) {
 //                length += matrix_length[i][j];
-                length += matrix_length[temp_path[k+1]][temp_path[k]];
+                length += matrix_length[temp_path[k + 1]][temp_path[k]];
             }
             re_pheromone += length * temp_path.size();
         }
@@ -226,9 +275,9 @@ int Graph::getAllDijkstraNext() {
         vector<int> min = dijkstraPathList[0];
         int min_length = getPathLength(dijkstraPathList[0]);
         int index = 0;
-        for(int k = 0; k < dijkstraPathList.size(); k++){
+        for (int k = 0; k < dijkstraPathList.size(); k++) {
             int temp_length = getPathLength(dijkstraPathList[k]);
-            if(temp_length < min_length){
+            if (temp_length < min_length) {
                 min_length = temp_length;
                 min = dijkstraPathList[k];
             }
@@ -237,12 +286,13 @@ int Graph::getAllDijkstraNext() {
         int next_hop = min[min.size() - 2];
         dijkstra_next_point[i] = next_hop;
     }
+//    cout << 1 << endl;
 }
 
-int Graph::getPathLength(vector<int> path){
+int Graph::getPathLength(vector<int> path) {
     int length = 0;
-    for(int i = 0; i < path.size() - 1; i++){
-        length += matrix_length[path[i+1]][path[i]];
+    for (int i = 0; i < path.size() - 1; i++) {
+        length += matrix_length[path[i + 1]][path[i]];
     }
 }
 
