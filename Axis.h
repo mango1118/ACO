@@ -13,8 +13,9 @@
 
 class Axis {
 public:
-    int width;
-    int height;
+    int iteration = 0;
+    vector<int> former_iteration_times;
+    vector<double> former_evaluation;
 
     Axis(Graph &graph);
 
@@ -25,6 +26,7 @@ public:
     void insertPath(vector<int> path, Graph graph);                             //描绘蚂蚁路径
     void initAxis();                                                            //绘制坐标轴
     void initGraph(Graph &graph);                                               //绘制图
+    void insertEvaluation(Graph &graph, int iteration_times, double evaluation);                   //绘制评价函数曲线
 
 };
 

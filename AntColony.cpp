@@ -35,9 +35,9 @@ int AntColony::run() {
             all_hurt += temp_hurt;
             //记录最优解
             if (evaluationFunction(graph, temp_time, temp_hurt) < evaluationFunction(graph, min_time, hurt_ant)) {
-                //                Sleep(1500);
                 collectBestSolution(graph);
                 axis.resetAllLine(graph);
+                axis.insertEvaluation(graph, i, evaluationFunction(graph, temp_time, temp_hurt));
                 for (int k = 0; k < 3; k++) {
                     axis.insertPath(bestAntList[k].route, graph);
                     Sleep(500);
@@ -46,6 +46,8 @@ int AntColony::run() {
             //最佳的蚂蚁释放信息素
             bestAntReleasePheromone(graph);
             if (evaluationFunction(graph, temp_time, temp_hurt) < evaluationFunction(graph, min_time, hurt_ant)) {
+//                axis.insertEvaluation(graph, i, evaluationFunction(graph, temp_time, temp_hurt));
+//                Sleep(500);
                 min_time = min(min_time, temp_time);
                 hurt_ant = min(hurt_ant, temp_hurt);
                 string print_line =
@@ -59,7 +61,6 @@ int AntColony::run() {
                 cout << print_line << endl;
                 antColonyWriteInFile(RECORD_NAME, print_line);
             }
-
 /*            //记录最优解
             if (temp_time < min_time || temp_hurt < hurt_ant) {
 //                Sleep(1500);
@@ -87,21 +88,6 @@ int AntColony::run() {
                 antColonyWriteInFile(RECORD_NAME, print_line);
             }
             */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //            min_time = min(min_time, temp_time);
 //            if (i == 0 || i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 7 || i == 9 || i == 19 || i == 29 || i == 49 ||
 //                i == 79 || i == 99) {
@@ -110,7 +96,10 @@ int AntColony::run() {
 
 //            min_time = min(min_time, temp_time);
 //            cout << "iteration time:" << i + 1<< "\t min time: " << min_time << "\t this time: " << temp_time << endl;
-
+            //最后绘制一次评价函数
+            if (i == ITERATION_TIME - 1) {
+                axis.insertEvaluation(graph, i, evaluationFunction(graph, min_time, hurt_ant));
+            }
             graph.resetVertexAntNum();  //重置初始节点人数
 //            graph.evaporatePheromones();    //蒸发信息素
         }
