@@ -1,5 +1,6 @@
 
 #include "AntColony.h"
+#include "Axis.h"
 
 int AntColony::init() {
     this->iteration_num = ITERATION_TIME;
@@ -9,6 +10,8 @@ int AntColony::init() {
 int AntColony::run() {
     Graph graph;
     setAntList(graph);
+    Axis axis(graph);
+
     for (int run_time = 0; run_time < RUN_TIME; run_time++) {
         //用于计算平均时间
         long all_time = 0;
@@ -31,8 +34,41 @@ int AntColony::run() {
             }
             all_hurt += temp_hurt;
             //记录最优解
-            if (temp_time < min_time || temp_hurt < hurt_ant) {
+            if (evaluationFunction(graph, temp_time, temp_hurt) < evaluationFunction(graph, min_time, hurt_ant)) {
+                //                Sleep(1500);
                 collectBestSolution(graph);
+                axis.resetAllLine(graph);
+                for (int k = 0; k < 3; k++) {
+                    axis.insertPath(bestAntList[k].route, graph);
+                    Sleep(500);
+                }
+            }
+            //最佳的蚂蚁释放信息素
+            bestAntReleasePheromone(graph);
+            if (evaluationFunction(graph, temp_time, temp_hurt) < evaluationFunction(graph, min_time, hurt_ant)) {
+                min_time = min(min_time, temp_time);
+                hurt_ant = min(hurt_ant, temp_hurt);
+                string print_line =
+                        "iteration time: " + to_string(i + 1) + "\t min time: " + to_string(temp_time) +
+                        //                        "\t hurt ant: " + to_string(temp_hurt) + "\t target function: " + to_string(0.1 * temp_time + 0.5 * temp_hurt);
+                        "\t hurt ant: " + to_string(temp_hurt) + "\t target function: " +
+                        to_string(evaluationFunction(graph, temp_time, temp_hurt));
+/*                string print_line =
+                        "iteration time: " + to_string(i + 1) + "\t min time: " + to_string(min_time) + "\t hurt ant: " +
+                        to_string(hurt_ant);*/
+                cout << print_line << endl;
+                antColonyWriteInFile(RECORD_NAME, print_line);
+            }
+
+/*            //记录最优解
+            if (temp_time < min_time || temp_hurt < hurt_ant) {
+//                Sleep(1500);
+                collectBestSolution(graph);
+                axis.resetAllLine(graph);
+                for (int k = 0; k < 3; k++) {
+                    axis.insertPath(bestAntList[k].route, graph);
+                    Sleep(500);
+                }
             }
             //最佳的蚂蚁释放信息素
             bestAntReleasePheromone(graph);
@@ -41,13 +77,30 @@ int AntColony::run() {
                 hurt_ant = min(hurt_ant, temp_hurt);
                 string print_line =
                         "iteration time: " + to_string(i + 1) + "\t min time: " + to_string(temp_time) +
-                        "\t hurt ant: " + to_string(temp_hurt) + "\t target function: " + to_string(0.1 * temp_time + 0.5 * temp_hurt);
-/*                string print_line =
+                        //                        "\t hurt ant: " + to_string(temp_hurt) + "\t target function: " + to_string(0.1 * temp_time + 0.5 * temp_hurt);
+                        "\t hurt ant: " + to_string(temp_hurt) + "\t target function: " +
+                        to_string(evaluationFunction(graph, temp_time, temp_hurt));
+*//*                string print_line =
                         "iteration time: " + to_string(i + 1) + "\t min time: " + to_string(min_time) + "\t hurt ant: " +
-                        to_string(hurt_ant);*/
+                        to_string(hurt_ant);*//*
                 cout << print_line << endl;
                 antColonyWriteInFile(RECORD_NAME, print_line);
             }
+            */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //            min_time = min(min_time, temp_time);
 //            if (i == 0 || i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 7 || i == 9 || i == 19 || i == 29 || i == 49 ||
@@ -146,10 +199,16 @@ int AntColony::bestAntReleasePheromone(Graph &graph) {
 //    for (int i = 0; i < min(k, static_cast<int>(bestAntList.size())); ++i) {
 //        bestAntList[i].leaveRoutePheromones(graph, k);
 //    }
-    vector<Ant> paretoList = findParetoOptimal(antList, MULTI_ANT_MAX);
-    for (Ant &element: paretoList) {
-        element.leaveRoutePheromones(graph);
+    unordered_map<int, Ant> paretoList = findParetoOptimalPerStartVertex(antList, MULTI_ANT_MAX, graph);
+
+//    for (Ant &element: paretoList) {
+//        element.leaveRoutePheromones(graph);
+//    }
+
+    for (auto &pair: paretoList) {
+        pair.second.leaveRoutePheromones(graph);
     }
+
     return 0;
 }
 
@@ -160,9 +219,13 @@ int AntColony::collectBestSolution(Graph &graph) {
 //        return a.arrive_time < b.arrive_time;
 //    });
 
-    vector<Ant> paretoAntList = findParetoOptimal(antList, MULTI_ANT_MAX);
-    copy(paretoAntList.begin(), paretoAntList.end(), back_inserter(bestAntList));
-
+    unordered_map<int, Ant> paretoAntList = findParetoOptimalPerStartVertex(antList, MULTI_ANT_MAX, graph);
+    bestAntList.clear();
+    // 遍历 paretoAntList 将最佳蚂蚁添加到 bestAntList 中
+    for (const auto &pair: paretoAntList) {
+        bestAntList.push_back(pair.second);
+    }
+//    copy(paretoAntList.begin(), paretoAntList.end(), back_inserter(bestAntList));
     return 0;
 }
 
@@ -198,57 +261,71 @@ bool AntColony::dominates(const Ant &a, const Ant &b) {
     return (a.arrive_time < b.arrive_time && a.hurt < b.hurt);
 }
 
-// 寻找帕累托最优解
+/*// 寻找帕累托最优解
 vector<Ant> AntColony::findParetoOptimal(const std::vector<Ant> &useAntList, int maxParetoSize) {
     std::vector<Ant> paretoSet;
+    // Multi-objective optimization, keep all Pareto optimal solutions
+    for (const Ant &currentAnt: useAntList) {
+        bool isDominated = false;
+        for (const Ant &otherAnt: useAntList) {
+            if (&currentAnt != &otherAnt && dominates(otherAnt, currentAnt)) {
+                isDominated = true;
+                break;
+            }
+        }
+        if (!isDominated) {
+            paretoSet.push_back(currentAnt);
+            if (paretoSet.size() >= maxParetoSize) {
+                break; // Stop when the desired size is reached
+            }
+        }
+    }
+    return paretoSet;
+}*/
 
-    if (MULTI_TARGET == 1) {
-        // Multi-objective optimization, keep all Pareto optimal solutions
-        for (const Ant &currentAnt: useAntList) {
+// 寻找每个起点对应的帕累托最优解
+std::unordered_map<int, Ant>
+AntColony::findParetoOptimalPerStartVertex(const std::vector<Ant> &useAntList, int maxParetoSize, Graph &graph) {
+    std::unordered_map<int, Ant> paretoSetPerStartVertex;
+
+    // Multi-objective optimization, keep Pareto optimal solutions for each start vertex
+    for (int startVertex = 0; startVertex < graph.start_vertex_num; ++startVertex) {
+        // Filter ants that have the current start vertex
+        std::vector<Ant> antsWithStartVertex;
+        for (const Ant &ant: useAntList) {
+            if (ant.route.empty()) {
+                continue; // Skip ants with no routes
+            }
+
+            if (ant.route.front() == startVertex) {
+                antsWithStartVertex.push_back(ant);
+            }
+        }
+
+        // Find Pareto optimal solutions for the current start vertex
+        for (const Ant &currentAnt: antsWithStartVertex) {
             bool isDominated = false;
-            for (const Ant &otherAnt: useAntList) {
+            for (const Ant &otherAnt: antsWithStartVertex) {
                 if (&currentAnt != &otherAnt && dominates(otherAnt, currentAnt)) {
                     isDominated = true;
                     break;
                 }
             }
             if (!isDominated) {
-                paretoSet.push_back(currentAnt);
-                if (paretoSet.size() >= maxParetoSize) {
-                    break; // Stop when the desired size is reached
-                }
-            }
-        }
-    } else if (MULTI_TARGET == 2) {
-        // Return the solution with the shortest time
-        Ant shortestTimeAnt = useAntList[0];
-        for (const Ant &ant: useAntList) {
-            if (ant.arrive_time < shortestTimeAnt.arrive_time) {
-                shortestTimeAnt = ant;
-            }
-        }
-        paretoSet.push_back(shortestTimeAnt);
-    } else if (MULTI_TARGET == 3) {
-        // Return the safest solution (for example, the one with the least hurt)
-/*        Ant safestAnt = useAntList[0];
-        for (const Ant& ant : useAntList) {
-            if (ant.hurt < safestAnt.hurt) {
-                safestAnt = ant;
-            }
-        }
-        paretoSet.push_back(safestAnt);*/
-        //返回受伤蚂蚁
-        for (const Ant &ant: useAntList) {
-            if (ant.hurt) {
-                paretoSet.push_back(ant);
-                if (paretoSet.size() > maxParetoSize) {
-                    break;
+                // Store the Pareto optimal ant for the current start vertex
+                paretoSetPerStartVertex.emplace(startVertex, currentAnt);
+                if (paretoSetPerStartVertex.size() >= maxParetoSize) {
+                    break; // Stop when the desired size is reached for the current start vertex
                 }
             }
         }
     }
 
-    return paretoSet;
+    return paretoSetPerStartVertex;
+}
+
+double AntColony::evaluationFunction(Graph &graph, int time, int hurt) {
+    return time * EVALUATION_TIME + hurt * EVALUATION_SAFE;
 }
 
 

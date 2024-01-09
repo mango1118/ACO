@@ -8,13 +8,15 @@
 #include <random>
 #include <algorithm>
 #include <unordered_set>
+#include <unordered_map>
+#include "EasyX/include/easyx.h"
 
 using namespace std;
 
 #define MAX 30
 
 //路径选择方法
-#define PATH_SELECTED_METHOD 2
+#define PATH_SELECTED_METHOD 1
 //method 1 represents ACO				ACO蚁群算法
 //method 2 represents greedy method		贪心算法
 //method 3 represents dijkstra			dijkstra算法
@@ -27,13 +29,14 @@ using namespace std;
 //多目标优化
 #define MULTI_TARGET 1
 //method 1 多目标
-//method 2 时间
-//method 3 安全
 
 #define MULTI_ANT_MAX 10
 #define MULTI_TIME_IMPORTANCE 0.5
 #define MULTI_SAFE_IMPORTANCE 0.5
 #define MULTI_SAFE_PARAMETER 0.1
+
+#define EVALUATION_TIME 0.1
+#define EVALUATION_SAFE 0.5
 
 //文件名
 #define FILE_NAME "network_example.txt"
@@ -47,7 +50,7 @@ using namespace std;
 #define NEW_RECORD_TIME_1 150
 
 //运行次数
-#define RUN_TIME 10
+#define RUN_TIME 1
 //迭代次数
 #define ITERATION_TIME 100
 

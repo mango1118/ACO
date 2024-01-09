@@ -1,4 +1,8 @@
 #include "ACO.h"
+#include <utility>
+
+#ifndef GRAPH_H  // 如果未定义 GRAPH_H，则执行以下代码
+#define GRAPH_H
 
 class Graph {
 
@@ -22,6 +26,8 @@ public:
     int end_vertex[MAX] = {0};                //记录所有终点
     double initial_pheromones;                //初始信息素
     int dijkstra_next_point[MAX] = {0};       //由dijkstra构造的下一节点
+    char identifier[MAX] = {0};               //标识符
+    vector<pair<int,int>> position;               //绘图位置
 
     Graph();
 
@@ -41,3 +47,4 @@ public:
 
 };
 
+#endif // GRAPH_H

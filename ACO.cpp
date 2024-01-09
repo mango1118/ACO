@@ -2,6 +2,8 @@
 #include "ACO.h"
 #include "AntColony.h"
 
+#include "Axis.h"
+
 //---------- txt ----------//
 void writeInFile(const string &fileName, const string &data) {
     ofstream outfile;
@@ -45,4 +47,5 @@ int main() {
     antColony.init();
     antColony.run();
     writeInFile(RECORD_NAME, "--------------- over ---------------");
+    getch();
 }

@@ -212,18 +212,19 @@ int Ant::leaveRoutePheromones(Graph &graph) {
                     MULTI_TIME_IMPORTANCE * ((1 - GLOBAL_EVAPORATE_RATE) * graph.pheromones[current_node][next_node] +
                                              (1 / double(arrive_time)))
                     + MULTI_SAFE_IMPORTANCE * graph.pheromones[current_node][next_node] * 1.2;;*/
-        } else if (MULTI_TARGET == 2) {
-            graph.pheromones[current_node][next_node] =
-                    (1 - GLOBAL_EVAPORATE_RATE) * graph.pheromones[current_node][next_node] + (1 / double(arrive_time));
-        } else if (MULTI_TARGET == 3) {
-            if (hurt) {
-                graph.pheromones[current_node][next_node] =
-                        graph.pheromones[current_node][next_node] * (1 - MULTI_SAFE_PARAMETER);
-            } else { //没受伤，加信息素
-                graph.pheromones[current_node][next_node] =
-                        graph.pheromones[current_node][next_node] * (1 + MULTI_SAFE_PARAMETER);
-            }
         }
+//        else if (MULTI_TARGET == 2) {
+//            graph.pheromones[current_node][next_node] =
+//                    (1 - GLOBAL_EVAPORATE_RATE) * graph.pheromones[current_node][next_node] + (1 / double(arrive_time));
+//        } else if (MULTI_TARGET == 3) {
+//            if (hurt) {
+//                graph.pheromones[current_node][next_node] =
+//                        graph.pheromones[current_node][next_node] * (1 - MULTI_SAFE_PARAMETER);
+//            } else { //没受伤，加信息素
+//                graph.pheromones[current_node][next_node] =
+//                        graph.pheromones[current_node][next_node] * (1 + MULTI_SAFE_PARAMETER);
+//            }
+//        }
 
 //
 //        graph.pheromones[current_node][next_node] =

@@ -52,24 +52,35 @@ build cmake_object_order_depends_target_ACO: phony || CMakeFiles/ACO.dir
 build CMakeFiles/ACO.dir/ACO.cpp.obj: CXX_COMPILER__ACO_Debug C$:/Users/mango/Desktop/ACO/ACO.cpp || cmake_object_order_depends_target_ACO
   DEP_FILE = CMakeFiles\ACO.dir\ACO.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/mango/Desktop/ACO/./EasyX/include
   OBJECT_DIR = CMakeFiles\ACO.dir
   OBJECT_FILE_DIR = CMakeFiles\ACO.dir
 
 build CMakeFiles/ACO.dir/Ant.cpp.obj: CXX_COMPILER__ACO_Debug C$:/Users/mango/Desktop/ACO/Ant.cpp || cmake_object_order_depends_target_ACO
   DEP_FILE = CMakeFiles\ACO.dir\Ant.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/mango/Desktop/ACO/./EasyX/include
   OBJECT_DIR = CMakeFiles\ACO.dir
   OBJECT_FILE_DIR = CMakeFiles\ACO.dir
 
 build CMakeFiles/ACO.dir/Graph.cpp.obj: CXX_COMPILER__ACO_Debug C$:/Users/mango/Desktop/ACO/Graph.cpp || cmake_object_order_depends_target_ACO
   DEP_FILE = CMakeFiles\ACO.dir\Graph.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/mango/Desktop/ACO/./EasyX/include
   OBJECT_DIR = CMakeFiles\ACO.dir
   OBJECT_FILE_DIR = CMakeFiles\ACO.dir
 
 build CMakeFiles/ACO.dir/AntColony.cpp.obj: CXX_COMPILER__ACO_Debug C$:/Users/mango/Desktop/ACO/AntColony.cpp || cmake_object_order_depends_target_ACO
   DEP_FILE = CMakeFiles\ACO.dir\AntColony.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/mango/Desktop/ACO/./EasyX/include
+  OBJECT_DIR = CMakeFiles\ACO.dir
+  OBJECT_FILE_DIR = CMakeFiles\ACO.dir
+
+build CMakeFiles/ACO.dir/Axis.cpp.obj: CXX_COMPILER__ACO_Debug C$:/Users/mango/Desktop/ACO/Axis.cpp || cmake_object_order_depends_target_ACO
+  DEP_FILE = CMakeFiles\ACO.dir\Axis.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/mango/Desktop/ACO/./EasyX/include
   OBJECT_DIR = CMakeFiles\ACO.dir
   OBJECT_FILE_DIR = CMakeFiles\ACO.dir
 
@@ -81,9 +92,10 @@ build CMakeFiles/ACO.dir/AntColony.cpp.obj: CXX_COMPILER__ACO_Debug C$:/Users/ma
 #############################################
 # Link the executable ACO.exe
 
-build ACO.exe: CXX_EXECUTABLE_LINKER__ACO_Debug CMakeFiles/ACO.dir/ACO.cpp.obj CMakeFiles/ACO.dir/Ant.cpp.obj CMakeFiles/ACO.dir/Graph.cpp.obj CMakeFiles/ACO.dir/AntColony.cpp.obj
+build ACO.exe: CXX_EXECUTABLE_LINKER__ACO_Debug CMakeFiles/ACO.dir/ACO.cpp.obj CMakeFiles/ACO.dir/Ant.cpp.obj CMakeFiles/ACO.dir/Graph.cpp.obj CMakeFiles/ACO.dir/AntColony.cpp.obj CMakeFiles/ACO.dir/Axis.cpp.obj
   FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = -Wl,-Bstatic  -leasyx  -Wl,-Bdynamic  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_PATH = -LC:/Users/mango/Desktop/ACO/./EasyX/lib64
   OBJECT_DIR = CMakeFiles\ACO.dir
   POST_BUILD = cd .
   PRE_LINK = cd .

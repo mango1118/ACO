@@ -19,6 +19,7 @@ public:
     int setAntList(Graph &graph);                           //设置蚁群
     int bestAntReleasePheromone(Graph &graph);              //一轮迭代后，最佳蚂蚁释放信息素
     int collectBestSolution(Graph &graph);                  //记录最优解
+    double evaluationFunction(Graph &graph, int time, int hurt);//计算评价函数
 
 //    vector<Ant> calculateParetoBestAntList(Graph &graph);   //计算帕累托最优解
     bool dominates(const Ant &a, const Ant &b);
@@ -26,5 +27,5 @@ public:
     //txt utils
     void antColonyWriteInFile(const string &fileName, const string &data);
 //    bool isAlreadyInParetoOptimal(unordered_set<string> &visitedSet, const Ant &ant);
-    vector<Ant> findParetoOptimal(const vector<Ant> &useAntList, int maxParetoSize);
+    unordered_map<int, Ant> findParetoOptimalPerStartVertex(const vector<Ant> &useAntList, int maxParetoSize, Graph &graph);
 };
