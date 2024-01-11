@@ -24,7 +24,7 @@ int Graph::readGraphByFile(const string &fileName) {
         iss >> identifier[j];
         int x, y;
         iss >> x >> y;
-        position.emplace_back(x, y);
+        location.emplace_back(x, y);
 //        iss >> identifier[j];
         iss.clear();
     }

@@ -21,6 +21,10 @@ using namespace std;
 //method 2 represents greedy method		贪心算法
 //method 3 represents dijkstra			dijkstra算法
 
+#define DRAW_PROCESS 1
+//method 1 draw
+//method 2 dont draw
+
 //选择路径方法
 #define SELECT_NEXT_METHOD 2
 //method 1 the max pheromone
@@ -69,7 +73,7 @@ using namespace std;
 //速度参数
 #define VELOCITY_PARAMETER 0.2
 //平均速度
-#define AVERAGE_VELOCITY 1
+#define AVERAGE_VELOCITY 2
 //计算速度的宽度权重
 #define VELOCITY_WIDTH_WEIGHT 0.5
 //计算速度的容量权重

@@ -2391,3 +2391,639 @@ iteration time: 1	 min time: 505	 hurt ant: 58	 target function: 79.500000
 iteration time: 4	 min time: 507	 hurt ant: 54	 target function: 77.700000
 iteration time: 23	 min time: 503	 hurt ant: 54	 target function: 77.300000
 iteration time: 42	 min time: 506	 hurt ant: 53	 target function: 77.100000
+
+
+2024-01-09 22:45:32
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 424	 hurt ant: 29	 target function: 56.900000
+iteration time: 3	 min time: 304	 hurt ant: 18	 target function: 39.400000
+
+
+2024-01-09 22:46:07
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 481	 hurt ant: 29	 target function: 62.600000
+iteration time: 2	 min time: 443	 hurt ant: 24	 target function: 56.300000
+iteration time: 3	 min time: 304	 hurt ant: 26	 target function: 43.400000
+iteration time: 8	 min time: 304	 hurt ant: 21	 target function: 40.900000
+iteration time: 37	 min time: 280	 hurt ant: 23	 target function: 39.500000
+iteration time: 58	 min time: 304	 hurt ant: 16	 target function: 38.400000
+average time: 406	 average hurt: 26
+--------------- over ---------------
+
+
+2024-01-09 22:46:47
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 446	 hurt ant: 20	 target function: 54.600000
+iteration time: 2	 min time: 384	 hurt ant: 29	 target function: 52.900000
+iteration time: 4	 min time: 305	 hurt ant: 23	 target function: 42.000000
+
+
+2024-01-09 22:46:56
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 569	 hurt ant: 36	 target function: 74.900000
+iteration time: 2	 min time: 364	 hurt ant: 19	 target function: 45.900000
+iteration time: 10	 min time: 289	 hurt ant: 27	 target function: 42.400000
+iteration time: 51	 min time: 304	 hurt ant: 15	 target function: 37.900000
+average time: 434	 average hurt: 26
+--------------- over ---------------
+
+
+2024-01-09 22:49:16
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 446	 hurt ant: 37	 target function: 63.100000
+iteration time: 2	 min time: 391	 hurt ant: 27	 target function: 52.600000
+iteration time: 5	 min time: 342	 hurt ant: 24	 target function: 46.200000
+iteration time: 9	 min time: 304	 hurt ant: 29	 target function: 44.900000
+iteration time: 10	 min time: 304	 hurt ant: 19	 target function: 39.900000
+iteration time: 17	 min time: 304	 hurt ant: 15	 target function: 37.900000
+
+
+2024-01-09 22:50:59
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 893	 hurt ant: 27	 target function: 102.800000
+iteration time: 2	 min time: 341	 hurt ant: 28	 target function: 48.100000
+iteration time: 4	 min time: 304	 hurt ant: 26	 target function: 43.400000
+
+
+2024-01-09 22:51:37
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 893	 hurt ant: 27	 target function: 102.800000
+iteration time: 2	 min time: 484	 hurt ant: 21	 target function: 58.900000
+
+
+2024-01-09 22:51:48
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 789	 hurt ant: 27	 target function: 92.400000
+iteration time: 2	 min time: 304	 hurt ant: 24	 target function: 42.400000
+iteration time: 3	 min time: 304	 hurt ant: 23	 target function: 41.900000
+iteration time: 10	 min time: 304	 hurt ant: 21	 target function: 40.900000
+iteration time: 11	 min time: 304	 hurt ant: 18	 target function: 39.400000
+
+
+2024-01-09 22:56:15
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 481	 hurt ant: 22	 target function: 59.100000
+iteration time: 2	 min time: 381	 hurt ant: 32	 target function: 54.100000
+iteration time: 4	 min time: 304	 hurt ant: 26	 target function: 43.400000
+iteration time: 5	 min time: 289	 hurt ant: 23	 target function: 40.400000
+
+
+2024-01-09 22:56:33
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 610	 hurt ant: 28	 target function: 75.000000
+iteration time: 2	 min time: 304	 hurt ant: 22	 target function: 41.400000
+iteration time: 7	 min time: 304	 hurt ant: 14	 target function: 37.400000
+
+
+2024-01-09 22:56:56
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 481	 hurt ant: 24	 target function: 60.100000
+iteration time: 2	 min time: 484	 hurt ant: 16	 target function: 56.400000
+iteration time: 4	 min time: 304	 hurt ant: 30	 target function: 45.400000
+
+
+2024-01-09 22:57:13
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 501	 hurt ant: 21	 target function: 60.600000
+iteration time: 2	 min time: 317	 hurt ant: 26	 target function: 44.700000
+
+
+2024-01-09 22:57:18
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 446	 hurt ant: 23	 target function: 56.100000
+
+
+2024-01-09 22:57:21
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 446	 hurt ant: 29	 target function: 59.100000
+iteration time: 2	 min time: 304	 hurt ant: 21	 target function: 40.900000
+iteration time: 7	 min time: 304	 hurt ant: 20	 target function: 40.400000
+
+
+2024-01-09 22:57:47
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 414	 hurt ant: 23	 target function: 52.900000
+
+
+2024-01-09 22:57:50
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 501	 hurt ant: 36	 target function: 68.100000
+iteration time: 2	 min time: 309	 hurt ant: 23	 target function: 42.400000
+iteration time: 6	 min time: 304	 hurt ant: 22	 target function: 41.400000
+
+
+2024-01-09 22:58:04
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 505	 hurt ant: 20	 target function: 60.500000
+iteration time: 2	 min time: 304	 hurt ant: 33	 target function: 46.900000
+iteration time: 5	 min time: 304	 hurt ant: 19	 target function: 39.900000
+iteration time: 37	 min time: 289	 hurt ant: 17	 target function: 37.400000
+average time: 395	 average hurt: 25
+--------------- over ---------------
+
+
+2024-01-09 22:58:42
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 446	 hurt ant: 15	 target function: 52.100000
+iteration time: 2	 min time: 304	 hurt ant: 25	 target function: 42.900000
+
+
+2024-01-09 22:58:49
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 446	 hurt ant: 20	 target function: 54.600000
+iteration time: 4	 min time: 364	 hurt ant: 17	 target function: 44.900000
+iteration time: 15	 min time: 311	 hurt ant: 27	 target function: 44.600000
+iteration time: 26	 min time: 304	 hurt ant: 18	 target function: 39.400000
+average time: 438	 average hurt: 25
+--------------- over ---------------
+
+
+2024-01-09 22:59:25
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 569	 hurt ant: 25	 target function: 69.400000
+iteration time: 3	 min time: 304	 hurt ant: 16	 target function: 38.400000
+
+
+2024-01-09 22:59:32
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 505	 hurt ant: 32	 target function: 66.500000
+iteration time: 2	 min time: 538	 hurt ant: 25	 target function: 66.300000
+iteration time: 3	 min time: 304	 hurt ant: 21	 target function: 40.900000
+iteration time: 23	 min time: 304	 hurt ant: 15	 target function: 37.900000
+iteration time: 67	 min time: 280	 hurt ant: 15	 target function: 35.500000
+average time: 396	 average hurt: 26
+--------------- over ---------------
+
+
+2024-01-11 10:24:24
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 481	 hurt ant: 25	 target function: 60.600000
+
+
+2024-01-11 10:27:54
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 507	 hurt ant: 30	 target function: 65.700000
+
+
+2024-01-11 10:49:28
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 446	 hurt ant: 25	 target function: 57.100000
+iteration time: 2	 min time: 304	 hurt ant: 21	 target function: 40.900000
+iteration time: 12	 min time: 329	 hurt ant: 15	 target function: 40.400000
+iteration time: 59	 min time: 304	 hurt ant: 12	 target function: 36.400000
+
+
+2024-01-11 10:50:04
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 10:50:30
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 10:55:42
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 484	 hurt ant: 29	 target function: 62.900000
+iteration time: 2	 min time: 317	 hurt ant: 19	 target function: 41.200000
+
+
+2024-01-11 10:56:43
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 481	 hurt ant: 25	 target function: 60.600000
+
+
+2024-01-11 10:58:26
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 446	 hurt ant: 32	 target function: 60.600000
+iteration time: 4	 min time: 304	 hurt ant: 20	 target function: 40.400000
+iteration time: 12	 min time: 329	 hurt ant: 14	 target function: 39.900000
+
+
+2024-01-11 11:00:36
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:02:37
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:08:47
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 446	 hurt ant: 27	 target function: 58.100000
+iteration time: 3	 min time: 342	 hurt ant: 22	 target function: 45.200000
+
+
+2024-01-11 11:10:45
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 481	 hurt ant: 0	 target function: 48.100000
+iteration time: 2	 min time: 364	 hurt ant: 0	 target function: 36.400000
+iteration time: 3	 min time: 317	 hurt ant: 0	 target function: 31.700000
+
+
+2024-01-11 11:11:22
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:15:02
+path select method: 2
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 531	 hurt ant: 69	 target function: 87.600000
+
+
+2024-01-11 11:15:15
+path select method: 2
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:15:28
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:27:55
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:28:50
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:30:12
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:30:20
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:30:31
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:31:35
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:32:27
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:33:08
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:33:36
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:34:40
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:35:05
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:35:08
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:35:14
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:36:28
+path select method: 3
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:36:50
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 446	 hurt ant: 23	 target function: 56.100000
+
+
+2024-01-11 11:56:06
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 446	 hurt ant: 23	 target function: 56.100000
+iteration time: 3	 min time: 304	 hurt ant: 25	 target function: 42.900000
+
+
+2024-01-11 11:56:51
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:56:58
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:57:49
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:57:50
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:57:54
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:59:11
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 11:59:54
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 12:02:31
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 12:02:56
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 14:28:47
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 413	 hurt ant: 34	 target function: 58.300000
+
+
+2024-01-11 14:30:19
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 753	 hurt ant: 29	 target function: 89.800000
+
+
+2024-01-11 14:30:34
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 427	 hurt ant: 22	 target function: 53.700000
+
+
+2024-01-11 14:32:17
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 14:35:19
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 23	 hurt ant: 21	 target function: 12.800000
+iteration time: 2	 min time: 25	 hurt ant: 16	 target function: 10.500000
+iteration time: 4	 min time: 24	 hurt ant: 14	 target function: 9.400000
+iteration time: 5	 min time: 24	 hurt ant: 8	 target function: 6.400000
+
+
+2024-01-11 14:35:57
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 23	 hurt ant: 17	 target function: 10.800000
+iteration time: 3	 min time: 24	 hurt ant: 14	 target function: 9.400000
+iteration time: 5	 min time: 23	 hurt ant: 12	 target function: 8.300000
+iteration time: 12	 min time: 23	 hurt ant: 10	 target function: 7.300000
+iteration time: 15	 min time: 23	 hurt ant: 8	 target function: 6.300000
+
+
+2024-01-11 14:36:27
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 23	 hurt ant: 18	 target function: 11.300000
+iteration time: 2	 min time: 25	 hurt ant: 15	 target function: 10.000000
+iteration time: 6	 min time: 24	 hurt ant: 11	 target function: 7.900000
+
+
+2024-01-11 14:36:52
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 14:38:08
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 23	 hurt ant: 22	 target function: 13.300000
+iteration time: 2	 min time: 25	 hurt ant: 19	 target function: 12.000000
+
+
+2024-01-11 14:38:26
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 23	 hurt ant: 22	 target function: 13.300000
+iteration time: 3	 min time: 24	 hurt ant: 16	 target function: 10.400000
+
+
+2024-01-11 14:38:49
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 23	 hurt ant: 24	 target function: 14.300000
+iteration time: 2	 min time: 24	 hurt ant: 16	 target function: 10.400000
+
+
+2024-01-11 14:39:22
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 14:41:17
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 1186	 hurt ant: 27	 target function: 132.100000
+
+
+2024-01-11 14:43:04
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 613	 hurt ant: 34	 target function: 78.300000
+iteration time: 2	 min time: 635	 hurt ant: 22	 target function: 74.500000
+
+
+2024-01-11 14:48:17
+path select method: 2
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 1492	 hurt ant: 64	 target function: 181.200000
+
+
+2024-01-11 14:51:10
+path select method: 2
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 14:51:42
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 619	 hurt ant: 28	 target function: 75.900000
+
+
+2024-01-11 14:53:23
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 612	 hurt ant: 33	 target function: 77.700000
+iteration time: 2	 min time: 619	 hurt ant: 30	 target function: 76.900000
+iteration time: 4	 min time: 615	 hurt ant: 28	 target function: 75.500000
+iteration time: 5	 min time: 618	 hurt ant: 25	 target function: 74.300000
+iteration time: 10	 min time: 616	 hurt ant: 23	 target function: 73.100000
+iteration time: 20	 min time: 606	 hurt ant: 24	 target function: 72.600000
+iteration time: 30	 min time: 618	 hurt ant: 19	 target function: 71.300000
+iteration time: 67	 min time: 592	 hurt ant: 21	 target function: 69.700000
+average time: 617	 average hurt: 30
+--------------- over ---------------
+
+
+2024-01-11 14:56:54
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 618	 hurt ant: 24	 target function: 73.800000
+iteration time: 5	 min time: 615	 hurt ant: 22	 target function: 72.500000
+
+
+2024-01-11 14:58:41
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+
+
+2024-01-11 14:58:55
+path select method: 1
+--------------------run time: 1 -------------------- 
+
+iteration time: 1	 min time: 594	 hurt ant: 22	 target function: 70.400000

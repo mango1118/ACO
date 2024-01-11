@@ -27,7 +27,7 @@ public:
     double initial_pheromones;                //初始信息素
     int dijkstra_next_point[MAX] = {0};       //由dijkstra构造的下一节点
     char identifier[MAX] = {0};               //标识符
-    vector<pair<int,int>> position;               //绘图位置
+    vector<pair<int,int>> location;           //绘图位置
 
     Graph();
 

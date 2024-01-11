@@ -1,16 +1,16 @@
 
 #include "AntColony.h"
-#include "Axis.h"
 
 int AntColony::init() {
-    this->iteration_num = ITERATION_TIME;
+//    this->iteration_num = ITERATION_TIME;
     return 0;
 }
 
 int AntColony::run() {
     Graph graph;
     setAntList(graph);
-    Axis axis(graph);
+    axis.initEasyX(graph);
+//    Axis axis(graph);
 
     for (int run_time = 0; run_time < RUN_TIME; run_time++) {
         //用于计算平均时间
@@ -61,41 +61,6 @@ int AntColony::run() {
                 cout << print_line << endl;
                 antColonyWriteInFile(RECORD_NAME, print_line);
             }
-/*            //记录最优解
-            if (temp_time < min_time || temp_hurt < hurt_ant) {
-//                Sleep(1500);
-                collectBestSolution(graph);
-                axis.resetAllLine(graph);
-                for (int k = 0; k < 3; k++) {
-                    axis.insertPath(bestAntList[k].route, graph);
-                    Sleep(500);
-                }
-            }
-            //最佳的蚂蚁释放信息素
-            bestAntReleasePheromone(graph);
-            if (temp_time < min_time || temp_hurt < hurt_ant) {
-                min_time = min(min_time, temp_time);
-                hurt_ant = min(hurt_ant, temp_hurt);
-                string print_line =
-                        "iteration time: " + to_string(i + 1) + "\t min time: " + to_string(temp_time) +
-                        //                        "\t hurt ant: " + to_string(temp_hurt) + "\t target function: " + to_string(0.1 * temp_time + 0.5 * temp_hurt);
-                        "\t hurt ant: " + to_string(temp_hurt) + "\t target function: " +
-                        to_string(evaluationFunction(graph, temp_time, temp_hurt));
-*//*                string print_line =
-                        "iteration time: " + to_string(i + 1) + "\t min time: " + to_string(min_time) + "\t hurt ant: " +
-                        to_string(hurt_ant);*//*
-                cout << print_line << endl;
-                antColonyWriteInFile(RECORD_NAME, print_line);
-            }
-            */
-//            min_time = min(min_time, temp_time);
-//            if (i == 0 || i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 7 || i == 9 || i == 19 || i == 29 || i == 49 ||
-//                i == 79 || i == 99) {
-//                cout << "iteration time:" << i + 1<< "\t min time: " << min_time << "\t this time: " << temp_time << endl;
-//            }
-
-//            min_time = min(min_time, temp_time);
-//            cout << "iteration time:" << i + 1<< "\t min time: " << min_time << "\t this time: " << temp_time << endl;
             //最后绘制一次评价函数
             if (i == ITERATION_TIME - 1) {
                 axis.insertEvaluation(graph, i, evaluationFunction(graph, min_time, hurt_ant));
@@ -144,10 +109,10 @@ int AntColony::iteration(Graph &graph) { //返回本次迭代时间
                 }
             }
         }
-//        for(int i = 0; i < NEW_RECORD_NUM; i++){
-//            if(time == NEW_RECORD_TIME_1)
-//                graph.renewGraphByFile(NEW_RECORD_1);
-//        }
+        if (DRAW_PROCESS == 1) {
+            //绘制蚂蚁当前位置
+            axis.insertAntListLocation(graph, antList);
+        }
     }
     return time;
 }
@@ -177,22 +142,8 @@ int AntColony::setAntList(Graph &graph) {
 }
 
 int AntColony::bestAntReleasePheromone(Graph &graph) {
-    // 按arrive_time升序排序
-//    sort(antList.begin(), antList.end(), [](const Ant &a, const Ant &b) {
-//        return a.arrive_time < b.arrive_time;
-//    });
-//    int k = GLOBAL_RELEASE_ANT;
-    //只有排名前k的蚂蚁才能留下全局信息素
-//    for (int i = 0; i < min(k, static_cast<int>(antList.size())); ++i) { antList[i].leaveRoutePheromones(graph, k); }
-//    return 0;
-//    for (int i = 0; i < min(k, static_cast<int>(bestAntList.size())); ++i) {
-//        bestAntList[i].leaveRoutePheromones(graph, k);
-//    }
-    unordered_map<int, Ant> paretoList = findParetoOptimalPerStartVertex(antList, MULTI_ANT_MAX, graph);
 
-//    for (Ant &element: paretoList) {
-//        element.leaveRoutePheromones(graph);
-//    }
+    unordered_map<int, Ant> paretoList = findParetoOptimalPerStartVertex(antList, MULTI_ANT_MAX, graph);
 
     for (auto &pair: paretoList) {
         pair.second.leaveRoutePheromones(graph);
@@ -316,61 +267,3 @@ AntColony::findParetoOptimalPerStartVertex(const std::vector<Ant> &useAntList, i
 double AntColony::evaluationFunction(Graph &graph, int time, int hurt) {
     return time * EVALUATION_TIME + hurt * EVALUATION_SAFE;
 }
-
-
-/*
-bool AntColony::isParetoOptimal(const Ant &ant1, const Ant &ant2) {
-    return (ant1.arrive_time <= ant2.arrive_time && ant1.hurt <= ant2.hurt) &&
-           (ant1.arrive_time < ant2.arrive_time || ant1.hurt < ant2.hurt);
-}
-
-// 函数名称：findParetoOptimal
-// 函数描述：根据帕累托最优解的原理，从给定的蚂蚁列表中找到帕累托最优解集合。
-// 参数：
-//   antList：存储蚂蚁信息的向量，每个蚂蚁具有到达时间（arrive_time）和受伤状态（hurt）。
-// 返回值：帕累托最优解集合，以向量形式返回。
-vector<Ant> AntColony::findParetoOptimal(const vector<Ant> &useAntList) {
-    // 存储帕累托最优解的向量
-    vector<Ant> paretoOptimalSet;
-
-    // 存储已访问解的哈希集合，用于排除重复解
-    unordered_set<string> visitedSet;
-
-    // 遍历蚂蚁列表
-    for (const Ant &ant: useAntList) {
-        // 判断当前蚂蚁是否为帕累托最优解的候选解
-        bool isParetoOptimalCandidate = true;
-
-        // 检查当前蚂蚁与其他蚂蚁的关系，排除劣势解
-        for (const Ant &otherAnt: useAntList) {
-            if (&ant != &otherAnt && isParetoOptimal(otherAnt, ant)) {
-                isParetoOptimalCandidate = false;
-                // 不再需要中断循环，继续判断其他蚂蚁
-            }
-        }
-        // 将候选解加入帕累托最优解集合
-        paretoOptimalSet.push_back(ant);
-    }
-
-    // 根据 MULTI_TARGET 的值进行不同的排序和筛选
-    if (MULTI_TARGET == 2) {
-        // 返回时间最短的解
-        sort(paretoOptimalSet.begin(), paretoOptimalSet.end(), [](const Ant &a, const Ant &b) {
-            return a.arrive_time < b.arrive_time;
-        });
-        return {paretoOptimalSet.front()};
-    } else if (MULTI_TARGET == 3) {
-        // 返回最安全的解
-        sort(paretoOptimalSet.begin(), paretoOptimalSet.end(), [](const Ant &a, const Ant &b) {
-            return a.hurt < b.hurt;
-        });
-        return {paretoOptimalSet.front()};
-    } else {
-        // 默认返回多目标优化解
-        return paretoOptimalSet;
-    }
-
-    // 返回帕累托最优解集合
-    return paretoOptimalSet;
-}
-*/

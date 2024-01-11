@@ -62,7 +62,13 @@ int Ant::updatePheromones(Graph &graph) {
     return 0;
 }
 
-int Ant::goOneSecond(Graph &graph) {
+double Ant::goOneSecond(Graph &graph) {
+    //更新速度和时间
+    double left_length = left_time * velocity;
+    velocity = getVelocity(graph);
+    left_time = left_length / velocity;
+    road_time = graph.matrix_length[now_vertex][next_vertex] / velocity;
+
     left_time -= 1;
     if (left_time <= 0) {
         left_time = 0;
@@ -71,10 +77,12 @@ int Ant::goOneSecond(Graph &graph) {
         updatePheromones(graph);
         arriveVertex(graph);
     }
-    return 0;
+    return left_time;
 }
 
 int Ant::arriveVertex(Graph &graph) {
+    former_now_vertex = now_vertex;
+    former_next_vertex = next_vertex;
     graph.vertex_ant_num[next_vertex]++;
     graph.matrix_capacity[now_vertex][next_vertex]++;
     now_vertex = next_vertex;
@@ -85,14 +93,14 @@ int Ant::arriveVertex(Graph &graph) {
 
 double Ant::getVelocity(Graph &graph) {
     double v = 0;
-    int length = graph.matrix_length[now_vertex][next_vertex];
-    int width = graph.matrix_width[now_vertex][next_vertex];
+//    int length = graph.matrix_length[now_vertex][next_vertex];
+//    int width = graph.matrix_width[now_vertex][next_vertex];
     double capacity = graph.bak_matrix_capacity[now_vertex][next_vertex];
     double true_capacity = graph.matrix_capacity[now_vertex][next_vertex];
     int edge_ant_num = capacity - true_capacity;
 //    double density = edge_ant_num / length;
     //Greenshields模型
-    v = AVERAGE_VELOCITY * (1 - (true_capacity / capacity));
+    v = AVERAGE_VELOCITY * (1 - ((capacity - true_capacity) / capacity));
     //如果受伤了，速度会下降
     if (hurt)
         v *= HURT_VELOCITY_RATE;
@@ -105,6 +113,7 @@ double Ant::getNeedTime(Graph &graph) {
     double time = 0;
     int length = graph.matrix_length[now_vertex][next_vertex];
     time = length / velocity;
+    road_time = length / velocity;
     return time;
 }
 
@@ -307,4 +316,5 @@ int Ant::getGreedyVertex(Graph &graph) {
     }
 //    return next_point;
 }
+
 

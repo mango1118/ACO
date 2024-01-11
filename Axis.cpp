@@ -1,41 +1,45 @@
 #include "Axis.h"
 
-Axis::Axis(Graph &graph) {
-    initEasyX(graph);
+Axis::Axis() {
+
 }
+//Axis::Axis(Graph &graph) {
+//    initEasyX(graph);
+//}
 
 void Axis::initEasyX(Graph &graph) {
-    initgraph(1200, 800);
-    // è®¾ç½®ç™½è‰²èƒŒæ™¯
+    initgraph(1250, 450);
+    // ÉèÖÃ°×É«±³¾°
     setbkcolor(WHITE);
     cleardevice();
-    // è®¾ç½®çº¿çš„é¢œè‰²ä¸ºé»‘è‰²
+    // ÉèÖÃÏßµÄÑÕÉ«ÎªºÚÉ«
     setcolor(BLACK);
     initGraph(graph);
     initAxis();
 }
 
 void Axis::insertVertex(int x, int y, const char *data, COLORREF color) {
-    // è®¾ç½®å¡«å……é¢œè‰²
+    settextstyle(20,0,_T("Times New Roman"));
+    // ÉèÖÃÌî³äÑÕÉ«
     setfillcolor(color);
-    // è®¾ç½®è¾¹æ¡†çº¿æ¡æ ·å¼
+    // ÉèÖÃ±ß¿òÏßÌõÑùÊ½
     setlinestyle(PS_SOLID | PS_ENDCAP_FLAT | PS_JOIN_MITER, 2);
-    fillcircle(x, y, 10);
-    //ç»˜åˆ¶è¾¹æ¡†
-    circle(x, y, 10);
+    fillcircle(x, y, 12);
+    //»æÖÆ±ß¿ò
+    circle(x, y, 12);
 
-    //è®¾ç½®èƒŒæ™¯
+    //ÉèÖÃ±³¾°
     setbkmode(TRANSPARENT);
     outtextxy(x - 3, y - 8, data);
 }
 
 void Axis::insertLine(int x1, int y1, int x2, int y2) {
-    // è®¾ç½®çº¿æ¡é¢œè‰²
+    // ÉèÖÃÏßÌõÑÕÉ«
     setcolor(BLACK);
-    // å®šä¹‰çº¿çš„èµ·å§‹ç‚¹å’Œç»ˆç‚¹åæ ‡
+    // ¶¨ÒåÏßµÄÆğÊ¼µãºÍÖÕµã×ø±ê
     int startX = x1, startY = y1;
     int endX = x2, endY = y2;
-    // ç»˜åˆ¶çº¿æ¡
+    // »æÖÆÏßÌõ
     line(startX, startY, endX, endY);
 }
 
@@ -48,47 +52,153 @@ void Axis::resetAllLine(Graph &graph) {
 
 void Axis::insertPath(vector<int> path, Graph graph) {
     for (int i = 0; i < path.size() - 1; i++) {
-        //æ‰¾åˆ°èµ·ç‚¹path[i]å’Œç»ˆç‚¹path[i+1]
+        //ÕÒµ½Æğµãpath[i]ºÍÖÕµãpath[i+1]
         int start = path[i];
         int end = path[i + 1];
-        //æ‰¾åˆ°èµ·ç‚¹å’Œç»ˆç‚¹å¯¹åº”çš„åæ ‡
-        int start_x = graph.position[start].first;
-        int start_y = graph.position[start].second;
-        int end_x = graph.position[end].first;
-        int end_y = graph.position[end].second;
-        //ç”¨insertLineæ’å…¥çº¿
+        //ÕÒµ½ÆğµãºÍÖÕµã¶ÔÓ¦µÄ×ø±ê
+        int start_x = graph.location[start].first;
+        int start_y = graph.location[start].second;
+        int end_x = graph.location[end].first;
+        int end_y = graph.location[end].second;
+        //ÓÃinsertLine²åÈëÏß
         insertLine(start_x,start_y,end_x,end_y);
     }
 }
 
 void Axis::initAxis() {
-    // ç»˜åˆ¶åæ ‡è½´
-    line(100, 700, 1100, 700);  // xè½´
-    line(100, 700, 100, 100);  // yè½´
-    // ç»˜åˆ¶åæ ‡è½´åˆ»åº¦
-    for (int i = 100; i <= 1100; i += 50) {
-        line(i, 695, i, 705);   // xè½´åˆ»åº¦
+    settextstyle(32, 0, _T("Î¢ÈíÑÅºÚ"));
+    setbkmode(TRANSPARENT);
+    outtextxy(260, 375, _T("µü´ú¹ı³Ì"));
+    outtextxy(860, 375, _T("ÆÀ¼Ûº¯Êı"));
+    // »æÖÆ×ó²à×ø±êÖá
+    line(50, 350, 550, 350);  // xÖá
+    line(50, 350, 50, 50);  // yÖá
+
+    // »æÖÆ×ø±êÖá¿Ì¶È
+    for (int i = 50; i <= 550; i += 50) {
+        line(i, 355, i, 345);   // xÖá¿Ì¶È
     }
-    for (int i = 100; i <= 700; i += 50) {
-        line(95, i, 105, i);   // yè½´åˆ»åº¦
+
+    for (int i = 50; i <= 350; i += 50) {
+        line(45, i, 55, i);   // yÖá¿Ì¶È
     }
-    // åœ¨åæ ‡è½´ä¸Šæ ‡æ³¨æ–‡å­—
-    outtextxy(1120, 700, "X");
-    outtextxy(100, 75, "Y");
+    // »æÖÆÓÒ²à×ø±êÖá
+    line(650, 350, 1150, 350);  // xÖá
+    line(650, 350, 650, 50);  // yÖá
+
+    settextstyle(16, 0, _T("ËÎÌå"));
+    int num = 0;
+    // »æÖÆ×ø±êÖá¿Ì¶È
+    for (int i = 650; i <= 1150; i += 50) {
+        line(i, 355, i, 345);   // xÖá¿Ì¶È
+        outtextxy(i - 3, 355, _T(to_string(num).c_str()));
+        num += 10;
+    }
+
+    num = 120;
+    for (int i = 50; i <= 350; i += 50) {
+        line(645, i, 655, i);   // yÖá¿Ì¶È
+        if (num != 0)
+            outtextxy(620, i - 5, _T(to_string(num).c_str()));
+        num -= 20;
+    }
+    // ÔÚ×ø±êÖáÉÏ±ê×¢ÎÄ×Ö
+    outtextxy(1160, 340, _T("µü´ú´ÎÊı"));
+    outtextxy(655, 32, _T("º¯ÊıÖµ"));
 }
 
 void Axis::initGraph(Graph &graph) {
     for (int i = 0; i < graph.vertex_num; i++) {
         COLORREF color = RGB(192, 192, 192);
-        for (int j = 0; j < graph.start_vertex_num; j++) //æ£€æŸ¥æ˜¯å¦æ˜¯èµ·ç‚¹
+        for (int j = 0; j < graph.start_vertex_num; j++) //¼ì²éÊÇ·ñÊÇÆğµã
             if (graph.start_vertex[j] == i)
                 color = RGB(240, 135, 132);
-        for (int j = 0; j < graph.end_vertex_num; j++)   //æ£€æŸ¥æ˜¯å¦æ˜¯ç»ˆç‚¹
+        for (int j = 0; j < graph.end_vertex_num; j++)   //¼ì²éÊÇ·ñÊÇÖÕµã
             if (graph.end_vertex[j] == i)
                 color = RGB(72, 172, 255);
-        // åœ¨ä¼ é€’ç»™ insertVertex ä¹‹å‰å°† char è½¬æ¢ä¸ºå­—ç¬¦ä¸²
+        // ÔÚ´«µİ¸ø insertVertex Ö®Ç°½« char ×ª»»Îª×Ö·û´®
         string identifierString(1, graph.identifier[i]);
-        insertVertex(graph.position[i].first, graph.position[i].second,
+        insertVertex(graph.location[i].first, graph.location[i].second,
                      identifierString.c_str(), color);
+    }
+}
+
+void Axis::insertEvaluation(Graph &graph, int iteration_times, double evaluation) {
+    if (iteration == 0) {
+        former_iteration_times.push_back(iteration_times);
+        former_evaluation.push_back(evaluation);
+        // ÉèÖÃÌî³äÑÕÉ«
+        setfillcolor(RGB(192, 192, 192));
+        setcolor(BLACK);
+        // ÉèÖÃ±ß¿òÏßÌõÑùÊ½
+        setlinestyle(PS_SOLID | PS_ENDCAP_FLAT | PS_JOIN_MITER, 2);
+        fillcircle(650 + iteration_times * 5, 350 - evaluation * 2.5, 4);
+        //»æÖÆ±ß¿ò
+        circle(650 + iteration_times * 5, 350 - evaluation * 2.5, 4);
+    } else {
+        former_iteration_times.push_back(iteration_times);
+        former_evaluation.push_back(evaluation);
+        // ÉèÖÃÌî³äÑÕÉ«
+        setfillcolor(RGB(192, 192, 192));
+        setcolor(BLACK);
+        // ÉèÖÃ±ß¿òÏßÌõÑùÊ½
+        setlinestyle(PS_SOLID | PS_ENDCAP_FLAT | PS_JOIN_MITER, 2);
+        fillcircle(650 + iteration_times * 5, 350 - evaluation * 2.5, 4);
+        //»æÖÆ±ß¿ò
+        for(int i = 0; i < former_iteration_times.size() - 1; i++){
+            fillcircle(650 + former_iteration_times[i] * 5, 350 - former_evaluation[i] * 2.5, 4);
+            circle(650 + former_iteration_times[i] * 5, 350 - former_evaluation[i] * 2.5, 4);
+            insertLine(650 + former_iteration_times[i] * 5, 350 - former_evaluation[i] * 2.5, 650 + former_iteration_times[i+1] * 5,
+                       350 - former_evaluation[i+1] * 2.5);
+        }
+
+        //½«Ç°Ò»¸öµãºÍÏÖÔÚµÄµãÁ¬Ïß
+
+/*        //½«Ç°Ò»¸öµãºÍÏÖÔÚµÄµãÁ¬Ïß
+        insertLine(650 + iteration_times * 5, 350 - evaluation * 2.5, 650 + former_iteration_times * 5,
+                   350 - former_evaluation * 2.5);*/
+    }
+    iteration++;
+}
+
+void Axis::insertAntLocation(Graph &graph, Ant ant) {
+    //ÕÒµ½ÆğµãºÍÖÕµãÔÚÍ¼ÉÏµÄxºÍy
+    int x1 = graph.location[ant.now_vertex].first;
+    int y1 = graph.location[ant.now_vertex].second;
+    int x2 = graph.location[ant.next_vertex].first;
+    int y2 = graph.location[ant.next_vertex].second;
+    //ÕÒµ½ĞèÒªÊ±¼äºÍÊ£ÓàÊ±¼äµÄ±ÈÀı
+    double proportion = ant.left_time / ant.road_time;
+
+    //ÕÒµ½xºÍyµÄ¶ÔÓ¦±ÈÀı
+    int current_x = int(x1 + proportion * (x2 - x1));
+    int current_y = int(y1 + proportion * (y2 - y1));
+    //»æÖÆÒ»¸öÔ²
+    setfillcolor(RGB(192, 192, 192));
+    setlinestyle(PS_SOLID | PS_ENDCAP_FLAT | PS_JOIN_MITER, 2);
+    fillcircle(current_x, current_y, 2);
+    circle(current_x, current_y, 2);
+}
+
+void Axis::insertAntListLocation(Graph &graph, vector<Ant> ants) {
+    //Çå¿ÕÍ¼
+    resetAllLine(graph);
+    for(const Ant &ant : ants){
+        //ÕÒµ½ÆğµãºÍÖÕµãÔÚÍ¼ÉÏµÄxºÍy
+        int x1 = graph.location[ant.now_vertex].first;
+        int y1 = graph.location[ant.now_vertex].second;
+        int x2 = graph.location[ant.next_vertex].first;
+        int y2 = graph.location[ant.next_vertex].second;
+        //ÕÒµ½ĞèÒªÊ±¼äºÍÊ£ÓàÊ±¼äµÄ±ÈÀı
+        double proportion = 1-(ant.left_time / ant.road_time);
+
+        //ÕÒµ½xºÍyµÄ¶ÔÓ¦±ÈÀı
+        int current_x = int(x1 + proportion * (x2 - x1));
+        int current_y = int(y1 + proportion * (y2 - y1));
+        //»æÖÆÒ»¸öÔ²
+        setfillcolor(RGB(192, 192, 192));
+        setlinestyle(PS_SOLID | PS_ENDCAP_FLAT | PS_JOIN_MITER, 2);
+        fillcircle(current_x, current_y, 2);
+        circle(current_x, current_y, 2);
     }
 }
