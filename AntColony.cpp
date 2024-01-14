@@ -98,6 +98,11 @@ int AntColony::iteration(Graph &graph) { //返回本次迭代时间
             continue;
         }
         time++;
+        if(CHANGE_GRAPH == 1){
+            if (time == CHANGE_GRAPH_TIME){
+                changeGraph(graph);
+            }
+        }
         for (Ant &ant: antList) {
             if (ant.arrive) {
                 continue;
@@ -271,4 +276,9 @@ double AntColony::evaluationFunction(Graph &graph, int time, int hurt) {
     double temp = time * EVALUATION_TIME + hurt * EVALUATION_SAFE;
     temp = (temp - MIN_EVALUATION) / (MAX_EVALUATION - MIN_EVALUATION) * LINEAR;
     return temp;
+}
+
+int AntColony::changeGraph(Graph &graph) {
+    graph.renewGraph(RENEW_GRAPH_NAME);
+    return 0;
 }

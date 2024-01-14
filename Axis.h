@@ -30,7 +30,7 @@ public:
     void insertEvaluation(Graph &graph, int iteration_times, double evaluation);                    //绘制评价函数曲线
     void insertAntLocation(Graph &graph, Ant ant);                                                  //绘制蚂蚁当前在图上的位置
     void insertAntListLocation(Graph &graph, vector<Ant> ants);                                     //绘制所有蚂蚁当前在图上的位置
-    void initImage();                                                                             //绘制场景图
+    void initImage();                                                                               //绘制场景图
 
 };
 

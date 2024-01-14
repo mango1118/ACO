@@ -93,52 +93,23 @@ int Graph::readGraphByFile(const string &fileName) {
     return 0;
 }
 
-int Graph::initPheromones() {
-    int i = 0;
-    int j = 0;
-    double re_pheromone = 0;
-    for (i = 0; i < start_vertex_num; i++) {
-        for (j = 0; j < end_vertex_num; j++) {
-            vector<int> temp_path = dijkstra(start_vertex[i], end_vertex[j]);
-            int length = 0;
-            for (int k = 0; k < temp_path.size() - 1; k++) {
-//                length += matrix_length[i][j];
-                length += matrix_length[temp_path[k + 1]][temp_path[k]];
-            }
-            re_pheromone += length * temp_path.size();
-        }
-    }
-    initial_pheromones = 1 / re_pheromone;
-    for (i = 0; i < vertex_num; i++) {
-        for (j = 0; j < vertex_num; j++) {
-            if (matrix_length[i][j] == 0) {
-                continue;
-            } else {
-                pheromones[i][j] = 1 / re_pheromone;
-//                pheromones[i][j] = calculatePheromones(i, j);
-            }
-        }
-    }
-    return 0;
-}
+//int Graph::evaporatePheromones() {
+//    int i = 0;
+//    int j = 0;
+//    for (i = 0; i < vertex_num; i++) {
+//        for (j = 0; j < vertex_num; j++) {
+//            if (matrix_length[i][j] == 0) {
+//                continue;
+//            } else {
+//                pheromones[i][j] = (1.0 - LOCAL_EVAPORATE_RATE) * pheromones[i][j];
+//            }
+//        }
+//    }
+//}
 
-int Graph::evaporatePheromones() {
-    int i = 0;
-    int j = 0;
-    for (i = 0; i < vertex_num; i++) {
-        for (j = 0; j < vertex_num; j++) {
-            if (matrix_length[i][j] == 0) {
-                continue;
-            } else {
-                pheromones[i][j] = (1.0 - LOCAL_EVAPORATE_RATE) * pheromones[i][j];
-            }
-        }
-    }
-}
-
-int Graph::updatePheromones() {
-    return 0;
-}
+//int Graph::updatePheromones() {
+//    return 0;
+//}
 
 Graph::Graph() {
     init();
@@ -228,7 +199,7 @@ int Graph::getAllDijkstraNext() {
         int next_hop = min[min.size() - 1];
         dijkstra_next_point[i] = next_hop;
     }
-    cout << 1 << endl;
+    // cout << 1 << endl;
 }
 
 int Graph::getPathLength(vector<int> path) {
@@ -241,6 +212,77 @@ int Graph::getPathLength(vector<int> path) {
         }
         return length;
     }
+}
+
+int Graph::renewGraph(const string &fileName) {
+    //读入新图
+    ifstream inputFile(fileName);
+    istringstream iss;
+    if (!inputFile.is_open()) {
+        cerr << "Unable to open the file." << std::endl;
+        return -1;
+    }
+    string line;
+
+    // 从文件中读取新加入的边数
+    getline(inputFile, line);
+    iss.str(line);
+    int new_edge = 0;
+    iss >> new_edge;
+    edge_num += new_edge;
+    iss.clear();
+    // 读入新边信息
+    for (int i = 0; i < new_edge; i++) {
+        getline(inputFile, line);
+        iss.str(line);
+        int start = 0;
+        int end = 0;
+        iss >> start;
+        iss >> end;
+        iss >> matrix_length[start][end];
+        iss >> bak_matrix_capacity[start][end];
+        matrix_capacity[start][end] = bak_matrix_capacity[start][end];
+        iss >> matrix_width[start][end];
+        iss >> matrix_danger[start][end];
+        iss.clear();
+        //并更新该路径上的信息素为初始信息素
+        pheromones[start][end] = initial_pheromones;
+    }
+    //更新迪杰斯特拉
+    getAllDijkstraNext();
+    return 0;
+}
+
+int Graph::initPheromones() {
+    int i;
+    int j;
+    double re_pheromone = 0;
+    for (i = 0; i < start_vertex_num; i++) {
+        for (j = 0; j < end_vertex_num; j++) {
+            vector<int> temp_path = dijkstra(start_vertex[i], end_vertex[j]);
+            int length = 0;
+            for (int k = 0; k < temp_path.size() - 1; k++) {
+                length += matrix_length[temp_path[k + 1]][temp_path[k]];
+            }
+            re_pheromone += length * temp_path.size();
+        }
+    }
+    initial_pheromones = 1 / re_pheromone;
+    for (i = 0; i < vertex_num; i++) {
+        for (j = 0; j < vertex_num; j++) {
+            if (matrix_length[i][j] == 0) {
+                continue;
+            } else {
+                pheromones[i][j] = 1 / re_pheromone;
+            }
+        }
+    }
+    return 0;
+}
+
+int Graph::renewPheromones() {
+
+    return 0;
 }
 
 //int Graph::getAllDijkstraNext() {

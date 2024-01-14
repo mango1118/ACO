@@ -16,7 +16,7 @@ using namespace std;
 #define MAX 30
 
 //路径选择方法
-#define PATH_SELECTED_METHOD 1
+#define PATH_SELECTED_METHOD 3
 //method 1 represents ACO				ACO蚁群算法
 //method 2 represents greedy method		贪心算法
 //method 3 represents dijkstra			dijkstra算法
@@ -44,18 +44,28 @@ using namespace std;
 #define EVALUATION_SAFE 0.5
 
 //文件名
-#define FILE_NAME "network_2.txt"
+#define FILE_NAME "network_example.txt"
 #define RECORD_NAME "GraphRecord.txt"
 #define GRAPH_NAME "network_2.jpg"
 
 //是否有图
-#define PRINT_IMAGE 1
+#define PRINT_IMAGE 0
 //method 1 draw
+
+//是否绘图
+#define PRINT_GRAPH 1
 
 //运行次数
 #define RUN_TIME 1
 //迭代次数
 #define ITERATION_TIME 100
+
+//是否更新图
+#define CHANGE_GRAPH 1
+//更新图时间
+#define CHANGE_GRAPH_TIME 100
+//更新图名
+#define RENEW_GRAPH_NAME "network_example_change.txt"
 
 //初始化信息素参数
 #define PHEROMONE_INIT 1

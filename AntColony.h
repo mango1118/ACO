@@ -22,7 +22,7 @@ public:
     int collectBestSolution(Graph &graph);                  //记录最优解
     double evaluationFunction(Graph &graph, int time, int hurt);//计算评价函数
 //    int adjustAntVelocity(Graph &graph, int former_now_vertex, int former_next_vertex);                    //蚂蚁到达一个点，调整图容量和路径上的蚂蚁速度，剩余时间
-
+    int changeGraph(Graph &graph);
 //    bool betterEvaluation(Graph &graph);
 
     bool dominates(const Ant &a, const Ant &b);

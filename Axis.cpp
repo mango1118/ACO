@@ -47,9 +47,10 @@ void Axis::resetAllLine(Graph &graph) {
     cleardevice();
     initImage();
 //    Sleep(2000);
-//    initGraph(graph);
+    if(PRINT_GRAPH == 1){
+        initGraph(graph);
+    }
     initAxis();
-
 }
 
 void Axis::insertPath(vector<int> path, Graph graph) {
