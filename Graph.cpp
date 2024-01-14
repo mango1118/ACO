@@ -92,6 +92,7 @@ int Graph::readGraphByFile(const string &fileName) {
 
     return 0;
 }
+
 int Graph::initPheromones() {
     int i = 0;
     int j = 0;
@@ -120,6 +121,7 @@ int Graph::initPheromones() {
     }
     return 0;
 }
+
 int Graph::evaporatePheromones() {
     int i = 0;
     int j = 0;
@@ -160,59 +162,61 @@ double Graph::calculatePheromones(int i, int j) {
            (PHEROMONE_INIT_LENGTH * matrix_length[i][j]);;
 }
 
-vector<int> Graph::dijkstra(int src, int dest) {
-
-    int dist[vertex_num];
-    int parent[vertex_num];
-    bool sptSet[vertex_num];
-    for (int i = 0; i < vertex_num; i++)
-        dist[i] = INT_MAX, sptSet[i] = false, parent[i] = -1;
-    dist[src] = 0;
-    for (int count = 0; count < vertex_num - 1; count++) {
-        int u = minDistance(dist, sptSet);
-        sptSet[u] = true;
-        for (int v = 0; v < vertex_num; v++)
-            if (!sptSet[v] && matrix_length[u][v] && dist[u] != INT_MAX && dist[u] + matrix_length[u][v] < dist[v])
-                dist[v] = dist[u] + matrix_length[u][v], parent[v] = u;
-    }
-    // 存储每个节点对应到终点的最短路径下一跳
-//    for (int i = 0; i < vertex_num; i++) {
-//        int j = i;
-//        while (j != -1) {
-//            dijkstra_next_point[i] = j;
-//            j = parent[j];
-//        }
-//    }
-//    printSolution(dist, parent, src, dest);
-
-    vector<int> path;
-    int j = dest;
-    while (j != -1) {
-        path.push_back(j);
-        j = parent[j];
-    }
-    return path;
-}
 
 int Graph::minDistance(int dist[], bool sptSet[]) {
     int min = INT_MAX, min_index;
     for (int v = 0; v < vertex_num; v++)
-        if (!sptSet[v] && dist[v] <= min)
+//        if (!sptSet[v] && dist[v] <= min)
+        if (!sptSet[v] && dist[v] < min)
             min = dist[v], min_index = v;
     return min_index;
+}
+
+vector<int> Graph::dijkstra(int src, int dest) {
+    int dist[vertex_num];
+    int parent[vertex_num];
+    bool sptSet[vertex_num];
+    for (int i = 0; i < vertex_num; i++) {
+        if (matrix_length[src][i] != 0) {
+            dist[i] = matrix_length[src][i], sptSet[i] = false, parent[i] = -1;
+        } else {
+            dist[i] = INT_MAX, sptSet[i] = false, parent[i] = -1;
+        }
+    }
+//    dist[src] = 0;
+    for (int count = 0; count < vertex_num - 1; count++) {
+        int u = minDistance(dist, sptSet);
+        sptSet[u] = true;
+        for (int v = 0; v < vertex_num; v++)
+            if (!sptSet[v] && matrix_length[u][v] && dist[u] != 0 && dist[u] + matrix_length[u][v] < dist[v])
+                dist[v] = dist[u] + matrix_length[u][v], parent[v] = u;
+    }
+    vector<int> path;
+    int j = dest;
+    if (dist[j] == INT_MAX) {
+//        cout << "不可达" << endl;
+        path.push_back(-1);
+    } else {
+        while (j != -1) {
+            path.push_back(j);
+            j = parent[j];
+        }
+    }
+    return path;
 }
 
 int Graph::getAllDijkstraNext() {
     for (int i = 0; i < vertex_num - end_vertex_num; i++) {
         //先得到每个点到终点的dijkstra路径集合
         vector<vector<int>> dijkstraPathList;
-        for (int j = 0; j < end_vertex_num; j++)
-            dijkstraPathList.push_back(dijkstra(i, end_vertex[j]));
-
+        for (int j = 0; j < end_vertex_num; j++) {
+            int end = end_vertex[j];
+            vector<int> temp_path = dijkstra(i, end);
+            dijkstraPathList.push_back(temp_path);
+        }
         //遍历每个路径，找到最短的路径
         vector<int> min = dijkstraPathList[0];
         int min_length = getPathLength(dijkstraPathList[0]);
-        int index = 0;
         for (int k = 0; k < dijkstraPathList.size(); k++) {
             int temp_length = getPathLength(dijkstraPathList[k]);
             if (temp_length < min_length) {
@@ -221,20 +225,23 @@ int Graph::getAllDijkstraNext() {
             }
         }
         //得到i节点的下一跳
-        int next_hop = min[min.size() - 2];
+        int next_hop = min[min.size() - 1];
         dijkstra_next_point[i] = next_hop;
     }
-//    cout << 1 << endl;
+    cout << 1 << endl;
 }
 
 int Graph::getPathLength(vector<int> path) {
     int length = 0;
-    for (int i = 0; i < path.size() - 1; i++) {
-        length += matrix_length[path[i + 1]][path[i]];
+    if (path[0] == -1) {
+        return INT_MAX;
+    } else {
+        for (int i = 0; i < path.size() - 1; i++) {
+            length += matrix_length[path[i + 1]][path[i]];
+        }
+        return length;
     }
 }
-
-
 
 //int Graph::getAllDijkstraNext() {
 //    for (int i = 0; i < vertex_num - end_vertex_num; i++) {

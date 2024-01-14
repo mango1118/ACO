@@ -34,7 +34,8 @@ using namespace std;
 #define MULTI_TARGET 1
 //method 1 多目标
 
-#define MULTI_ANT_MAX 10
+//最大释放蚂蚁个数，就是起点数
+#define MULTI_ANT_MAX 7
 #define MULTI_TIME_IMPORTANCE 0.5
 #define MULTI_SAFE_IMPORTANCE 0.5
 #define MULTI_SAFE_PARAMETER 0.1
@@ -43,15 +44,13 @@ using namespace std;
 #define EVALUATION_SAFE 0.5
 
 //文件名
-#define FILE_NAME "network_example.txt"
+#define FILE_NAME "network_2.txt"
 #define RECORD_NAME "GraphRecord.txt"
+#define GRAPH_NAME "network_2.jpg"
 
-//更新文件数
-#define NEW_RECORD_NUM 0
-//更新文件名
-#define NEW_RECORD_1 "network_example_1.txt"
-//更新文件的时间
-#define NEW_RECORD_TIME_1 150
+//是否有图
+#define PRINT_IMAGE 1
+//method 1 draw
 
 //运行次数
 #define RUN_TIME 1
@@ -94,3 +93,12 @@ using namespace std;
 #define MIN_CAPACITY 1
 //受伤速度比例
 #define HURT_VELOCITY_RATE 0.5
+//评价函数最大值
+#define MAX_EVALUATION 200
+//评价函数最小值
+#define MIN_EVALUATION 0
+//线性映射范围
+#define LINEAR 100
+
+#define GRAPH_WIDTH 1400
+#define GRAPH_HEIGHT 450

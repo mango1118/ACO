@@ -38,10 +38,13 @@ int AntColony::run() {
                 collectBestSolution(graph);
                 axis.resetAllLine(graph);
                 axis.insertEvaluation(graph, i, evaluationFunction(graph, temp_time, temp_hurt));
-                for (int k = 0; k < 3; k++) {
+/*                for (int k = 0; k < MULTI_ANT_MAX; k++) {
                     axis.insertPath(bestAntList[k].route, graph);
-                    Sleep(500);
+                }*/
+                for(int k = 0; k < graph.ant_num; k++){
+                    axis.insertPath(antList[k].route, graph);
                 }
+                Sleep(1000);
             }
             //最佳的蚂蚁释放信息素
             bestAntReleasePheromone(graph);
@@ -265,5 +268,7 @@ AntColony::findParetoOptimalPerStartVertex(const std::vector<Ant> &useAntList, i
 }
 
 double AntColony::evaluationFunction(Graph &graph, int time, int hurt) {
-    return time * EVALUATION_TIME + hurt * EVALUATION_SAFE;
+    double temp = time * EVALUATION_TIME + hurt * EVALUATION_SAFE;
+    temp = (temp - MIN_EVALUATION) / (MAX_EVALUATION - MIN_EVALUATION) * LINEAR;
+    return temp;
 }
