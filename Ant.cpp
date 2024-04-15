@@ -244,11 +244,52 @@ int Ant::leaveRoutePheromones(Graph &graph) {
     return 0;
 }
 
+//int Ant::getMaxPheromonesVertex(Graph &graph) {
+//    // 初始化最大信息素值为负无穷
+//    double max_pheromone = numeric_limits<double>::lowest();
+//    // 记录具有最大信息素值的节点，默认为无效节点
+//    int max_pheromone_node = -1;
+//    // 标志，用于检查是否找到符合条件的节点
+//    bool flag = false;
+//
+//    // 遍历所有节点
+//    for (int i = 0; i < graph.vertex_num; i++) {
+//        // 检查条件：节点未被访问、存在路径、路径容量大于1
+//        // 大于1是因为计算信息素不能为0，修改启发式后可能可以为0
+//        if (!visited_vertex[i] && graph.matrix_length[now_vertex][i] != 0 &&
+//            graph.matrix_capacity[now_vertex][i] > MIN_CAPACITY) {
+////        if (!visited_vertex[i] && graph.matrix_length[now_vertex][i] != 0) {
+//            // 获取当前边上的信息素值
+//            double pheromone = graph.pheromones[now_vertex][i];
+//
+//            // 检查是否为最大信息素值
+//            if (pheromone > max_pheromone) {
+//                // 更新最大信息素值和对应的节点
+//                max_pheromone = pheromone;
+//                max_pheromone_node = i;
+//                // 设置标志为true，表示找到符合条件的节点
+//                flag = true;
+//            }
+//        }
+//    }
+//    // 检查是否找到符合条件的节点
+//    if (flag) {
+//        // 返回具有最大信息素值的节点
+//        return max_pheromone_node;
+//    } else {
+//        // 没有找到可行的节点
+//        return -1;
+//    }
+//}
+
+//应该找到启发式与信息素的乘积最大值
 int Ant::getMaxPheromonesVertex(Graph &graph) {
     // 初始化最大信息素值为负无穷
-    double max_pheromone = numeric_limits<double>::lowest();
+
+    double max_product = numeric_limits<double>::lowest();
+//    double max_pheromone = numeric_limits<double>::lowest();
     // 记录具有最大信息素值的节点，默认为无效节点
-    int max_pheromone_node = -1;
+    int max_product_node = -1;
     // 标志，用于检查是否找到符合条件的节点
     bool flag = false;
 
@@ -261,30 +302,39 @@ int Ant::getMaxPheromonesVertex(Graph &graph) {
 //        if (!visited_vertex[i] && graph.matrix_length[now_vertex][i] != 0) {
             // 获取当前边上的信息素值
             double pheromone = graph.pheromones[now_vertex][i];
-
-            // 检查是否为最大信息素值
-            if (pheromone > max_pheromone) {
+            // 获取当前边上的启发式信息
+            // 启发式 = 1 / （路径长度 * 路径密度）
+            double heuristics = 1 / ((double (graph.matrix_length[now_vertex][i]) *
+                                     (double(graph.bak_matrix_capacity[now_vertex][i]) - double(graph.matrix_capacity[now_vertex][i])) /
+                                     (double(graph.matrix_length[now_vertex][i]))));
+            // 获取乘积
+            double product = pow(pheromone, ALPHA) * pow(heuristics, BETA);
+            // 检查是否为最大乘积
+            if (product > product) {
                 // 更新最大信息素值和对应的节点
-                max_pheromone = pheromone;
-                max_pheromone_node = i;
+                max_product = product;
+                max_product_node = i;
                 // 设置标志为true，表示找到符合条件的节点
                 flag = true;
             }
+//            // 检查是否为最大信息素值
+//            if (pheromone > max_pheromone) {
+//                // 更新最大信息素值和对应的节点
+//                max_pheromone = pheromone;
+//                max_pheromone_node = i;
+//                // 设置标志为true，表示找到符合条件的节点
+//                flag = true;
+//            }
         }
     }
     // 检查是否找到符合条件的节点
     if (flag) {
         // 返回具有最大信息素值的节点
-        return max_pheromone_node;
+        return max_product_node;
     } else {
         // 没有找到可行的节点
         return -1;
     }
-//    if(graph.matrix_capacity[now_vertex][max_pheromone_node] > MIN_CAPACITY){
-//        return max_pheromone_node;
-//    } else{
-//        return -1;
-//    }
 }
 
 int Ant::getDijkstraVertex(Graph &graph) {

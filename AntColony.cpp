@@ -19,8 +19,11 @@ int AntColony::run() {
         min_time = LONG_MAX;
         int hurt_ant = INT32_MAX;
         hurt_ant = INT32_MAX;
-        string print_run = "--------------------run time: " + to_string(run_time + 1) + " -------------------- \n";
+        //记录最佳的一次
+        pair<int,int> best_round;
+        string print_run = "--------------------run time: " + to_string(run_time + 1) + " -------------------- ";
         antColonyWriteInFile(RECORD_NAME, print_run);
+        antColonyWriteInFile(THIS_TIME_RECORD_NAME, print_run);
         cout << print_run << endl;
         for (int i = 0; i < ITERATION_TIME; i++) {
             setAntList(graph);
@@ -41,10 +44,12 @@ int AntColony::run() {
 /*                for (int k = 0; k < MULTI_ANT_MAX; k++) {
                     axis.insertPath(bestAntList[k].route, graph);
                 }*/
-                for(int k = 0; k < graph.ant_num; k++){
+                for (int k = 0; k < graph.ant_num; k++) {
                     axis.insertPath(antList[k].route, graph);
                 }
                 Sleep(1000);
+                best_round.first = temp_time;
+                best_round.second = temp_hurt;
             }
             //最佳的蚂蚁释放信息素
             bestAntReleasePheromone(graph);
@@ -53,20 +58,44 @@ int AntColony::run() {
 //                Sleep(500);
                 min_time = min(min_time, temp_time);
                 hurt_ant = min(hurt_ant, temp_hurt);
-                string print_line =
-                        "iteration time: " + to_string(i + 1) + "\t min time: " + to_string(temp_time) +
-                        //                        "\t hurt ant: " + to_string(temp_hurt) + "\t target function: " + to_string(0.1 * temp_time + 0.5 * temp_hurt);
-                        "\t hurt ant: " + to_string(temp_hurt) + "\t target function: " +
-                        to_string(evaluationFunction(graph, temp_time, temp_hurt));
+                if (WRITE_ALL_OR_BEST == 2) {
+                    string this_time =
+                            to_string(i + 1) + " " + to_string(evaluationFunction(graph, temp_time, temp_hurt));
+                    antColonyWriteInFile(THIS_TIME_RECORD_NAME, this_time);
+                    string print_line =
+                            "iteration time: " + to_string(i + 1) + "\t min time: " + to_string(temp_time) +
+                            //                        "\t hurt ant: " + to_string(temp_hurt) + "\t target function: " + to_string(0.1 * temp_time + 0.5 * temp_hurt);
+                            "\t hurt ant: " + to_string(temp_hurt) + "\t target function: " +
+                            to_string(evaluationFunction(graph, temp_time, temp_hurt));
 /*                string print_line =
                         "iteration time: " + to_string(i + 1) + "\t min time: " + to_string(min_time) + "\t hurt ant: " +
                         to_string(hurt_ant);*/
+                    cout << print_line << endl;
+                    antColonyWriteInFile(RECORD_NAME, print_line);
+                }
+            }
+            if (WRITE_ALL_OR_BEST == 1) {
+                string this_time = to_string(i + 1) + " " + to_string(evaluationFunction(graph, temp_time, temp_hurt));
+                antColonyWriteInFile(THIS_TIME_RECORD_NAME, this_time);
+                string print_line =
+                        "iteration time: " + to_string(i + 1) + "\t this time: " + to_string(temp_time) +
+                        "\t hurt ant: " + to_string(temp_hurt) + "\t target function: " +
+                        to_string(evaluationFunction(graph, temp_time, temp_hurt));
                 cout << print_line << endl;
                 antColonyWriteInFile(RECORD_NAME, print_line);
             }
             //最后绘制一次评价函数
             if (i == ITERATION_TIME - 1) {
-                axis.insertEvaluation(graph, i, evaluationFunction(graph, min_time, hurt_ant));
+                axis.insertEvaluation(graph, i, evaluationFunction(graph, best_round.first, best_round.second));
+                //最后一次结果输入到文件
+                string final_write = to_string(i + 1) + " " + to_string(evaluationFunction(graph, best_round.first, best_round.second));
+                antColonyWriteInFile(THIS_TIME_RECORD_NAME, final_write);
+                string print_line =
+                        "iteration time: " + to_string(i + 1) + "\t min time: " + to_string(best_round.first) +
+                        "\t hurt ant: " + to_string(best_round.second) + "\t target function: " +
+                        to_string(evaluationFunction(graph, best_round.first, best_round.second));
+                cout << print_line << endl;
+                antColonyWriteInFile(RECORD_NAME, print_line);
             }
             graph.resetVertexAntNum();  //重置初始节点人数
 //            graph.evaporatePheromones();    //蒸发信息素
@@ -74,14 +103,17 @@ int AntColony::run() {
 //        cout << "best time: " << min_time << "\t average time: " << all_time / ITERATION_TIME << endl;
         string best_time =
                 "average time: " + to_string(all_time / ITERATION_TIME)
-                + "\t average hurt: " + to_string(all_hurt / ITERATION_TIME);
+                + "\t average hurt: " + to_string(all_hurt / ITERATION_TIME) + "\t average function: " + to_string(
+                evaluationFunction(graph, all_time / ITERATION_TIME, all_hurt / ITERATION_TIME));
 //        string best_time =
 //                "best time: " + to_string(min_time) + "\t average time: " + to_string(all_time / ITERATION_TIME)
 //                + "\t average hurt: " + to_string(all_hurt / ITERATION_TIME);
         antColonyWriteInFile(RECORD_NAME, best_time);
+        antColonyWriteInFile(THIS_TIME_RECORD_NAME,best_time);
         cout << best_time << endl;
         //恢复图的初始信息素
         graph.initPheromones();
+
     }
     return 0;
 }
@@ -98,8 +130,8 @@ int AntColony::iteration(Graph &graph) { //返回本次迭代时间
             continue;
         }
         time++;
-        if(CHANGE_GRAPH == 1){
-            if (time == CHANGE_GRAPH_TIME){
+        if (CHANGE_GRAPH == 1) {
+            if (time == CHANGE_GRAPH_TIME) {
                 changeGraph(graph);
             }
         }

@@ -20,6 +20,12 @@ void writeInFile(const string &fileName, const string &data) {
     outfile.close();
 }
 
+void cleanFile(const string &fileName) {
+    ofstream file(fileName, ofstream::out | ofstream::trunc);
+    file.close();
+//    cout << "文件内容已清空\n";
+}
+
 void writeTimeInFile(const std::string &fileName) {
 
     // 获取当前时间
@@ -39,13 +45,24 @@ void writeTimeInFile(const std::string &fileName) {
 }
 
 int main() {
+    auto start = std::chrono::high_resolution_clock::now();
+    cleanFile(THIS_TIME_RECORD_NAME);
     writeInFile(RECORD_NAME, "\n");
     writeTimeInFile(RECORD_NAME);
+    writeTimeInFile(THIS_TIME_RECORD_NAME);
     string temp_write = "path select method: " + to_string(PATH_SELECTED_METHOD);
     writeInFile(RECORD_NAME, temp_write);
     AntColony antColony;
     antColony.init();
     antColony.run();
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration = end - start;
+    double seconds = duration.count();
+    writeInFile(RECORD_NAME, "run time: " + to_string(seconds));
+    writeInFile(THIS_TIME_RECORD_NAME, "run time: " + to_string(seconds));
+    cout << seconds << endl;
     writeInFile(RECORD_NAME, "--------------- over ---------------");
+    writeInFile(THIS_TIME_RECORD_NAME, "--------------- over ---------------");
     getch();
+
 }
